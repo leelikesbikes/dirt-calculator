@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './page.module.css';
 
 export default function Home() {
@@ -30,6 +30,16 @@ export default function Home() {
   // Results
   const [results, setResults] = useState(null);
   const [loading, setLoading] = useState(false);
+
+  // Register service worker for offline capability (works even in iframe)
+  useEffect(() => {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js')
+        .catch(() => {
+          // Silently fail - not critical
+        });
+    }
+  }, []);
 
   const runCalculation = async () => {
     setLoading(true);

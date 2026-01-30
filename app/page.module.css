@@ -81,7 +81,7 @@
 .runButton {
   width: 100%;
   padding: 12px;
-  background-color: #ed1c24;
+  background-color: #2563eb;
   color: white;
   font-weight: 600;
   border: none;
@@ -92,7 +92,7 @@
 }
 
 .runButton:hover {
-  background-color: #b8181c;
+  background-color: #1d4ed8;
 }
 
 .runButton:disabled {
@@ -139,7 +139,7 @@
 .copyButton {
   width: 100%;
   padding: 12px;
-  background-color: #ed1c24;
+  background-color: #2563eb;
   color: white;
   font-weight: 600;
   border: none;
@@ -150,7 +150,7 @@
 }
 
 .copyButton:hover {
-  background-color: #b8181c;
+  background-color: #1d4ed8;
 }
 
 .resultsText {

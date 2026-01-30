@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './page.module.css';
 
 export default function Home() {
@@ -31,45 +31,56 @@ export default function Home() {
   const [results, setResults] = useState(null);
   const [loading, setLoading] = useState(false);
   const [installPrompt, setInstallPrompt] = useState(null);
-  const [showInstallButton, setShowInstallButton] = useState(false);
+  const [isInstalled, setIsInstalled] = useState(false);
 
   // Register service worker and handle install prompt
-  useState(() => {
-    if (typeof window !== 'undefined') {
-      // Register service worker
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js').catch(() => {});
-      }
-
-      // Listen for install prompt
-      window.addEventListener('beforeinstallprompt', (e) => {
-        e.preventDefault();
-        setInstallPrompt(e);
-        setShowInstallButton(true);
-      });
-
-      // Check if already installed
-      if (window.matchMedia('(display-mode: standalone)').matches) {
-        setShowInstallButton(false);
-      }
+  useEffect(() => {
+    // Check if already installed
+    if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
+      setIsInstalled(true);
     }
+
+    // Register service worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js')
+        .then(() => console.log('Service Worker registered'))
+        .catch((err) => console.log('Service Worker registration failed:', err));
+    }
+
+    // Listen for install prompt (Chrome/Android)
+    const handleBeforeInstall = (e) => {
+      e.preventDefault();
+      setInstallPrompt(e);
+    };
+
+    window.addEventListener('beforeinstallprompt', handleBeforeInstall);
+
+    return () => {
+      window.removeEventListener('beforeinstallprompt', handleBeforeInstall);
+    };
   }, []);
 
   const handleInstall = async () => {
-    if (!installPrompt) {
-      // Fallback instructions for iOS Safari
-      alert('To install:\n\niOS: Tap Share button → Add to Home Screen\n\nAndroid: Tap menu (⋮) → Install app');
-      return;
+    if (installPrompt) {
+      // Chrome/Android - use native prompt
+      installPrompt.prompt();
+      const { outcome } = await installPrompt.userChoice;
+      
+      if (outcome === 'accepted') {
+        setIsInstalled(true);
+      }
+      
+      setInstallPrompt(null);
+    } else {
+      // iOS Safari or already installed - show instructions
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+      
+      if (isIOS) {
+        alert('To install this app:\n\n1. Tap the Share button (⬆️)\n2. Scroll down and tap "Add to Home Screen"\n3. Tap "Add"');
+      } else {
+        alert('To install this app:\n\n• Chrome: Click menu (⋮) → "Install app"\n• Edge: Click + icon in address bar\n• Safari: Tap Share → "Add to Home Screen"');
+      }
     }
-
-    installPrompt.prompt();
-    const { outcome } = await installPrompt.userChoice;
-    
-    if (outcome === 'accepted') {
-      setShowInstallButton(false);
-    }
-    
-    setInstallPrompt(null);
   };
 
   const runCalculation = async () => {
@@ -134,7 +145,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       {/* Install Button */}
-      {showInstallButton && (
+      {!isInstalled && (
         <div className={styles.installBanner}>
           <button onClick={handleInstall} className={styles.installButton}>
             📱 Install App

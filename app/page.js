@@ -92,11 +92,6 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      <header className={styles.header}>
-        <h1>DiRT - Dialed RAD Tool</h1>
-        <p>Dial in your frame and components <em>before</em> you buy them.</p>
-      </header>
-
       <main className={styles.main}>
         <div className={styles.grid}>
           {/* LEFT COLUMN - INPUTS */}
@@ -381,10 +376,6 @@ RESULTS
           </div>
         )}
       </main>
-
-      <footer className={styles.footer}>
-        <p>🚵 DiRT Calculator • Calculations are proprietary and secure</p>
-      </footer>
     </div>
   );
 }

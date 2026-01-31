@@ -407,9 +407,9 @@ Build: ${buildName}
 
 RIDER
   Proportions: ${proportionType}
-  Height: ${proportionType === 'Average' ? riderHeight : providedHeight} mm
-  RAD: ${proportionType === 'Average' ? Math.round(results.calculatedRAD) : providedRAD} mm
-  Inseam: ${proportionType === 'Average' ? Math.round(results.calculatedInseam) : providedInseam} mm
+  Height: ${Math.round(results.finalHeight)} mm
+  RAD: ${Math.round(results.calculatedRAD)} mm
+  Inseam: ${Math.round(results.calculatedInseam)} mm
 
 FRAME GEOMETRY
   Head Angle: ${headAngle}°

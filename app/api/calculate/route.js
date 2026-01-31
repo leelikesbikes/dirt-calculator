@@ -33,6 +33,15 @@ export async function POST(request) {
     const finalRAD = proportionType === 'Average' ? calculatedRAD : providedRAD;
     const finalInseam = proportionType === 'Average' ? calculatedInseam : providedInseam;
     
+    console.log('API Calculation:', {
+      proportionType,
+      riderHeight,
+      providedHeight,
+      finalHeight,
+      finalRAD,
+      finalInseam
+    });
+    
     const armLength = 0.393 * finalHeight;
     const torsoLength = 0.347 * finalHeight;
     const torsoMass = 58;
@@ -108,8 +117,9 @@ export async function POST(request) {
     const hhi = totalForce * 3.14;
 
     return NextResponse.json({
-      calculatedRAD,
-      calculatedInseam,
+      calculatedRAD: finalRAD,
+      calculatedInseam: finalInseam,
+      finalHeight,
       radLength,
       bikeVsRiderRAD,
       radAngle,

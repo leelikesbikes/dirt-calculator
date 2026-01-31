@@ -5,7 +5,11 @@ export async function POST(request) {
     const inputs = await request.json();
     
     // Parse inputs
+    const proportionType = inputs.proportionType || 'Average';
     const riderHeight = parseFloat(inputs.riderHeight) || 0;
+    const providedHeight = parseFloat(inputs.providedHeight) || 0;
+    const providedRAD = parseFloat(inputs.providedRAD) || 0;
+    const providedInseam = parseFloat(inputs.providedInseam) || 0;
     const headAngle = parseFloat(inputs.headAngle) || 0;
     const reach = parseFloat(inputs.reach) || 0;
     const stack = parseFloat(inputs.stack) || 0;
@@ -23,12 +27,18 @@ export async function POST(request) {
     // PROPRIETARY CALCULATIONS - Hidden from client
     const calculatedRAD = riderHeight * 0.447;
     const calculatedInseam = riderHeight * 0.46;
-    const armLength = 0.393 * riderHeight;
-    const torsoLength = 0.347 * riderHeight;
+    
+    // Use appropriate values based on proportion type
+    const finalHeight = proportionType === 'Average' ? riderHeight : providedHeight;
+    const finalRAD = proportionType === 'Average' ? calculatedRAD : providedRAD;
+    const finalInseam = proportionType === 'Average' ? calculatedInseam : providedInseam;
+    
+    const armLength = 0.393 * finalHeight;
+    const torsoLength = 0.347 * finalHeight;
     const torsoMass = 58;
     const armMass = 10;
 
-    const saddleHeight = (calculatedInseam * 1.09) - crankLength + (pedalThickness * 0.5);
+    const saddleHeight = (finalInseam * 1.09) - crankLength + (pedalThickness * 0.5);
     const seatAngleRad = (seatAngle * Math.PI) / 180;
     const seatPosReach = saddleHeight * Math.cos(seatAngleRad);
     const seatPosStack = saddleHeight * Math.sin(seatAngleRad);
@@ -49,7 +59,7 @@ export async function POST(request) {
     const radAngle = 90 - (Math.atan(radTotalReach / radTotalStack) * 180 / Math.PI);
     
     const seatedReach = radTotalReach + seatPosReach;
-    const seatedReachHeight = seatedReach / riderHeight;
+    const seatedReachHeight = seatedReach / finalHeight;
     const barSaddleHeight = radTotalStack - seatPosStack + 15;
     
     // SHO calculation
@@ -61,7 +71,7 @@ export async function POST(request) {
     const behindSteeringAxis = barStemTotalRise * Math.sin(internalHeadAngleRad) / Math.sin(internalHeadAngleRad - ninetyRad) * -1;
     const sho = behindSteeringAxis + barStemTotalReach;
     
-    const bikeVsRiderRAD = radLength - calculatedRAD;
+    const bikeVsRiderRAD = radLength - finalRAD;
 
     // HHI PROPRIETARY CALCULATION
     const seatedReachHoriz = seatedReach;

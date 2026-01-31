@@ -84,59 +84,49 @@ export default function Home() {
     setLoading(false);
   };
 
-  const copyResults = () => {
+  const copyResults = async () => {
     const text = document.getElementById('results-text').textContent;
-    
-    // Try modern Clipboard API first
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text)
-        .then(() => {
-          showCopyFeedback();
-        })
-        .catch(() => {
-          // Fallback to older method
-          fallbackCopy(text);
-        });
-    } else {
-      // Use fallback for browsers/contexts that don't support Clipboard API
-      fallbackCopy(text);
-    }
-  };
-
-  const fallbackCopy = (text) => {
-    // Create temporary textarea
-    const textarea = document.createElement('textarea');
-    textarea.value = text;
-    textarea.style.position = 'fixed';
-    textarea.style.left = '-9999px';
-    textarea.style.top = '0';
-    document.body.appendChild(textarea);
-    
-    // Select and copy
-    textarea.focus();
-    textarea.select();
+    const btn = document.getElementById('copy-btn');
     
     try {
-      document.execCommand('copy');
-      showCopyFeedback();
-    } catch (err) {
-      alert('Copy failed. Please select the text manually and copy it.');
-    }
-    
-    document.body.removeChild(textarea);
-  };
-
-  const showCopyFeedback = () => {
-    const btn = document.getElementById('copy-btn');
-    if (btn) {
+      // This should work on HTTPS
+      await navigator.clipboard.writeText(text);
+      
+      // Show success
       const originalText = btn.textContent;
-      const originalColor = btn.style.backgroundColor;
       btn.textContent = '✓ Copied!';
       btn.style.backgroundColor = '#16a34a';
       setTimeout(() => {
         btn.textContent = originalText;
-        btn.style.backgroundColor = originalColor;
+        btn.style.backgroundColor = '#2563eb';
       }, 2000);
+      
+    } catch (err) {
+      // If it fails, try textarea method
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      
+      try {
+        document.execCommand('copy');
+        const originalText = btn.textContent;
+        btn.textContent = '✓ Copied!';
+        btn.style.backgroundColor = '#16a34a';
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.style.backgroundColor = '#2563eb';
+        }, 2000);
+      } catch (err2) {
+        btn.textContent = 'Copy failed - please select text manually';
+        setTimeout(() => {
+          btn.textContent = 'Copy to Clipboard';
+        }, 3000);
+      }
+      
+      document.body.removeChild(textarea);
     }
   };
 

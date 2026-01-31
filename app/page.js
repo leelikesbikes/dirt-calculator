@@ -86,16 +86,58 @@ export default function Home() {
 
   const copyResults = () => {
     const text = document.getElementById('results-text').textContent;
-    navigator.clipboard.writeText(text).then(() => {
-      const btn = document.getElementById('copy-btn');
+    
+    // Try modern Clipboard API first
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text)
+        .then(() => {
+          showCopyFeedback();
+        })
+        .catch(() => {
+          // Fallback to older method
+          fallbackCopy(text);
+        });
+    } else {
+      // Use fallback for browsers/contexts that don't support Clipboard API
+      fallbackCopy(text);
+    }
+  };
+
+  const fallbackCopy = (text) => {
+    // Create temporary textarea
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.style.position = 'fixed';
+    textarea.style.left = '-9999px';
+    textarea.style.top = '0';
+    document.body.appendChild(textarea);
+    
+    // Select and copy
+    textarea.focus();
+    textarea.select();
+    
+    try {
+      document.execCommand('copy');
+      showCopyFeedback();
+    } catch (err) {
+      alert('Copy failed. Please select the text manually and copy it.');
+    }
+    
+    document.body.removeChild(textarea);
+  };
+
+  const showCopyFeedback = () => {
+    const btn = document.getElementById('copy-btn');
+    if (btn) {
       const originalText = btn.textContent;
+      const originalColor = btn.style.backgroundColor;
       btn.textContent = '✓ Copied!';
       btn.style.backgroundColor = '#16a34a';
       setTimeout(() => {
         btn.textContent = originalText;
-        btn.style.backgroundColor = '#2563eb';
+        btn.style.backgroundColor = originalColor;
       }, 2000);
-    });
+    }
   };
 
   const getHHIDisplay = (hhi, barSaddleHeight) => {

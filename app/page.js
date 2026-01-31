@@ -8,7 +8,11 @@ export default function Home() {
   const [buildName, setBuildName] = useState('My Sweet Bike');
   
   // Rider inputs
+  const [proportionType, setProportionType] = useState('Average');
   const [riderHeight, setRiderHeight] = useState(1750);
+  const [providedHeight, setProvidedHeight] = useState(1750);
+  const [providedRAD, setProvidedRAD] = useState(782);
+  const [providedInseam, setProvidedInseam] = useState(805);
   
   // Frame inputs
   const [headAngle, setHeadAngle] = useState(66);
@@ -49,7 +53,11 @@ export default function Home() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
+          proportionType,
           riderHeight,
+          providedHeight,
+          providedRAD,
+          providedInseam,
           headAngle,
           reach,
           stack,
@@ -121,15 +129,65 @@ export default function Home() {
             {/* Rider Inputs */}
             <div className={styles.card}>
               <h2>Rider Inputs</h2>
+              
+              {/* Proportion Type Selector */}
               <div className={styles.inputGroup}>
-                <label>Height (mm)</label>
-                <input
-                  type="number"
-                  value={riderHeight}
-                  onChange={(e) => setRiderHeight(e.target.value)}
+                <label>Proportions</label>
+                <select
+                  value={proportionType}
+                  onChange={(e) => setProportionType(e.target.value)}
                   className={styles.input}
-                />
+                >
+                  <option value="Average">Average</option>
+                  <option value="Not average">Not average</option>
+                </select>
               </div>
+
+              {/* Conditional Inputs Based on Proportion Type */}
+              {proportionType === 'Average' ? (
+                <div className={styles.inputGroup}>
+                  <label>Height (mm)</label>
+                  <input
+                    type="number"
+                    value={riderHeight}
+                    onChange={(e) => setRiderHeight(e.target.value)}
+                    className={styles.input}
+                  />
+                  <div className={styles.helpText}>
+                    RAD and Inseam calculated automatically
+                  </div>
+                </div>
+              ) : (
+                <>
+                  <div className={styles.inputGroup}>
+                    <label>Height (mm)</label>
+                    <input
+                      type="number"
+                      value={providedHeight}
+                      onChange={(e) => setProvidedHeight(e.target.value)}
+                      className={styles.input}
+                    />
+                  </div>
+                  <div className={styles.inputGroup}>
+                    <label>RAD (mm)</label>
+                    <input
+                      type="number"
+                      value={providedRAD}
+                      onChange={(e) => setProvidedRAD(e.target.value)}
+                      className={styles.input}
+                    />
+                  </div>
+                  <div className={styles.inputGroup}>
+                    <label>Inseam (mm)</label>
+                    <input
+                      type="number"
+                      value={providedInseam}
+                      onChange={(e) => setProvidedInseam(e.target.value)}
+                      className={styles.input}
+                    />
+                  </div>
+                </>
+              )}
             </div>
 
             {/* Frame Geometry */}
@@ -348,9 +406,10 @@ Build: ${buildName}
 ═══════════════════════════════════════════════════════
 
 RIDER
-  Height: ${riderHeight} mm
-  RAD: ${Math.round(results.calculatedRAD)} mm
-  Inseam: ${Math.round(results.calculatedInseam)} mm
+  Proportions: ${proportionType}
+  Height: ${proportionType === 'Average' ? riderHeight : providedHeight} mm
+  RAD: ${proportionType === 'Average' ? Math.round(results.calculatedRAD) : providedRAD} mm
+  Inseam: ${proportionType === 'Average' ? Math.round(results.calculatedInseam) : providedInseam} mm
 
 FRAME GEOMETRY
   Head Angle: ${headAngle}°

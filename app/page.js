@@ -75,7 +75,6 @@ export default function Home() {
       });
       
       const data = await response.json();
-      console.log('Received from API:', data);
       setResults(data);
     } catch (error) {
       console.error('Error:', error);
@@ -390,7 +389,7 @@ export default function Home() {
         </div>
 
         {/* Copy Results Section */}
-        {results && results.finalHeight && (
+        {results && (
           <div className={styles.copySection}>
             <button 
               id="copy-btn"

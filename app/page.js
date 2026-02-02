@@ -2,10 +2,34 @@
 
 import { useState, useEffect } from 'react';
 import styles from './page.module.css';
+import { bikes } from './bike-data';
 
 export default function Home() {
+  // Helper component for labels with help links
+  const LabelWithHelp = ({ text, helpUrl }) => (
+    <label>
+      {text}{' '}
+      <a 
+        href={`https://www.llbmtb.com/${helpUrl}`} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className={styles.helpLink}
+      >
+        (?)
+      </a>
+    </label>
+  );
+
   // Build name
   const [buildName, setBuildName] = useState('My Sweet Bike');
+  
+  // Bike selector
+  const [selectedBike, setSelectedBike] = useState('');
+  const [selectedSize, setSelectedSize] = useState('');
+  
+  // Component selectors
+  const [handlebarType, setHandlebarType] = useState('bike-default'); // 'bike-default', 'choose-bar', 'enter-specs'
+  const [stemType, setStemType] = useState('bike-default'); // 'bike-default', 'choose-stem', 'enter-specs'
   
   // Rider inputs
   const [proportionType, setProportionType] = useState('Average');
@@ -44,6 +68,38 @@ export default function Home() {
         });
     }
   }, []);
+
+  // Handle bike selection
+  const handleBikeChange = (bikeIndex) => {
+    setSelectedBike(bikeIndex);
+    setSelectedSize(''); // Reset size when bike changes
+  };
+
+  const handleSizeChange = (size) => {
+    setSelectedSize(size);
+    
+    if (selectedBike !== '' && size) {
+      const bike = bikes[selectedBike];
+      const sizeData = bike.sizes[size];
+      
+      // Populate frame geometry
+      setHeadAngle(sizeData.headAngle);
+      setReach(sizeData.reach);
+      setStack(sizeData.stack);
+      setSeatAngle(sizeData.seatAngle);
+      
+      // Populate components
+      setHandlebarSetback(sizeData.handlebarSetback);
+      setHandlebarRise(sizeData.handlebarRise);
+      setStemLength(sizeData.stemLength);
+      setStemAngle(sizeData.stemAngle);
+      setStemHeight(sizeData.stemHeight);
+      setSpacers(sizeData.spacers);
+      setTopCap(sizeData.topCap);
+      setCrankLength(sizeData.crankLength);
+      setPedalThickness(sizeData.pedalThickness);
+    }
+  };
 
   const runCalculation = async () => {
     setLoading(true);
@@ -98,7 +154,7 @@ export default function Home() {
       btn.style.backgroundColor = '#16a34a';
       setTimeout(() => {
         btn.textContent = originalText;
-        btn.style.backgroundColor = '#2563eb';
+        btn.style.backgroundColor = '#ed1c24';
       }, 2000);
       
     } catch (err) {
@@ -117,7 +173,7 @@ export default function Home() {
         btn.style.backgroundColor = '#16a34a';
         setTimeout(() => {
           btn.textContent = originalText;
-          btn.style.backgroundColor = '#2563eb';
+          btn.style.backgroundColor = '#ed1c24';
         }, 2000);
       } catch (err2) {
         btn.textContent = 'Copy failed - please select text manually';
@@ -156,6 +212,45 @@ export default function Home() {
                 onChange={(e) => setBuildName(e.target.value)}
                 className={styles.input}
               />
+            </div>
+
+            {/* Bike Selector */}
+            <div className={styles.card}>
+              <h2>Choose Your Bike</h2>
+              
+              <div className={styles.inputGroup}>
+                <label>Bike Model</label>
+                <select
+                  value={selectedBike}
+                  onChange={(e) => handleBikeChange(e.target.value)}
+                  className={styles.input}
+                >
+                  <option value="">Enter frame specs manually</option>
+                  {bikes.map((bike, index) => (
+                    <option key={index} value={index}>
+                      {bike.brand} - {bike.displayName}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              {selectedBike !== '' && (
+                <div className={styles.inputGroup}>
+                  <label>Size</label>
+                  <select
+                    value={selectedSize}
+                    onChange={(e) => handleSizeChange(e.target.value)}
+                    className={styles.input}
+                  >
+                    <option value="">Select size</option>
+                    {Object.keys(bikes[selectedBike].sizes).map((size) => (
+                      <option key={size} value={size}>
+                        {size}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )}
             </div>
 
             {/* Rider Inputs */}
@@ -227,7 +322,7 @@ export default function Home() {
               <h2>Frame Geometry</h2>
               <div className={styles.inputRow}>
                 <div className={styles.inputGroup}>
-                  <label>Head Angle (°)</label>
+                  <LabelWithHelp text="Head Angle (°)" helpUrl="head-angle" />
                   <input
                     type="number"
                     value={headAngle}
@@ -236,7 +331,7 @@ export default function Home() {
                   />
                 </div>
                 <div className={styles.inputGroup}>
-                  <label>Seat Angle (°)</label>
+                  <LabelWithHelp text="Seat Angle (°)" helpUrl="seat-angle" />
                   <input
                     type="number"
                     value={seatAngle}
@@ -247,7 +342,7 @@ export default function Home() {
               </div>
               <div className={styles.inputRow}>
                 <div className={styles.inputGroup}>
-                  <label>Reach (mm)</label>
+                  <LabelWithHelp text="Reach (mm)" helpUrl="reach" />
                   <input
                     type="number"
                     value={reach}
@@ -256,7 +351,7 @@ export default function Home() {
                   />
                 </div>
                 <div className={styles.inputGroup}>
-                  <label>Stack (mm)</label>
+                  <LabelWithHelp text="Stack (mm)" helpUrl="stack" />
                   <input
                     type="number"
                     value={stack}

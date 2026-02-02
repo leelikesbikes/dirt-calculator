@@ -5,21 +5,6 @@ import styles from './page.module.css';
 import { bikes } from './bike-data';
 
 export default function Home() {
-  // Helper component for labels with help links
-  const LabelWithHelp = ({ text, helpUrl }) => (
-    <label>
-      {text}{' '}
-      <a 
-        href={`https://www.llbmtb.com/${helpUrl}`} 
-        target="_blank" 
-        rel="noopener noreferrer"
-        className={styles.helpLink}
-      >
-        (?)
-      </a>
-    </label>
-  );
-
   // Build name
   const [buildName, setBuildName] = useState('My Sweet Bike');
   
@@ -322,7 +307,7 @@ export default function Home() {
               <h2>Frame Geometry</h2>
               <div className={styles.inputRow}>
                 <div className={styles.inputGroup}>
-                  <LabelWithHelp text="Head Angle (°)" helpUrl="head-angle" />
+                  <label>Head Angle (°)</label>
                   <input
                     type="number"
                     value={headAngle}
@@ -331,7 +316,7 @@ export default function Home() {
                   />
                 </div>
                 <div className={styles.inputGroup}>
-                  <LabelWithHelp text="Seat Angle (°)" helpUrl="seat-angle" />
+                  <label>Seat Angle (°)</label>
                   <input
                     type="number"
                     value={seatAngle}
@@ -342,7 +327,7 @@ export default function Home() {
               </div>
               <div className={styles.inputRow}>
                 <div className={styles.inputGroup}>
-                  <LabelWithHelp text="Reach (mm)" helpUrl="reach" />
+                  <label>Reach (mm)</label>
                   <input
                     type="number"
                     value={reach}
@@ -351,7 +336,7 @@ export default function Home() {
                   />
                 </div>
                 <div className={styles.inputGroup}>
-                  <LabelWithHelp text="Stack (mm)" helpUrl="stack" />
+                  <label>Stack (mm)</label>
                   <input
                     type="number"
                     value={stack}

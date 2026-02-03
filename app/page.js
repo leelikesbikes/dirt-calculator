@@ -70,17 +70,15 @@ export default function Home() {
   }, []);
 
   // Handle bike selection
-  const handleBikeChange = (bikeIndex) => {
-    setSelectedBike(bikeIndex);
-    setSelectedSize(''); // Reset size when bike changes
-  };
-
   const handleSizeChange = (size) => {
     setSelectedSize(size);
     
     if (selectedBike !== '' && size) {
       const bike = bikes[selectedBike];
       const sizeData = bike.sizes[size];
+      
+      // Set build name to bike info
+      setBuildName(`${bike.brand} - ${bike.displayName} - ${size}`);
       
       // Populate frame geometry
       setHeadAngle(sizeData.headAngle);
@@ -99,6 +97,15 @@ export default function Home() {
       setCrankLength(sizeData.crankLength);
       setPedalThickness(sizeData.pedalThickness);
     }
+  };
+  
+  // Reset build name when switching to manual entry
+  const handleBikeChange = (bikeIndex) => {
+    if (bikeIndex === '') {
+      setBuildName('My Sweet Bike');
+    }
+    setSelectedBike(bikeIndex);
+    setSelectedSize('');
   };
 
   const runCalculation = async () => {
@@ -203,17 +210,6 @@ export default function Home() {
           {/* LEFT COLUMN - INPUTS */}
           <div className={styles.leftColumn}>
             
-            {/* Build Name */}
-            <div className={styles.card}>
-              <label>Build Name</label>
-              <input
-                type="text"
-                value={buildName}
-                onChange={(e) => setBuildName(e.target.value)}
-                className={styles.input}
-              />
-            </div>
-
             {/* Bike Selector */}
             <div className={styles.card}>
               <h2>Choose Your Bike</h2>
@@ -253,13 +249,24 @@ export default function Home() {
               )}
             </div>
 
+            {/* Build Name */}
+            <div className={styles.card}>
+              <label>Build Name</label>
+              <input
+                type="text"
+                value={buildName}
+                onChange={(e) => setBuildName(e.target.value)}
+                className={styles.input}
+              />
+            </div>
+
             {/* Rider Inputs */}
             <div className={styles.card}>
               <h2>Rider Inputs</h2>
               
               {/* Proportion Type Selector */}
               <div className={styles.inputGroup}>
-                <label>Proportions</label>
+                <LabelWithHelp text="Proportions" helpUrl="proportions" />
                 <select
                   value={proportionType}
                   onChange={(e) => setProportionType(e.target.value)}
@@ -273,7 +280,7 @@ export default function Home() {
               {/* Conditional Inputs Based on Proportion Type */}
               {proportionType === 'Average' ? (
                 <div className={styles.inputGroup}>
-                  <label>Height (mm)</label>
+                  <LabelWithHelp text="Height (mm)" helpUrl="height" />
                   <input
                     type="number"
                     value={riderHeight}
@@ -287,7 +294,7 @@ export default function Home() {
               ) : (
                 <>
                   <div className={styles.inputGroup}>
-                    <label>Height (mm)</label>
+                    <LabelWithHelp text="Height (mm)" helpUrl="height" />
                     <input
                       type="number"
                       value={providedHeight}
@@ -296,7 +303,7 @@ export default function Home() {
                     />
                   </div>
                   <div className={styles.inputGroup}>
-                    <label>RAD (mm)</label>
+                    <LabelWithHelp text="RAD (mm)" helpUrl="rad" />
                     <input
                       type="number"
                       value={providedRAD}
@@ -305,7 +312,7 @@ export default function Home() {
                     />
                   </div>
                   <div className={styles.inputGroup}>
-                    <label>Inseam (mm)</label>
+                    <LabelWithHelp text="Inseam (mm)" helpUrl="inseam" />
                     <input
                       type="number"
                       value={providedInseam}
@@ -367,7 +374,7 @@ export default function Home() {
               <h2>Components</h2>
               <div className={styles.inputRow}>
                 <div className={styles.inputGroup}>
-                  <label>Handlebar Setback (mm)</label>
+                  <LabelWithHelp text="Handlebar Setback (mm)" helpUrl="handlebar-setback" />
                   <input
                     type="number"
                     value={handlebarSetback}
@@ -376,7 +383,7 @@ export default function Home() {
                   />
                 </div>
                 <div className={styles.inputGroup}>
-                  <label>Handlebar Rise (mm)</label>
+                  <LabelWithHelp text="Handlebar Rise (mm)" helpUrl="handlebar-rise" />
                   <input
                     type="number"
                     value={handlebarRise}
@@ -387,7 +394,7 @@ export default function Home() {
               </div>
               <div className={styles.inputRow}>
                 <div className={styles.inputGroup}>
-                  <label>Stem Length (mm)</label>
+                  <LabelWithHelp text="Stem Length (mm)" helpUrl="stem-length" />
                   <input
                     type="number"
                     value={stemLength}
@@ -396,7 +403,7 @@ export default function Home() {
                   />
                 </div>
                 <div className={styles.inputGroup}>
-                  <label>Stem Angle (°)</label>
+                  <LabelWithHelp text="Stem Angle (°)" helpUrl="stem-angle" />
                   <input
                     type="number"
                     value={stemAngle}
@@ -407,7 +414,7 @@ export default function Home() {
               </div>
               <div className={styles.inputRow}>
                 <div className={styles.inputGroup}>
-                  <label>Stem Height (mm)</label>
+                  <LabelWithHelp text="Stem Height (mm)" helpUrl="stem-height" />
                   <input
                     type="number"
                     value={stemHeight}
@@ -416,7 +423,7 @@ export default function Home() {
                   />
                 </div>
                 <div className={styles.inputGroup}>
-                  <label>Spacers Below Stem (mm)</label>
+                  <LabelWithHelp text="Spacers Below Stem (mm)" helpUrl="spacers-below-stem" />
                   <input
                     type="number"
                     value={spacers}
@@ -427,7 +434,7 @@ export default function Home() {
               </div>
               <div className={styles.inputRow}>
                 <div className={styles.inputGroup}>
-                  <label>Headset Top Cap (mm)</label>
+                  <LabelWithHelp text="Headset Top Cap (mm)" helpUrl="headset-top-cap" />
                   <input
                     type="number"
                     value={topCap}
@@ -436,7 +443,7 @@ export default function Home() {
                   />
                 </div>
                 <div className={styles.inputGroup}>
-                  <label>Crank Length (mm)</label>
+                  <LabelWithHelp text="Crank Length (mm)" helpUrl="crank-length" />
                   <input
                     type="number"
                     value={crankLength}
@@ -447,7 +454,7 @@ export default function Home() {
               </div>
               <div className={styles.inputRow}>
                 <div className={styles.inputGroup}>
-                  <label>Pedal Thickness (mm)</label>
+                  <LabelWithHelp text="Pedal Thickness (mm)" helpUrl="pedal-thickness" />
                   <input
                     type="number"
                     value={pedalThickness}

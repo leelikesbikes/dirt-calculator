@@ -233,7 +233,17 @@ export default function Home() {
             
             {/* Bike Selector */}
             <div className={styles.card}>
-              <h2>Choose Your Bike</h2>
+              <h2>
+                Choose Your Bike{' '}
+                <a 
+                  href="https://www.llbmtb.com/choose-your-bike" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className={styles.helpLink}
+                >
+                  (?)
+                </a>
+              </h2>
               
               <div className={styles.inputGroup}>
                 <label>Brand</label>
@@ -290,7 +300,7 @@ export default function Home() {
 
             {/* Build Name */}
             <div className={styles.card}>
-              <label>Build Name</label>
+              <LabelWithHelp text="Build Name" helpUrl="build-name" />
               <input
                 type="text"
                 value={buildName}
@@ -524,39 +534,66 @@ export default function Home() {
               {results && (
                 <div className={styles.results}>
                   <div className={styles.resultRow}>
-                    <span>Bike RAD</span>
+                    <span>
+                      Bike RAD{' '}
+                      <a href="https://www.llbmtb.com/bike-rad" target="_blank" rel="noopener noreferrer" className={styles.helpLink}>(?)</a>
+                    </span>
                     <span>{Math.round(results.radLength)} mm</span>
                   </div>
                   <div className={styles.resultRow}>
-                    <span>Bike vs Rider RAD</span>
+                    <span>
+                      Bike vs Rider RAD{' '}
+                      <a href="https://www.llbmtb.com/bike-vs-rider-rad" target="_blank" rel="noopener noreferrer" className={styles.helpLink}>(?)</a>
+                    </span>
                     <span>{Math.round(results.bikeVsRiderRAD)} mm</span>
                   </div>
                   <div className={styles.resultRow}>
-                    <span>Bike RAD Angle</span>
+                    <span>
+                      Bike RAD Angle{' '}
+                      <a href="https://www.llbmtb.com/bike-rad-angle" target="_blank" rel="noopener noreferrer" className={styles.helpLink}>(?)</a>
+                    </span>
                     <span>{Math.round(results.radAngle)}°</span>
                   </div>
                   <div className={styles.resultRow}>
-                    <span>Seated Reach</span>
+                    <span>
+                      Seated Reach{' '}
+                      <a href="https://www.llbmtb.com/seated-reach" target="_blank" rel="noopener noreferrer" className={styles.helpLink}>(?)</a>
+                    </span>
                     <span>{Math.round(results.seatedReach)} mm</span>
                   </div>
                   <div className={styles.resultRow}>
-                    <span>Seated Reach/Height</span>
+                    <span>
+                      Seated Reach/Height{' '}
+                      <a href="https://www.llbmtb.com/seated-reach-height" target="_blank" rel="noopener noreferrer" className={styles.helpLink}>(?)</a>
+                    </span>
                     <span>{Math.round(results.seatedReachHeight * 100)}%</span>
                   </div>
                   <div className={styles.resultRow}>
-                    <span>Saddle Height (BB)</span>
+                    <span>
+                      Saddle Height from BB{' '}
+                      <a href="https://www.llbmtb.com/saddle-height-from-bb" target="_blank" rel="noopener noreferrer" className={styles.helpLink}>(?)</a>
+                    </span>
                     <span>{Math.round(results.saddleHeight)} mm</span>
                   </div>
                   <div className={styles.resultRow}>
-                    <span>Bar/Saddle Height</span>
+                    <span>
+                      Bar/Saddle Height{' '}
+                      <a href="https://www.llbmtb.com/bar-saddle-height" target="_blank" rel="noopener noreferrer" className={styles.helpLink}>(?)</a>
+                    </span>
                     <span>{Math.round(results.barSaddleHeight)} mm</span>
                   </div>
                   <div className={styles.resultRow}>
-                    <span>SHO</span>
+                    <span>
+                      SHO{' '}
+                      <a href="https://www.llbmtb.com/sho" target="_blank" rel="noopener noreferrer" className={styles.helpLink}>(?)</a>
+                    </span>
                     <span>{Math.round(results.sho)} mm</span>
                   </div>
                   <div className={styles.resultRow}>
-                    <span>Heavy Hands Index</span>
+                    <span>
+                      Heavy Hands Index{' '}
+                      <a href="https://www.llbmtb.com/heavy-hands-index" target="_blank" rel="noopener noreferrer" className={styles.helpLink}>(?)</a>
+                    </span>
                     <span>{getHHIDisplay(results.hhi, results.barSaddleHeight)}</span>
                   </div>
                 </div>
@@ -611,7 +648,7 @@ RESULTS
   Bike RAD Angle: ${Math.round(results.radAngle)}°
   Seated Reach: ${Math.round(results.seatedReach)} mm
   Seated Reach/Height: ${Math.round(results.seatedReachHeight * 100)}%
-  Saddle Height (BB): ${Math.round(results.saddleHeight)} mm
+  Saddle Height from BB: ${Math.round(results.saddleHeight)} mm
   Bar/Saddle Height: ${Math.round(results.barSaddleHeight)} mm
   SHO: ${Math.round(results.sho)} mm
   Heavy Hands Index: ${getHHIDisplay(results.hhi, results.barSaddleHeight)}

@@ -24,8 +24,22 @@ export default function Home() {
   const [buildName, setBuildName] = useState('My Sweet Bike');
   
   // Bike selector
-  const [selectedBike, setSelectedBike] = useState('');
+  const [selectedBrand, setSelectedBrand] = useState('');
+  const [selectedModel, setSelectedModel] = useState('');
   const [selectedSize, setSelectedSize] = useState('');
+  
+  // Get unique brands
+  const brands = [...new Set(bikes.map(bike => bike.brand))].sort();
+  
+  // Get models for selected brand
+  const modelsForBrand = selectedBrand 
+    ? bikes.filter(bike => bike.brand === selectedBrand)
+    : [];
+  
+  // Get selected bike object
+  const selectedBike = selectedBrand && selectedModel
+    ? bikes.find(bike => bike.brand === selectedBrand && bike.model === selectedModel)
+    : null;
   
   // Component selectors
   const [handlebarType, setHandlebarType] = useState('bike-default'); // 'bike-default', 'choose-bar', 'enter-specs'
@@ -73,12 +87,11 @@ export default function Home() {
   const handleSizeChange = (size) => {
     setSelectedSize(size);
     
-    if (selectedBike !== '' && size) {
-      const bike = bikes[selectedBike];
-      const sizeData = bike.sizes[size];
+    if (selectedBike && size) {
+      const sizeData = selectedBike.sizes[size];
       
       // Set build name to bike info
-      setBuildName(`${bike.brand} - ${bike.displayName} - ${size}`);
+      setBuildName(`${selectedBike.brand} - ${selectedBike.displayName} - ${size}`);
       
       // Populate frame geometry
       setHeadAngle(sizeData.headAngle);
@@ -100,11 +113,19 @@ export default function Home() {
   };
   
   // Reset build name when switching to manual entry
-  const handleBikeChange = (bikeIndex) => {
-    if (bikeIndex === '') {
+  const handleBrandChange = (brand) => {
+    if (brand === '') {
       setBuildName('My Sweet Bike');
+      setSelectedModel('');
+      setSelectedSize('');
     }
-    setSelectedBike(bikeIndex);
+    setSelectedBrand(brand);
+    setSelectedModel('');
+    setSelectedSize('');
+  };
+  
+  const handleModelChange = (model) => {
+    setSelectedModel(model);
     setSelectedSize('');
   };
 
@@ -215,22 +236,40 @@ export default function Home() {
               <h2>Choose Your Bike</h2>
               
               <div className={styles.inputGroup}>
-                <label>Bike Model</label>
+                <label>Brand</label>
                 <select
-                  value={selectedBike}
-                  onChange={(e) => handleBikeChange(e.target.value)}
+                  value={selectedBrand}
+                  onChange={(e) => handleBrandChange(e.target.value)}
                   className={styles.input}
                 >
                   <option value="">Enter frame specs manually</option>
-                  {bikes.map((bike, index) => (
-                    <option key={index} value={index}>
-                      {bike.brand} - {bike.displayName}
+                  {brands.map((brand) => (
+                    <option key={brand} value={brand}>
+                      {brand}
                     </option>
                   ))}
                 </select>
               </div>
 
-              {selectedBike !== '' && (
+              {selectedBrand && (
+                <div className={styles.inputGroup}>
+                  <label>Model</label>
+                  <select
+                    value={selectedModel}
+                    onChange={(e) => handleModelChange(e.target.value)}
+                    className={styles.input}
+                  >
+                    <option value="">Select model</option>
+                    {modelsForBrand.map((bike, index) => (
+                      <option key={index} value={bike.model}>
+                        {bike.displayName}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )}
+
+              {selectedBike && (
                 <div className={styles.inputGroup}>
                   <label>Size</label>
                   <select
@@ -239,7 +278,7 @@ export default function Home() {
                     className={styles.input}
                   >
                     <option value="">Select size</option>
-                    {Object.keys(bikes[selectedBike].sizes).map((size) => (
+                    {Object.keys(selectedBike.sizes).map((size) => (
                       <option key={size} value={size}>
                         {size}
                       </option>

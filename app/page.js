@@ -53,7 +53,7 @@ export default function Home() {
   const [spacers, setSpacers] = useState(10);
   const [topCap, setTopCap] = useState(5);
   const [crankLength, setCrankLength] = useState(170);
-  const [pedalThickness, setPedalThickness] = useState(20);
+  const [pedalThickness, setPedalThickness] = useState(15);
   
   // Results
   const [results, setResults] = useState(null);
@@ -279,18 +279,22 @@ export default function Home() {
 
               {/* Conditional Inputs Based on Proportion Type */}
               {proportionType === 'Average' ? (
-                <div className={styles.inputGroup}>
-                  <LabelWithHelp text="Height (mm)" helpUrl="height" />
-                  <input
-                    type="number"
-                    value={riderHeight}
-                    onChange={(e) => setRiderHeight(e.target.value)}
-                    className={styles.input}
-                  />
-                  <div className={styles.helpText}>
-                    RAD and Inseam calculated automatically
+                <>
+                  <div className={styles.inputGroup}>
+                    <LabelWithHelp text="Height (mm)" helpUrl="height" />
+                    <input
+                      type="number"
+                      value={riderHeight}
+                      onChange={(e) => setRiderHeight(e.target.value)}
+                      className={styles.input}
+                    />
                   </div>
-                </div>
+                  {riderHeight && (
+                    <div className={styles.helpText}>
+                      RAD: {Math.round(riderHeight * 0.447)} mm | Inseam: {Math.round(riderHeight * 0.46)} mm
+                    </div>
+                  )}
+                </>
               ) : (
                 <>
                   <div className={styles.inputGroup}>

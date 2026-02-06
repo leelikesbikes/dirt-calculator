@@ -1,4 +1,5 @@
 import './globals.css'
+import PasswordScreen from './PasswordScreen'
 
 export const metadata = {
   title: 'DiRT - Dialed RAD Tool',
@@ -25,7 +26,11 @@ export default function RootLayout({ children }) {
         <link rel="icon" type="image/svg+xml" href="/icon.svg" />
         <link rel="apple-touch-icon" href="/icon.svg" />
       </head>
-      <body>{children}</body>
+      <body>
+        <PasswordScreen>
+          {children}
+        </PasswordScreen>
+      </body>
     </html>
   )
 }

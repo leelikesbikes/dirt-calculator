@@ -162,6 +162,9 @@ export default function Home() {
     
     // Clear results
     setResults(null);
+    
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const runCalculation = async () => {

@@ -17,6 +17,25 @@ export default function PasswordScreen({ children }) {
       setIsUnlocked(true);
     }
     setIsChecking(false);
+    
+    // Track if being accessed directly vs in iframe
+    const isInIframe = window.self !== window.top;
+    const referrer = document.referrer;
+    
+    // Log access method (visible in Vercel logs)
+    console.log('[DiRT Access]', {
+      inIframe: isInIframe,
+      referrer: referrer || 'direct',
+      timestamp: new Date().toISOString()
+    });
+    
+    // Send to Vercel Analytics if available
+    if (window.va) {
+      window.va('track', 'Page View', {
+        inIframe: isInIframe,
+        referrer: referrer || 'direct'
+      });
+    }
   }, []);
 
   const handleSubmit = (e) => {
@@ -26,9 +45,30 @@ export default function PasswordScreen({ children }) {
       sessionStorage.setItem('dirt_unlocked', 'true');
       setIsUnlocked(true);
       setError('');
+      
+      // Track successful password entry
+      const isInIframe = window.self !== window.top;
+      console.log('[DiRT Password Success]', {
+        inIframe: isInIframe,
+        referrer: document.referrer || 'direct',
+        timestamp: new Date().toISOString()
+      });
+      
+      // Send to Vercel Analytics if available
+      if (window.va) {
+        window.va('track', 'Password Success', {
+          inIframe: isInIframe,
+          referrer: document.referrer || 'direct'
+        });
+      }
     } else {
       setError('Incorrect password. Please try again.');
       setPassword('');
+      
+      // Track failed attempts (helps spot brute force)
+      console.log('[DiRT Password Failed]', {
+        timestamp: new Date().toISOString()
+      });
     }
   };
 
@@ -42,10 +82,9 @@ export default function PasswordScreen({ children }) {
     return (
       <div className={styles.container}>
         <div className={styles.card}>
-          <h1 className={styles.title}>DiRT Calculator</h1>
-          <p className={styles.subtitle}>Dynamic Rider Triangle</p>
+          <h1 className={styles.title}>DiRT</h1>
           <p className={styles.description}>
-            Enter your access code to continue
+            Enter access code to continue
           </p>
           
           <form onSubmit={handleSubmit} className={styles.form}>
@@ -65,13 +104,9 @@ export default function PasswordScreen({ children }) {
             )}
             
             <button type="submit" className={styles.button}>
-              Access DiRT
+              Use DiRT
             </button>
           </form>
-          
-          <p className={styles.note}>
-            Members: Find your access code on your membership page
-          </p>
         </div>
       </div>
     );

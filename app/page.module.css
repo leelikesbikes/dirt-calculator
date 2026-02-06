@@ -124,6 +124,24 @@
   cursor: not-allowed;
 }
 
+.resetLink {
+  background: none;
+  border: none;
+  color: #ed1c24;
+  text-decoration: underline;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 24px;
+  text-align: center;
+  width: 100%;
+}
+
+.resetLink:hover {
+  color: #c91820;
+}
+
 .results {
   display: flex;
   flex-direction: column;

@@ -128,6 +128,41 @@ export default function Home() {
     setSelectedModel(model);
     setSelectedSize('');
   };
+  
+  const resetToDefaults = () => {
+    // Reset bike selection
+    setSelectedBrand('');
+    setSelectedModel('');
+    setSelectedSize('');
+    setBuildName('My Sweet Bike');
+    
+    // Reset rider inputs
+    setProportionType('Average');
+    setRiderHeight(1750);
+    setProvidedHeight(1750);
+    setProvidedRAD(782);
+    setProvidedInseam(805);
+    
+    // Reset frame inputs
+    setHeadAngle(66);
+    setReach(410);
+    setStack(635);
+    setSeatAngle(74);
+    
+    // Reset component inputs
+    setHandlebarSetback(30);
+    setHandlebarRise(20);
+    setStemLength(40);
+    setStemAngle(0);
+    setStemHeight(40);
+    setSpacers(10);
+    setTopCap(5);
+    setCrankLength(170);
+    setPedalThickness(15);
+    
+    // Clear results
+    setResults(null);
+  };
 
   const runCalculation = async () => {
     setLoading(true);
@@ -529,6 +564,13 @@ export default function Home() {
                 disabled={loading}
               >
                 {loading ? 'CALCULATING...' : 'RUN DiRT'}
+              </button>
+              
+              <button 
+                onClick={resetToDefaults}
+                className={styles.resetLink}
+              >
+                RESET
               </button>
 
               {results && (

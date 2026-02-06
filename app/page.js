@@ -62,7 +62,7 @@ export default function Home() {
   const [handlebarSetback, setHandlebarSetback] = useState(30);
   const [handlebarRise, setHandlebarRise] = useState(20);
   const [stemLength, setStemLength] = useState(40);
-  const [stemAngle, setStemAngle] = useState(5);
+  const [stemAngle, setStemAngle] = useState(0);
   const [stemHeight, setStemHeight] = useState(40);
   const [spacers, setSpacers] = useState(10);
   const [topCap, setTopCap] = useState(5);
@@ -520,7 +520,7 @@ export default function Home() {
           </div>
 
           {/* RIGHT COLUMN - RESULTS */}
-          <div className={styles.rightColumn}>
+          <div className={styles.rightColumn} style={{ position: 'sticky', top: '20px', alignSelf: 'flex-start' }}>
             <div className={styles.card}>
               <h2>Results</h2>
               <button 
@@ -545,7 +545,7 @@ export default function Home() {
                       Bike vs Rider RAD{' '}
                       <a href="https://www.llbmtb.com/bike-vs-rider-rad" target="_blank" rel="noopener noreferrer" className={styles.helpLink}>(?)</a>
                     </span>
-                    <span>{Math.round(results.bikeVsRiderRAD)} mm</span>
+                    <span>{results.bikeVsRiderRAD >= 0 ? '+' : ''}{Math.round(results.bikeVsRiderRAD)} mm</span>
                   </div>
                   <div className={styles.resultRow}>
                     <span>
@@ -644,7 +644,7 @@ COMPONENTS
 
 RESULTS
   Bike RAD: ${Math.round(results.radLength)} mm
-  Bike vs Rider RAD: ${Math.round(results.bikeVsRiderRAD)} mm
+  Bike vs Rider RAD: ${results.bikeVsRiderRAD >= 0 ? '+' : ''}${Math.round(results.bikeVsRiderRAD)} mm
   Bike RAD Angle: ${Math.round(results.radAngle)}°
   Seated Reach: ${Math.round(results.seatedReach)} mm
   Seated Reach/Height: ${Math.round(results.seatedReachHeight * 100)}%

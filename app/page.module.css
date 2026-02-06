@@ -18,6 +18,7 @@
 @media (min-width: 640px) {
   .grid {
     grid-template-columns: 2fr 1fr;
+    align-items: start;
   }
 }
 

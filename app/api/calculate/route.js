@@ -14,6 +14,8 @@ export async function POST(request) {
     const reach = parseFloat(inputs.reach) || 0;
     const stack = parseFloat(inputs.stack) || 0;
     const seatAngle = parseFloat(inputs.seatAngle) || 0;
+    const chainstayLength = inputs.chainstayLength ? parseFloat(inputs.chainstayLength) : null;
+    const wheelbase = inputs.wheelbase ? parseFloat(inputs.wheelbase) : null;
     const handlebarSetback = parseFloat(inputs.handlebarSetback) || 0;
     const handlebarRise = parseFloat(inputs.handlebarRise) || 0;
     const stemLength = parseFloat(inputs.stemLength) || 0;
@@ -106,6 +108,22 @@ export async function POST(request) {
     
     const totalForce = forceGripsVertical + forceGripsHorizontal;
     const hhi = totalForce * 3.14;
+    
+    // Calculate new metrics if data available
+    let foreAftBalance = null;
+    let radLeverageRatio = null;
+    
+    // Fore/aft balance: only if both chainstay and wheelbase are provided
+    if (chainstayLength && wheelbase) {
+      const rearPercent = Math.round((chainstayLength / wheelbase) * 100);
+      const frontPercent = 100 - rearPercent;
+      foreAftBalance = `${frontPercent}/${rearPercent}%`;
+    }
+    
+    // RAD leverage ratio: only if chainstay is provided
+    if (chainstayLength) {
+      radLeverageRatio = (radLength / chainstayLength).toFixed(1);
+    }
 
     return NextResponse.json({
       calculatedRAD: finalRAD,
@@ -119,7 +137,9 @@ export async function POST(request) {
       saddleHeight,
       barSaddleHeight,
       sho,
-      hhi
+      hhi,
+      foreAftBalance,
+      radLeverageRatio
     });
 
   } catch (error) {

@@ -117,7 +117,7 @@ export async function POST(request) {
     if (chainstayLength && wheelbase) {
       const rearPercent = Math.round((chainstayLength / wheelbase) * 100);
       const frontPercent = 100 - rearPercent;
-      foreAftBalance = `${frontPercent}/${rearPercent}%`;
+      foreAftBalance = `${rearPercent}/${frontPercent}%`;
     }
     
     // RAD leverage ratio: only if chainstay is provided

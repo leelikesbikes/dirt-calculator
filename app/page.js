@@ -57,6 +57,8 @@ export default function Home() {
   const [reach, setReach] = useState(410);
   const [stack, setStack] = useState(635);
   const [seatAngle, setSeatAngle] = useState(74);
+  const [chainstayLength, setChainstayLength] = useState('');
+  const [wheelbase, setWheelbase] = useState('');
   
   // Component inputs
   const [handlebarSetback, setHandlebarSetback] = useState(30);
@@ -98,6 +100,8 @@ export default function Home() {
       setReach(sizeData.reach);
       setStack(sizeData.stack);
       setSeatAngle(sizeData.seatAngle);
+      setChainstayLength(sizeData.rearCentre || '');
+      setWheelbase(sizeData.wheelbase || '');
       
       // Populate components
       setHandlebarSetback(sizeData.handlebarSetback);
@@ -148,6 +152,8 @@ export default function Home() {
     setReach(410);
     setStack(635);
     setSeatAngle(74);
+    setChainstayLength('');
+    setWheelbase('');
     
     // Reset component inputs
     setHandlebarSetback(30);
@@ -184,6 +190,8 @@ export default function Home() {
           reach,
           stack,
           seatAngle,
+          chainstayLength,
+          wheelbase,
           handlebarSetback,
           handlebarRise,
           stemLength,
@@ -458,6 +466,28 @@ export default function Home() {
                   />
                 </div>
               </div>
+              <div className={styles.inputRow}>
+                <div className={styles.inputGroup}>
+                  <LabelWithHelp text="Chainstay Length (mm)" helpUrl="chainstay-length" />
+                  <input
+                    type="number"
+                    value={chainstayLength}
+                    onChange={(e) => setChainstayLength(e.target.value)}
+                    className={styles.input}
+                    placeholder="Optional"
+                  />
+                </div>
+                <div className={styles.inputGroup}>
+                  <LabelWithHelp text="Wheelbase (mm)" helpUrl="wheelbase" />
+                  <input
+                    type="number"
+                    value={wheelbase}
+                    onChange={(e) => setWheelbase(e.target.value)}
+                    className={styles.input}
+                    placeholder="Optional"
+                  />
+                </div>
+              </div>
             </div>
 
             {/* Components */}
@@ -641,6 +671,27 @@ export default function Home() {
                     </span>
                     <span>{getHHIDisplay(results.hhi, results.barSaddleHeight)}</span>
                   </div>
+                  
+                  {/* Conditional new metrics */}
+                  {results.foreAftBalance && (
+                    <div className={styles.resultRow}>
+                      <span>
+                        Fore/aft Balance{' '}
+                        <a href="https://www.llbmtb.com/fore-aft-balance" target="_blank" rel="noopener noreferrer" className={styles.helpLink}>(?)</a>
+                      </span>
+                      <span>{results.foreAftBalance}</span>
+                    </div>
+                  )}
+                  
+                  {results.radLeverageRatio && (
+                    <div className={styles.resultRow}>
+                      <span>
+                        RAD Leverage Ratio{' '}
+                        <a href="https://www.llbmtb.com/rad-leverage-ratio" target="_blank" rel="noopener noreferrer" className={styles.helpLink}>(?)</a>
+                      </span>
+                      <span>{results.radLeverageRatio}</span>
+                    </div>
+                  )}
                 </div>
               )}
             </div>
@@ -696,7 +747,9 @@ RESULTS
   Saddle Height from BB: ${Math.round(results.saddleHeight)} mm
   Bar/Saddle Height: ${Math.round(results.barSaddleHeight)} mm
   SHO: ${Math.round(results.sho)} mm
-  Heavy Hands Index: ${getHHIDisplay(results.hhi, results.barSaddleHeight)}
+  Heavy Hands Index: ${getHHIDisplay(results.hhi, results.barSaddleHeight)}${results.foreAftBalance ? `
+  Fore/aft Balance: ${results.foreAftBalance}` : ''}${results.radLeverageRatio ? `
+  RAD Leverage Ratio: ${results.radLeverageRatio}` : ''}
 
 ═══════════════════════════════════════════════════════`}
               </pre>

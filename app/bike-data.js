@@ -1,5 +1,5 @@
 // Bike database - Accurate data from manufacturer specifications
-// Last updated: February 6, 2026
+// Last updated: February 7, 2026
 // Recheck annually for model updates
 
 export const bikes = [
@@ -23,6 +23,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 165.0,
         pedalThickness: 15.0,
+        rearCentre: 430.0,
+        wheelbase: 1149.0,
       },
       "S2": {
         reach: 425.0,
@@ -38,6 +40,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 165.0,
         pedalThickness: 15.0,
+        rearCentre: 432.0,
+        wheelbase: 1181.0,
       },
       "S3": {
         reach: 450.0,
@@ -53,6 +57,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 165.0,
         pedalThickness: 15.0,
+        rearCentre: 435.0,
+        wheelbase: 1213.0,
       },
       "S4": {
         reach: 475.0,
@@ -68,6 +74,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 435.0,
+        wheelbase: 1244.0,
       },
       "S5": {
         reach: 500.0,
@@ -83,6 +91,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 445.0,
+        wheelbase: 1285.0,
       },
       "S6": {
         reach: 530.0,
@@ -98,6 +108,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 445.0,
+        wheelbase: 1322.0,
       },
     }
   },
@@ -121,6 +133,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 437.0,
+        wheelbase: 1187.0,
       },
       "M": {
         reach: 460.0,
@@ -136,6 +150,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 437.0,
+        wheelbase: 1225.0,
       },
       "L": {
         reach: 485.0,
@@ -151,6 +167,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 442.0,
+        wheelbase: 1262.0,
       },
       "XL": {
         reach: 510.0,
@@ -166,6 +184,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 447.0,
+        wheelbase: 1298.0,
       },
       "XXL": {
         reach: 530.0,
@@ -181,6 +201,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 452.0,
+        wheelbase: 1330.0,
       },
     }
   },
@@ -204,6 +226,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 434.0,
+        wheelbase: 1206.0,
       },
       "M": {
         reach: 460.0,
@@ -219,6 +243,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 436.0,
+        wheelbase: 1237.0,
       },
       "L": {
         reach: 480.0,
@@ -234,6 +260,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 439.0,
+        wheelbase: 1264.0,
       },
       "XL": {
         reach: 500.0,
@@ -249,6 +277,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 442.0,
+        wheelbase: 1296.0,
       },
       "XXL": {
         reach: 525.0,
@@ -264,6 +294,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 445.0,
+        wheelbase: 1328.0,
       },
     }
   },
@@ -287,6 +319,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 165.0,
         pedalThickness: 15.0,
+        rearCentre: 435.0,
+        wheelbase: 1195.0,
       },
       "MD": {
         reach: 456.0,
@@ -302,6 +336,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 165.0,
         pedalThickness: 15.0,
+        rearCentre: 435.0,
+        wheelbase: 1219.0,
       },
       "XM": {
         reach: 478.0,
@@ -317,6 +353,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 436.0,
+        wheelbase: 1249.0,
       },
       "LG": {
         reach: 506.0,
@@ -332,6 +370,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 438.0,
+        wheelbase: 1286.0,
       },
       "XL": {
         reach: 540.0,
@@ -347,6 +387,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 440.0,
+        wheelbase: 1329.0,
       },
     }
   },
@@ -370,6 +412,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 140.0,
         pedalThickness: 15.0,
+        rearCentre: 465.0,
+        wheelbase: 1113.0,
       },
       "M2": {
         reach: 385.0,
@@ -385,6 +429,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 150.0,
         pedalThickness: 15.0,
+        rearCentre: 475.0,
+        wheelbase: 1157.0,
       },
       "M3": {
         reach: 410.0,
@@ -400,6 +446,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 160.0,
         pedalThickness: 15.0,
+        rearCentre: 485.0,
+        wheelbase: 1209.0,
       },
       "M4": {
         reach: 435.0,
@@ -415,6 +463,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 495.0,
+        wheelbase: 1254.0,
       },
       "M5": {
         reach: 460.0,
@@ -430,6 +480,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 505.0,
+        wheelbase: 1295.0,
       },
     }
   },
@@ -453,6 +505,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 140.0,
         pedalThickness: 15.0,
+        rearCentre: 465.0,
+        wheelbase: 1113.0,
       },
       "M2": {
         reach: 385.0,
@@ -468,6 +522,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 150.0,
         pedalThickness: 15.0,
+        rearCentre: 475.0,
+        wheelbase: 1157.0,
       },
       "M3": {
         reach: 410.0,
@@ -483,6 +539,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 160.0,
         pedalThickness: 15.0,
+        rearCentre: 485.0,
+        wheelbase: 1209.0,
       },
       "M4": {
         reach: 435.0,
@@ -498,6 +556,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 495.0,
+        wheelbase: 1254.0,
       },
       "M5": {
         reach: 460.0,
@@ -513,6 +573,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 505.0,
+        wheelbase: 1295.0,
       },
     }
   },
@@ -702,6 +764,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 165.0,
         pedalThickness: 15.0,
+        rearCentre: 439.0,
+        wheelbase: 1166.0,
       },
       "M": {
         reach: 447.0,
@@ -717,6 +781,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 439.0,
+        wheelbase: 1195.0,
       },
       "L": {
         reach: 472.0,
@@ -732,6 +798,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 439.0,
+        wheelbase: 1224.0,
       },
       "XL": {
         reach: 507.0,
@@ -747,6 +815,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 439.0,
+        wheelbase: 1263.0,
       },
     }
   },
@@ -770,6 +840,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 165.0,
         pedalThickness: 15.0,
+        rearCentre: 436.0,
+        wheelbase: 1187.0,
       },
       "MD": {
         reach: 460.0,
@@ -785,6 +857,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 165.0,
         pedalThickness: 15.0,
+        rearCentre: 436.0,
+        wheelbase: 1211.0,
       },
       "XM": {
         reach: 483.0,
@@ -800,6 +874,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 437.0,
+        wheelbase: 1241.0,
       },
       "LG": {
         reach: 511.0,
@@ -815,6 +891,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 440.0,
+        wheelbase: 1279.0,
       },
       "XL": {
         reach: 545.0,
@@ -830,6 +908,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 442.0,
+        wheelbase: 1321.0,
       },
     }
   },
@@ -853,6 +933,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 430.0,
+        wheelbase: 1128.0,
       },
       "SM": {
         reach: 430.0,
@@ -868,6 +950,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 430.0,
+        wheelbase: 1152.0,
       },
       "MD": {
         reach: 460.0,
@@ -883,6 +967,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 430.0,
+        wheelbase: 1187.0,
       },
       "LG": {
         reach: 475.0,
@@ -898,6 +984,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 430.0,
+        wheelbase: 1204.0,
       },
       "XL": {
         reach: 495.0,
@@ -913,6 +1001,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 430.0,
+        wheelbase: 1229.0,
       },
     }
   },
@@ -936,6 +1026,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 431.0,
+        wheelbase: 1157.0,
       },
       "SM": {
         reach: 440.0,
@@ -951,6 +1043,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 431.0,
+        wheelbase: 1193.0,
       },
       "MD": {
         reach: 465.0,
@@ -966,6 +1060,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 431.0,
+        wheelbase: 1223.0,
       },
       "LG": {
         reach: 480.0,
@@ -981,6 +1077,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 432.0,
+        wheelbase: 1242.0,
       },
       "XL": {
         reach: 500.0,
@@ -996,6 +1094,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 436.0,
+        wheelbase: 1271.0,
       },
     }
   },
@@ -3269,6 +3369,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 431.0,
+        wheelbase: 1148.0,
       },
       "SM": {
         reach: 430.0,
@@ -3284,6 +3386,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 431.0,
+        wheelbase: 1177.0,
       },
       "MD": {
         reach: 460.0,
@@ -3299,6 +3403,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 431.0,
+        wheelbase: 1212.0,
       },
       "LG": {
         reach: 475.0,
@@ -3314,6 +3420,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 433.0,
+        wheelbase: 1231.0,
       },
       "XL": {
         reach: 495.0,
@@ -3329,6 +3437,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 435.0,
+        wheelbase: 1257.0,
       },
     }
   },
@@ -3352,6 +3462,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 431.0,
+        wheelbase: 1143.0,
       },
       "SM": {
         reach: 435.0,
@@ -3367,6 +3479,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 431.0,
+        wheelbase: 1172.0,
       },
       "MD": {
         reach: 465.0,
@@ -3382,6 +3496,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 431.0,
+        wheelbase: 1207.0,
       },
       "LG": {
         reach: 480.0,
@@ -3397,6 +3513,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 432.0,
+        wheelbase: 1226.0,
       },
       "XL": {
         reach: 500.0,
@@ -3412,6 +3530,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 434.0,
+        wheelbase: 1253.0,
       },
     }
   },
@@ -3435,6 +3555,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 430.0,
+        wheelbase: 1142.0,
       },
       "S": {
         reach: 430.0,
@@ -3450,6 +3572,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 430.0,
+        wheelbase: 1172.0,
       },
       "M": {
         reach: 460.0,
@@ -3465,6 +3589,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 430.0,
+        wheelbase: 1206.0,
       },
       "L": {
         reach: 480.0,
@@ -3480,6 +3606,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 430.0,
+        wheelbase: 1230.0,
       },
     }
   },
@@ -3503,6 +3631,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 165.0,
         pedalThickness: 15.0,
+        rearCentre: 430.0,
+        wheelbase: 1153.0,
       },
       "S2": {
         reach: 420.0,
@@ -3518,6 +3648,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 165.0,
         pedalThickness: 15.0,
+        rearCentre: 432.0,
+        wheelbase: 1186.0,
       },
       "S3": {
         reach: 445.0,
@@ -3533,6 +3665,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 165.0,
         pedalThickness: 15.0,
+        rearCentre: 435.0,
+        wheelbase: 1217.0,
       },
       "S4": {
         reach: 470.0,
@@ -3548,6 +3682,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 435.0,
+        wheelbase: 1249.0,
       },
       "S5": {
         reach: 495.0,
@@ -3563,6 +3699,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 445.0,
+        wheelbase: 1290.0,
       },
       "S6": {
         reach: 525.0,
@@ -3578,6 +3716,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 445.0,
+        wheelbase: 1327.0,
       },
     }
   },
@@ -3601,6 +3741,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 165.0,
         pedalThickness: 15.0,
+        rearCentre: 442.0,
+        wheelbase: 1217.0,
       },
       "S3": {
         reach: 464.0,
@@ -3616,6 +3758,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 165.0,
         pedalThickness: 15.0,
+        rearCentre: 442.0,
+        wheelbase: 1246.0,
       },
       "S4": {
         reach: 487.0,
@@ -3631,6 +3775,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 442.0,
+        wheelbase: 1274.0,
       },
       "S5": {
         reach: 511.0,
@@ -3646,6 +3792,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 442.0,
+        wheelbase: 1302.0,
       },
     }
   },
@@ -3669,6 +3817,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 165.0,
         pedalThickness: 15.0,
+        rearCentre: 435.0,
+        wheelbase: 1117.0,
       },
       "S": {
         reach: 420.0,
@@ -3684,6 +3834,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 435.0,
+        wheelbase: 1147.0,
       },
       "M": {
         reach: 450.0,
@@ -3699,6 +3851,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 435.0,
+        wheelbase: 1179.0,
       },
       "L": {
         reach: 475.0,
@@ -3714,6 +3868,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 175.0,
         pedalThickness: 15.0,
+        rearCentre: 435.0,
+        wheelbase: 1210.0,
       },
       "XL": {
         reach: 500.0,
@@ -3729,6 +3885,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 175.0,
         pedalThickness: 15.0,
+        rearCentre: 435.0,
+        wheelbase: 1243.0,
       },
     }
   },
@@ -3752,6 +3910,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 435.0,
+        wheelbase: 1121.0,
       },
       "S": {
         reach: 415.0,
@@ -3767,6 +3927,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 435.0,
+        wheelbase: 1151.0,
       },
       "M": {
         reach: 445.0,
@@ -3782,6 +3944,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 435.0,
+        wheelbase: 1183.0,
       },
       "L": {
         reach: 470.0,
@@ -3797,6 +3961,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 435.0,
+        wheelbase: 1214.0,
       },
       "XL": {
         reach: 495.0,
@@ -3812,6 +3978,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 435.0,
+        wheelbase: 1247.0,
       },
     }
   },
@@ -3835,6 +4003,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 437.0,
+        wheelbase: 1200.0,
       },
       "M": {
         reach: 448.0,
@@ -3850,6 +4020,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 437.0,
+        wheelbase: 1237.0,
       },
       "L": {
         reach: 473.0,
@@ -3865,6 +4037,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 442.0,
+        wheelbase: 1273.0,
       },
       "XL": {
         reach: 498.0,
@@ -3880,6 +4054,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 447.0,
+        wheelbase: 1310.0,
       },
       "XXL": {
         reach: 518.0,
@@ -3895,6 +4071,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 452.0,
+        wheelbase: 1341.0,
       },
     }
   },
@@ -3918,6 +4096,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 434.0,
+        wheelbase: 1191.0,
       },
       "M": {
         reach: 456.0,
@@ -3933,6 +4113,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 434.0,
+        wheelbase: 1228.0,
       },
       "L": {
         reach: 482.0,
@@ -3948,6 +4130,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 439.0,
+        wheelbase: 1264.0,
       },
       "XL": {
         reach: 507.0,
@@ -3963,6 +4147,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 444.0,
+        wheelbase: 1301.0,
       },
       "XXL": {
         reach: 527.0,
@@ -3978,6 +4164,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 449.0,
+        wheelbase: 1332.0,
       },
     }
   },
@@ -4001,6 +4189,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 433.0,
+        wheelbase: 1139.0,
       },
       "M": {
         reach: 66.1,
@@ -4016,6 +4206,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 433.0,
+        wheelbase: 1166.0,
       },
       "ML": {
         reach: 66.1,
@@ -4031,6 +4223,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 433.0,
+        wheelbase: 1183.0,
       },
       "L": {
         reach: 66.1,
@@ -4046,6 +4240,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 433.0,
+        wheelbase: 1205.0,
       },
       "XL": {
         reach: 66.1,
@@ -4061,6 +4257,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 433.0,
+        wheelbase: 1231.0,
       },
     }
   },
@@ -4084,6 +4282,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 434.0,
+        wheelbase: 1150.0,
       },
       "M": {
         reach: 65.9,
@@ -4099,6 +4299,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 434.0,
+        wheelbase: 1188.0,
       },
       "ML": {
         reach: 65.9,
@@ -4114,6 +4316,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 439.0,
+        wheelbase: 1210.0,
       },
       "L": {
         reach: 65.9,
@@ -4129,6 +4333,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 439.0,
+        wheelbase: 1227.0,
       },
       "XL": {
         reach: 65.9,
@@ -4144,6 +4350,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 444.0,
+        wheelbase: 1270.0,
       },
     }
   },
@@ -4167,6 +4375,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 434.0,
+        wheelbase: 434.0,
       },
       "M": {
         reach: 460.0,
@@ -4182,6 +4392,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 436.0,
+        wheelbase: 436.0,
       },
       "ML": {
         reach: 480.0,
@@ -4197,6 +4409,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 439.0,
+        wheelbase: 439.0,
       },
       "L": {
         reach: 500.0,
@@ -4212,6 +4426,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 442.0,
+        wheelbase: 442.0,
       },
       "XL": {
         reach: 525.0,
@@ -4227,6 +4443,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 445.0,
+        wheelbase: 445.0,
       },
     }
   },
@@ -4250,6 +4468,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 430.0,
+        wheelbase: 1138.0,
       },
       "S": {
         reach: 430.0,
@@ -4265,6 +4485,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 430.0,
+        wheelbase: 1167.0,
       },
       "M": {
         reach: 455.0,
@@ -4280,6 +4502,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 433.0,
+        wheelbase: 1199.0,
       },
       "ML": {
         reach: 475.0,
@@ -4295,6 +4519,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 437.0,
+        wheelbase: 1227.0,
       },
       "L": {
         reach: 495.0,
@@ -4310,6 +4536,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 439.0,
+        wheelbase: 1257.0,
       },
       "XL": {
         reach: 520.0,
@@ -4325,6 +4553,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 443.0,
+        wheelbase: 1290.0,
       },
     }
   },
@@ -4348,6 +4578,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 428.0,
+        wheelbase: 1147.0,
       },
       "S": {
         reach: 434.0,
@@ -4363,6 +4595,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 430.0,
+        wheelbase: 1178.0,
       },
       "M": {
         reach: 459.0,
@@ -4378,6 +4612,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 433.0,
+        wheelbase: 1212.0,
       },
       "ML": {
         reach: 479.0,
@@ -4393,6 +4629,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 436.0,
+        wheelbase: 1239.0,
       },
       "L": {
         reach: 499.0,
@@ -4408,6 +4646,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 439.0,
+        wheelbase: 1271.0,
       },
       "XL": {
         reach: 524.0,
@@ -4423,6 +4663,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 442.0,
+        wheelbase: 1305.0,
       },
     }
   },
@@ -4446,6 +4688,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 165.0,
         pedalThickness: 15.0,
+        rearCentre: 445.0,
+        wheelbase: 1214.0,
       },
       "M": {
         reach: 456.0,
@@ -4461,6 +4705,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 445.0,
+        wheelbase: 1246.0,
       },
       "L": {
         reach: 476.0,
@@ -4476,6 +4722,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 445.0,
+        wheelbase: 1271.0,
       },
       "XL": {
         reach: 506.0,
@@ -4491,6 +4739,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 445.0,
+        wheelbase: 1304.0,
       },
     }
   },
@@ -4514,6 +4764,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 435.0,
+        wheelbase: 1127.0,
       },
       "M": {
         reach: 450.0,
@@ -4529,6 +4781,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 175.0,
         pedalThickness: 15.0,
+        rearCentre: 435.0,
+        wheelbase: 1159.0,
       },
       "L": {
         reach: 470.0,
@@ -4544,6 +4798,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 175.0,
         pedalThickness: 15.0,
+        rearCentre: 435.0,
+        wheelbase: 1183.0,
       },
       "XL": {
         reach: 495.0,
@@ -4559,6 +4815,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 175.0,
         pedalThickness: 15.0,
+        rearCentre: 435.0,
+        wheelbase: 1212.0,
       },
     }
   },
@@ -5639,6 +5897,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 426.0,
+        wheelbase: 1119.0,
       },
       "M": {
         reach: 440.0,
@@ -5654,6 +5914,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 426.0,
+        wheelbase: 1145.0,
       },
       "L": {
         reach: 460.0,
@@ -5669,6 +5931,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 426.0,
+        wheelbase: 1169.0,
       },
       "XL": {
         reach: 490.0,
@@ -5684,6 +5948,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 426.0,
+        wheelbase: 1207.0,
       },
     }
   },
@@ -5707,6 +5973,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 437.0,
+        wheelbase: 1154.4,
       },
       "M": {
         reach: 445.0,
@@ -5722,6 +5990,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 437.0,
+        wheelbase: 1183.6,
       },
       "L": {
         reach: 465.0,
@@ -5737,6 +6007,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 437.0,
+        wheelbase: 1207.8,
       },
       "XL": {
         reach: 490.0,
@@ -5752,6 +6024,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 437.0,
+        wheelbase: 1237.1,
       },
     }
   },
@@ -5775,6 +6049,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 165.0,
         pedalThickness: 15.0,
+        rearCentre: 432.0,
+        wheelbase: 1070.0,
       },
       "S": {
         reach: 405.0,
@@ -5790,6 +6066,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 432.0,
+        wheelbase: 1099.0,
       },
       "M": {
         reach: 430.0,
@@ -5805,6 +6083,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 432.0,
+        wheelbase: 1124.0,
       },
       "L": {
         reach: 455.0,
@@ -5820,6 +6100,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 175.0,
         pedalThickness: 15.0,
+        rearCentre: 432.0,
+        wheelbase: 1154.0,
       },
       "XL": {
         reach: 480.0,
@@ -5835,6 +6117,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 175.0,
         pedalThickness: 15.0,
+        rearCentre: 432.0,
+        wheelbase: 1185.0,
       },
     }
   },
@@ -5858,6 +6142,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 165.0,
         pedalThickness: 15.0,
+        rearCentre: 437.0,
+        wheelbase: 1115.0,
       },
       "S": {
         reach: 410.0,
@@ -5873,6 +6159,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 437.0,
+        wheelbase: 1141.0,
       },
       "M": {
         reach: 440.0,
@@ -5888,6 +6176,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 437.0,
+        wheelbase: 1177.0,
       },
       "L": {
         reach: 465.0,
@@ -5903,6 +6193,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 175.0,
         pedalThickness: 15.0,
+        rearCentre: 437.0,
+        wheelbase: 1208.0,
       },
       "XL": {
         reach: 490.0,
@@ -5918,6 +6210,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 175.0,
         pedalThickness: 15.0,
+        rearCentre: 437.0,
+        wheelbase: 1237.0,
       },
     }
   },
@@ -5941,6 +6235,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 430.0,
+        wheelbase: 1110.0,
       },
       "M": {
         reach: 430.0,
@@ -5956,6 +6252,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 430.0,
+        wheelbase: 1135.0,
       },
       "ML": {
         reach: 445.0,
@@ -5971,6 +6269,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 435.0,
+        wheelbase: 1155.0,
       },
       "L": {
         reach: 460.0,
@@ -5986,6 +6286,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 175.0,
         pedalThickness: 15.0,
+        rearCentre: 435.0,
+        wheelbase: 1171.0,
       },
       "XL": {
         reach: 500.0,
@@ -6001,6 +6303,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 175.0,
         pedalThickness: 15.0,
+        rearCentre: 440.0,
+        wheelbase: 1227.0,
       },
     }
   },
@@ -6024,6 +6328,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 435.0,
+        wheelbase: 1113.0,
       },
       "M": {
         reach: 435.0,
@@ -6039,6 +6345,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 435.0,
+        wheelbase: 1138.0,
       },
       "ML": {
         reach: 450.0,
@@ -6054,6 +6362,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 435.0,
+        wheelbase: 1153.0,
       },
       "L": {
         reach: 465.0,
@@ -6069,6 +6379,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 175.0,
         pedalThickness: 15.0,
+        rearCentre: 435.0,
+        wheelbase: 1172.0,
       },
       "XL": {
         reach: 500.0,
@@ -6084,6 +6396,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 175.0,
         pedalThickness: 15.0,
+        rearCentre: 435.0,
+        wheelbase: 1217.0,
       },
     }
   },
@@ -6175,6 +6489,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 429.0,
+        wheelbase: 1086.0,
       },
       "SM": {
         reach: 420.0,
@@ -6190,6 +6506,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 429.0,
+        wheelbase: 1103.0,
       },
       "MD": {
         reach: 445.0,
@@ -6205,6 +6523,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 429.0,
+        wheelbase: 1132.0,
       },
       "LG": {
         reach: 460.0,
@@ -6220,6 +6540,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 429.0,
+        wheelbase: 1150.0,
       },
       "XL": {
         reach: 485.0,
@@ -6235,6 +6557,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 429.0,
+        wheelbase: 1183.0,
       },
     }
   },
@@ -6258,6 +6582,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 425.0,
+        wheelbase: 1100.0,
       },
       "MD": {
         reach: 435.0,
@@ -6273,6 +6599,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 425.0,
+        wheelbase: 1145.0,
       },
       "LG": {
         reach: 470.0,
@@ -6288,6 +6616,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 425.0,
+        wheelbase: 1186.0,
       },
       "XL": {
         reach: 511.0,
@@ -6303,6 +6633,8 @@ export const bikes = [
         topCap: 10.0,
         crankLength: 170.0,
         pedalThickness: 15.0,
+        rearCentre: 425.0,
+        wheelbase: 1237.0,
       },
     }
   },

@@ -56,11 +56,15 @@ export default function Home() {
   const filteredBikes = selectionMode === 'filtered' && reachPreference !== 'all'
     ? (() => {
         const range = getReachRange();
+        if (!range) return bikes; // Safety check
+        
         const matchingBikes = [];
         
         bikes.forEach(bike => {
+          if (!bike || !bike.sizes) return; // Safety check
+          
           const matchingSizes = Object.entries(bike.sizes).filter(([size, data]) => 
-            data.reach >= range.min && data.reach <= range.max
+            data && data.reach && data.reach >= range.min && data.reach <= range.max
           );
           
           if (matchingSizes.length > 0) {

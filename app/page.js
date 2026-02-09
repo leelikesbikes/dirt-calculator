@@ -23,6 +23,10 @@ export default function Home() {
   // Build name
   const [buildName, setBuildName] = useState('My Sweet Bike');
   
+  // Bike selection mode
+  const [selectionMode, setSelectionMode] = useState('filtered'); // 'filtered' or 'manual'
+  const [reachPreference, setReachPreference] = useState('medium'); // 'short', 'medium', 'long', 'all'
+  
   // Bike selector
   const [selectedBrand, setSelectedBrand] = useState('');
   const [selectedModel, setSelectedModel] = useState('');
@@ -31,14 +35,59 @@ export default function Home() {
   // Get unique brands
   const brands = [...new Set(bikes.map(bike => bike.brand))].sort();
   
+  // Calculate RAD for filtering
+  const calculatedRAD = proportionType === 'Average' 
+    ? riderHeight * 0.447 
+    : providedRAD;
+  
+  // Get reach range based on preference
+  const getReachRange = () => {
+    if (reachPreference === 'short') {
+      return { min: calculatedRAD * 0.467, max: calculatedRAD * 0.515 };
+    } else if (reachPreference === 'medium') {
+      return { min: calculatedRAD * 0.515, max: calculatedRAD * 0.548 };
+    } else if (reachPreference === 'long') {
+      return { min: calculatedRAD * 0.548, max: calculatedRAD * 0.604 };
+    }
+    return null; // 'all' - no filtering
+  };
+  
+  // Filter bikes by reach if in filtered mode
+  const filteredBikes = selectionMode === 'filtered' && reachPreference !== 'all'
+    ? (() => {
+        const range = getReachRange();
+        const matchingBikes = [];
+        
+        bikes.forEach(bike => {
+          const matchingSizes = Object.entries(bike.sizes).filter(([size, data]) => 
+            data.reach >= range.min && data.reach <= range.max
+          );
+          
+          if (matchingSizes.length > 0) {
+            matchingBikes.push({
+              ...bike,
+              sizes: Object.fromEntries(matchingSizes)
+            });
+          }
+        });
+        
+        return matchingBikes;
+      })()
+    : bikes;
+  
+  // Get brands from filtered or all bikes
+  const availableBrands = selectionMode === 'manual' 
+    ? brands
+    : [...new Set(filteredBikes.map(bike => bike.brand))].sort();
+  
   // Get models for selected brand
   const modelsForBrand = selectedBrand 
-    ? bikes.filter(bike => bike.brand === selectedBrand)
+    ? (selectionMode === 'manual' ? bikes : filteredBikes).filter(bike => bike.brand === selectedBrand)
     : [];
   
   // Get selected bike object
   const selectedBike = selectedBrand && selectedModel
-    ? bikes.find(bike => bike.brand === selectedBrand && bike.model === selectedModel)
+    ? (selectionMode === 'manual' ? bikes : filteredBikes).find(bike => bike.brand === selectedBrand && bike.model === selectedModel)
     : null;
   
   // Component selectors
@@ -131,6 +180,42 @@ export default function Home() {
   const handleModelChange = (model) => {
     setSelectedModel(model);
     setSelectedSize('');
+  };
+  
+  // Handle selection mode change (acts like RESET)
+  const handleModeChange = (mode) => {
+    setSelectionMode(mode);
+    
+    // Reset everything like RESET button
+    setSelectedBrand('');
+    setSelectedModel('');
+    setSelectedSize('');
+    setBuildName('My Sweet Bike');
+    
+    setProportionType('Average');
+    setRiderHeight(1750);
+    setProvidedHeight(1750);
+    setProvidedRAD(782);
+    setProvidedInseam(805);
+    
+    setHeadAngle(66);
+    setReach(410);
+    setStack(635);
+    setSeatAngle(74);
+    setChainstayLength('');
+    setWheelbase('');
+    
+    setHandlebarSetback(30);
+    setHandlebarRise(20);
+    setStemLength(40);
+    setStemAngle(0);
+    setStemHeight(40);
+    setSpacers(10);
+    setTopCap(5);
+    setCrankLength(170);
+    setPedalThickness(15);
+    
+    setResults(null);
   };
   
   const resetToDefaults = () => {
@@ -277,85 +362,7 @@ export default function Home() {
           {/* LEFT COLUMN - INPUTS */}
           <div className={styles.leftColumn}>
             
-            {/* Bike Selector */}
-            <div className={styles.card}>
-              <h2>
-                Choose Your Bike{' '}
-                <a 
-                  href="https://www.llbmtb.com/choose-your-bike" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className={styles.helpLink}
-                >
-                  (?)
-                </a>
-              </h2>
-              
-              <div className={styles.inputGroup}>
-                <label>Brand</label>
-                <select
-                  value={selectedBrand}
-                  onChange={(e) => handleBrandChange(e.target.value)}
-                  className={styles.input}
-                >
-                  <option value="">Enter frame specs manually</option>
-                  {brands.map((brand) => (
-                    <option key={brand} value={brand}>
-                      {brand}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              {selectedBrand && (
-                <div className={styles.inputGroup}>
-                  <label>Model</label>
-                  <select
-                    value={selectedModel}
-                    onChange={(e) => handleModelChange(e.target.value)}
-                    className={styles.input}
-                  >
-                    <option value="">Select model</option>
-                    {modelsForBrand.map((bike, index) => (
-                      <option key={index} value={bike.model}>
-                        {bike.displayName}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              )}
-
-              {selectedBike && (
-                <div className={styles.inputGroup}>
-                  <label>Size</label>
-                  <select
-                    value={selectedSize}
-                    onChange={(e) => handleSizeChange(e.target.value)}
-                    className={styles.input}
-                  >
-                    <option value="">Select size</option>
-                    {Object.keys(selectedBike.sizes).map((size) => (
-                      <option key={size} value={size}>
-                        {size}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              )}
-            </div>
-
-            {/* Build Name */}
-            <div className={styles.card}>
-              <LabelWithHelp text="Build Name" helpUrl="build-name" />
-              <input
-                type="text"
-                value={buildName}
-                onChange={(e) => setBuildName(e.target.value)}
-                className={styles.input}
-              />
-            </div>
-
-            {/* Rider Inputs */}
+            {/* Rider Inputs - NOW AT TOP */}
             <div className={styles.card}>
               <h2>Rider Inputs</h2>
               
@@ -423,6 +430,153 @@ export default function Home() {
               )}
             </div>
 
+            {/* Choose Your Bike - NEW SECTION WITH RADIO BUTTONS */}
+            <div className={styles.card}>
+              <h2>
+                Choose Your Bike{' '}
+                <a 
+                  href="https://www.llbmtb.com/choose-your-bike" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className={styles.helpLink}
+                >
+                  (?)
+                </a>
+              </h2>
+              
+              {/* Selection Mode Radio Buttons */}
+              <div className={styles.radioGroup}>
+                <label className={styles.radioLabel}>
+                  <input
+                    type="radio"
+                    name="selectionMode"
+                    value="manual"
+                    checked={selectionMode === 'manual'}
+                    onChange={() => handleModeChange('manual')}
+                  />
+                  <span>Enter frame specs manually</span>
+                </label>
+                
+                <label className={styles.radioLabel}>
+                  <input
+                    type="radio"
+                    name="selectionMode"
+                    value="filtered"
+                    checked={selectionMode === 'filtered'}
+                    onChange={() => handleModeChange('filtered')}
+                  />
+                  <span>Show me matching bikes</span>
+                </label>
+              </div>
+              
+              {/* Show Filtered Bike Selector */}
+              {selectionMode === 'filtered' && (
+                <>
+                  <div className={styles.inputGroup} style={{ marginTop: '16px' }}>
+                    <label>
+                      Show bikes that fit me with a{' '}
+                      <select
+                        value={reachPreference}
+                        onChange={(e) => {
+                          setReachPreference(e.target.value);
+                          setSelectedBrand('');
+                          setSelectedModel('');
+                          setSelectedSize('');
+                        }}
+                        className={styles.inlineSelect}
+                        style={{ display: 'inline', width: 'auto', marginLeft: '4px', marginRight: '4px' }}
+                      >
+                        <option value="short">short reach</option>
+                        <option value="medium">medium reach</option>
+                        <option value="long">long reach</option>
+                        <option value="all">Show all bikes in DiRT database</option>
+                      </select>
+                      <a 
+                        href="https://www.llbmtb.com/reach-preference" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className={styles.helpLink}
+                      >
+                        (?)
+                      </a>
+                    </label>
+                  </div>
+                  
+                  {/* Show filtered bike selector or no results message */}
+                  {filteredBikes.length === 0 ? (
+                    <div className={styles.noResults}>
+                      ⚠️ No matching bikes. Change reach range or enter frame specs manually.
+                    </div>
+                  ) : (
+                    <>
+                      <div className={styles.inputGroup}>
+                        <label>Brand</label>
+                        <select
+                          value={selectedBrand}
+                          onChange={(e) => handleBrandChange(e.target.value)}
+                          className={styles.input}
+                        >
+                          <option value="">Select brand</option>
+                          {availableBrands.map((brand) => (
+                            <option key={brand} value={brand}>
+                              {brand}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+
+                      {selectedBrand && (
+                        <div className={styles.inputGroup}>
+                          <label>Model</label>
+                          <select
+                            value={selectedModel}
+                            onChange={(e) => handleModelChange(e.target.value)}
+                            className={styles.input}
+                          >
+                            <option value="">Select model</option>
+                            {modelsForBrand.map((bike, index) => (
+                              <option key={index} value={bike.model}>
+                                {bike.displayName}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+                      )}
+
+                      {selectedBike && (
+                        <div className={styles.inputGroup}>
+                          <label>Size</label>
+                          <select
+                            value={selectedSize}
+                            onChange={(e) => handleSizeChange(e.target.value)}
+                            className={styles.input}
+                          >
+                            <option value="">Select size</option>
+                            {Object.keys(selectedBike.sizes).map((size) => (
+                              <option key={size} value={size}>
+                                {size}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+                      )}
+                    </>
+                  )}
+                </>
+              )}
+            </div>
+
+            {/* Build Name */}
+            <div className={styles.card}>
+              <LabelWithHelp text="Build Name" helpUrl="build-name" />
+              <input
+                type="text"
+                value={buildName}
+                onChange={(e) => setBuildName(e.target.value)}
+                className={styles.input}
+              />
+            </div>
+
             {/* Frame Geometry */}
             <div className={styles.card}>
               <h2>Frame Geometry</h2>
@@ -434,6 +588,7 @@ export default function Home() {
                     value={headAngle}
                     onChange={(e) => setHeadAngle(e.target.value)}
                     className={styles.input}
+                    disabled={selectionMode === 'filtered'}
                   />
                 </div>
                 <div className={styles.inputGroup}>
@@ -443,6 +598,7 @@ export default function Home() {
                     value={seatAngle}
                     onChange={(e) => setSeatAngle(e.target.value)}
                     className={styles.input}
+                    disabled={selectionMode === 'filtered'}
                   />
                 </div>
               </div>
@@ -454,6 +610,7 @@ export default function Home() {
                     value={reach}
                     onChange={(e) => setReach(e.target.value)}
                     className={styles.input}
+                    disabled={selectionMode === 'filtered'}
                   />
                 </div>
                 <div className={styles.inputGroup}>
@@ -463,6 +620,7 @@ export default function Home() {
                     value={stack}
                     onChange={(e) => setStack(e.target.value)}
                     className={styles.input}
+                    disabled={selectionMode === 'filtered'}
                   />
                 </div>
               </div>
@@ -475,6 +633,7 @@ export default function Home() {
                     onChange={(e) => setChainstayLength(e.target.value)}
                     className={styles.input}
                     placeholder="Optional"
+                    disabled={selectionMode === 'filtered'}
                   />
                 </div>
                 <div className={styles.inputGroup}>
@@ -485,6 +644,7 @@ export default function Home() {
                     onChange={(e) => setWheelbase(e.target.value)}
                     className={styles.input}
                     placeholder="Optional"
+                    disabled={selectionMode === 'filtered'}
                   />
                 </div>
               </div>
@@ -594,7 +754,7 @@ export default function Home() {
               <button 
                 onClick={runCalculation} 
                 className={styles.runButton}
-                disabled={loading}
+                disabled={loading || (selectionMode === 'filtered' && !selectedSize)}
               >
                 {loading ? 'CALCULATING...' : 'RUN DiRT'}
               </button>

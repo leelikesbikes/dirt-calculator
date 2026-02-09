@@ -128,10 +128,6 @@ export default function Home() {
     ? (selectionMode === 'manual' ? bikes : filteredBikes).find(bike => bike.brand === selectedBrand && bike.model === selectedModel)
     : null;
   
-  // Component selectors
-  const [handlebarType, setHandlebarType] = useState('bike-default'); // 'bike-default', 'choose-bar', 'enter-specs'
-  const [stemType, setStemType] = useState('bike-default'); // 'bike-default', 'choose-stem', 'enter-specs'
-  
   // Register service worker for offline capability (works even in iframe)
   useEffect(() => {
     if ('serviceWorker' in navigator) {

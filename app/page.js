@@ -32,6 +32,40 @@ export default function Home() {
   const [selectedModel, setSelectedModel] = useState('');
   const [selectedSize, setSelectedSize] = useState('');
   
+  // Component selectors
+  const [handlebarType, setHandlebarType] = useState('bike-default'); // 'bike-default', 'choose-bar', 'enter-specs'
+  const [stemType, setStemType] = useState('bike-default'); // 'bike-default', 'choose-stem', 'enter-specs'
+  
+  // Rider inputs - MUST BE BEFORE calculatedRAD
+  const [proportionType, setProportionType] = useState('Average');
+  const [riderHeight, setRiderHeight] = useState(1750);
+  const [providedHeight, setProvidedHeight] = useState(1750);
+  const [providedRAD, setProvidedRAD] = useState(782);
+  const [providedInseam, setProvidedInseam] = useState(805);
+  
+  // Frame inputs
+  const [headAngle, setHeadAngle] = useState(66);
+  const [reach, setReach] = useState(410);
+  const [stack, setStack] = useState(635);
+  const [seatAngle, setSeatAngle] = useState(74);
+  const [chainstayLength, setChainstayLength] = useState('');
+  const [wheelbase, setWheelbase] = useState('');
+  
+  // Component inputs
+  const [handlebarSetback, setHandlebarSetback] = useState(30);
+  const [handlebarRise, setHandlebarRise] = useState(20);
+  const [stemLength, setStemLength] = useState(40);
+  const [stemAngle, setStemAngle] = useState(0);
+  const [stemHeight, setStemHeight] = useState(40);
+  const [spacers, setSpacers] = useState(10);
+  const [topCap, setTopCap] = useState(5);
+  const [crankLength, setCrankLength] = useState(170);
+  const [pedalThickness, setPedalThickness] = useState(15);
+  
+  // Results
+  const [results, setResults] = useState(null);
+  const [loading, setLoading] = useState(false);
+  
   // Get unique brands
   const brands = [...new Set(bikes.map(bike => bike.brand))].sort();
   
@@ -98,36 +132,6 @@ export default function Home() {
   const [handlebarType, setHandlebarType] = useState('bike-default'); // 'bike-default', 'choose-bar', 'enter-specs'
   const [stemType, setStemType] = useState('bike-default'); // 'bike-default', 'choose-stem', 'enter-specs'
   
-  // Rider inputs
-  const [proportionType, setProportionType] = useState('Average');
-  const [riderHeight, setRiderHeight] = useState(1750);
-  const [providedHeight, setProvidedHeight] = useState(1750);
-  const [providedRAD, setProvidedRAD] = useState(782);
-  const [providedInseam, setProvidedInseam] = useState(805);
-  
-  // Frame inputs
-  const [headAngle, setHeadAngle] = useState(66);
-  const [reach, setReach] = useState(410);
-  const [stack, setStack] = useState(635);
-  const [seatAngle, setSeatAngle] = useState(74);
-  const [chainstayLength, setChainstayLength] = useState('');
-  const [wheelbase, setWheelbase] = useState('');
-  
-  // Component inputs
-  const [handlebarSetback, setHandlebarSetback] = useState(30);
-  const [handlebarRise, setHandlebarRise] = useState(20);
-  const [stemLength, setStemLength] = useState(40);
-  const [stemAngle, setStemAngle] = useState(0);
-  const [stemHeight, setStemHeight] = useState(40);
-  const [spacers, setSpacers] = useState(10);
-  const [topCap, setTopCap] = useState(5);
-  const [crankLength, setCrankLength] = useState(170);
-  const [pedalThickness, setPedalThickness] = useState(15);
-  
-  // Results
-  const [results, setResults] = useState(null);
-  const [loading, setLoading] = useState(false);
-
   // Register service worker for offline capability (works even in iframe)
   useEffect(() => {
     if ('serviceWorker' in navigator) {

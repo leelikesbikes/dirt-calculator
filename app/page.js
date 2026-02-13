@@ -889,7 +889,9 @@ FRAME GEOMETRY
   Head Angle: ${headAngle}°
   Seat Angle: ${seatAngle}°
   Reach: ${reach} mm
-  Stack: ${stack} mm
+  Stack: ${stack} mm${chainstayLength ? `
+  Chainstay Length: ${chainstayLength} mm` : ''}${wheelbase ? `
+  Wheelbase: ${wheelbase} mm` : ''}
 
 COMPONENTS
   Handlebar Setback: ${handlebarSetback} mm

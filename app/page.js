@@ -186,22 +186,17 @@ export default function Home() {
     setSelectedSize('');
   };
   
-  // Handle selection mode change (acts like RESET)
+  // Handle selection mode change (only resets bike selection, not rider inputs)
   const handleModeChange = (mode) => {
     setSelectionMode(mode);
     
-    // Reset everything like RESET button
+    // Only reset bike-related fields
     setSelectedBrand('');
     setSelectedModel('');
     setSelectedSize('');
     setBuildName('My Sweet Bike');
     
-    setProportionType('Average');
-    setRiderHeight(1750);
-    setProvidedHeight(1750);
-    setProvidedRAD(782);
-    setProvidedInseam(805);
-    
+    // Reset frame geometry to defaults
     setHeadAngle(66);
     setReach(410);
     setStack(635);
@@ -209,6 +204,7 @@ export default function Home() {
     setChainstayLength('');
     setWheelbase('');
     
+    // Reset components to defaults
     setHandlebarSetback(30);
     setHandlebarRise(20);
     setStemLength(40);
@@ -219,7 +215,10 @@ export default function Home() {
     setCrankLength(170);
     setPedalThickness(15);
     
+    // Clear results
     setResults(null);
+    
+    // DO NOT reset rider inputs - user keeps their height/RAD settings
   };
   
   const resetToDefaults = () => {

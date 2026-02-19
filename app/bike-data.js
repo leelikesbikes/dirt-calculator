@@ -1,5 +1,5 @@
 // Bike database - Accurate data from manufacturer specifications
-// Last updated: February 8, 2026
+// Last updated: February 19, 2026
 // Recheck annually for model updates
 
 export const bikes = [

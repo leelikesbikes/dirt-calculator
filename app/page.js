@@ -37,11 +37,16 @@ export default function Home() {
   const [stemType, setStemType] = useState('bike-default'); // 'bike-default', 'choose-stem', 'enter-specs'
   
   // Rider inputs - MUST BE BEFORE calculatedRAD
-  const [proportionType, setProportionType] = useState('Average');
+  const [proportionType, setProportionType] = useState('Average male');
   const [riderHeight, setRiderHeight] = useState(1750);
   const [providedHeight, setProvidedHeight] = useState(1750);
   const [providedRAD, setProvidedRAD] = useState(782);
   const [providedInseam, setProvidedInseam] = useState(805);
+  
+  // Handlebar width calculator inputs
+  const [armLength, setArmLength] = useState('Average');
+  const [shoulderWidth, setShoulderWidth] = useState('Average');
+  const [shoulderHealth, setShoulderHealth] = useState('Good');
   
   // Frame inputs
   const [headAngle, setHeadAngle] = useState(66);
@@ -70,9 +75,47 @@ export default function Home() {
   const brands = [...new Set(bikes.map(bike => bike.brand))].sort();
   
   // Calculate RAD for filtering
-  const calculatedRAD = proportionType === 'Average' 
-    ? riderHeight * 0.447 
+  const calculatedRAD = proportionType === 'Average male'
+    ? riderHeight * 0.447
+    : proportionType === 'Average female'
+    ? riderHeight * 0.442
     : providedRAD;
+  
+  // Calculate inseam based on proportion type
+  const calculatedInseam = proportionType === 'Average male'
+    ? riderHeight * 0.46
+    : proportionType === 'Average female'
+    ? riderHeight * 0.48
+    : providedInseam;
+  
+  // Calculate handlebar width
+  const calculateHandlebarWidth = () => {
+    // Base width from height
+    let baseWidth = proportionType === 'Average male'
+      ? riderHeight * 0.43
+      : proportionType === 'Average female'
+      ? riderHeight * 0.41
+      : riderHeight * 0.42;
+    
+    // Arm length adjustment
+    if (armLength === 'Shorter than average') baseWidth -= 10;
+    if (armLength === 'Longer than average') baseWidth += 10;
+    
+    // Shoulder width adjustment
+    if (shoulderWidth === 'Narrower than average') baseWidth -= 15;
+    if (shoulderWidth === 'Wider than average') baseWidth += 15;
+    
+    // Shoulder health adjustment
+    if (shoulderHealth === 'A bit creaky') baseWidth -= 10;
+    if (shoulderHealth === "Something's wrong in there") baseWidth -= 25;
+    
+    return Math.round(baseWidth);
+  };
+  
+  const handlebarWidth = calculateHandlebarWidth();
+  
+  // Calculate maximum crank length
+  const maxCrankLength = Math.round(calculatedInseam * 0.2);
   
   // Get reach range based on preference
   const getReachRange = () => {
@@ -186,17 +229,22 @@ export default function Home() {
     setSelectedSize('');
   };
   
-  // Handle selection mode change (only resets bike selection, not rider inputs)
+  // Handle selection mode change (acts like RESET)
   const handleModeChange = (mode) => {
     setSelectionMode(mode);
     
-    // Only reset bike-related fields
+    // Reset everything like RESET button
     setSelectedBrand('');
     setSelectedModel('');
     setSelectedSize('');
     setBuildName('My Sweet Bike');
     
-    // Reset frame geometry to defaults
+    setProportionType('Average');
+    setRiderHeight(1750);
+    setProvidedHeight(1750);
+    setProvidedRAD(782);
+    setProvidedInseam(805);
+    
     setHeadAngle(66);
     setReach(410);
     setStack(635);
@@ -204,7 +252,6 @@ export default function Home() {
     setChainstayLength('');
     setWheelbase('');
     
-    // Reset components to defaults
     setHandlebarSetback(30);
     setHandlebarRise(20);
     setStemLength(40);
@@ -215,10 +262,7 @@ export default function Home() {
     setCrankLength(170);
     setPedalThickness(15);
     
-    // Clear results
     setResults(null);
-    
-    // DO NOT reset rider inputs - user keeps their height/RAD settings
   };
   
   const resetToDefaults = () => {
@@ -229,11 +273,16 @@ export default function Home() {
     setBuildName('My Sweet Bike');
     
     // Reset rider inputs
-    setProportionType('Average');
+    setProportionType('Average male');
     setRiderHeight(1750);
     setProvidedHeight(1750);
     setProvidedRAD(782);
     setProvidedInseam(805);
+    
+    // Reset handlebar width calculator
+    setArmLength('Average');
+    setShoulderWidth('Average');
+    setShoulderHealth('Good');
     
     // Reset frame inputs
     setHeadAngle(66);
@@ -374,16 +423,25 @@ export default function Home() {
                 <LabelWithHelp text="Proportions" helpUrl="proportions" />
                 <select
                   value={proportionType}
-                  onChange={(e) => setProportionType(e.target.value)}
+                  onChange={(e) => {
+                    const newType = e.target.value;
+                    setProportionType(newType);
+                    // Auto-set defaults for "Not average"
+                    if (newType === 'Not average') {
+                      setProvidedRAD(Math.round(riderHeight * 0.4435));
+                      setProvidedInseam(Math.round(riderHeight * 0.47));
+                    }
+                  }}
                   className={styles.input}
                 >
-                  <option value="Average">Average</option>
+                  <option value="Average male">Average male</option>
+                  <option value="Average female">Average female</option>
                   <option value="Not average">Not average</option>
                 </select>
               </div>
 
               {/* Conditional Inputs Based on Proportion Type */}
-              {proportionType === 'Average' ? (
+              {proportionType !== 'Not average' ? (
                 <>
                   <div className={styles.inputGroup}>
                     <LabelWithHelp text="Height (mm)" helpUrl="height" />
@@ -396,7 +454,7 @@ export default function Home() {
                   </div>
                   {riderHeight && (
                     <div className={styles.helpText}>
-                      RAD: {Math.round(riderHeight * 0.447)} mm | Inseam: {Math.round(riderHeight * 0.46)} mm
+                      RAD: {Math.round(calculatedRAD)} mm | Inseam: {Math.round(calculatedInseam)} mm
                     </div>
                   )}
                 </>
@@ -406,8 +464,14 @@ export default function Home() {
                     <LabelWithHelp text="Height (mm)" helpUrl="height" />
                     <input
                       type="number"
-                      value={providedHeight}
-                      onChange={(e) => setProvidedHeight(e.target.value)}
+                      value={riderHeight}
+                      onChange={(e) => {
+                        const newHeight = e.target.value;
+                        setRiderHeight(newHeight);
+                        setProvidedHeight(newHeight);
+                        setProvidedRAD(Math.round(newHeight * 0.4435));
+                        setProvidedInseam(Math.round(newHeight * 0.47));
+                      }}
                       className={styles.input}
                     />
                   </div>
@@ -431,6 +495,52 @@ export default function Home() {
                   </div>
                 </>
               )}
+              
+              {/* Handlebar Width Calculator Section */}
+              <div style={{ borderTop: '1px solid #e5e7eb', marginTop: '20px', paddingTop: '20px' }}>
+                <div style={{ marginBottom: '16px' }}>
+                  <strong style={{ fontSize: '15px' }}>Handlebar width calculator</strong>
+                </div>
+                
+                <div className={styles.inputGroup}>
+                  <label>Arm length</label>
+                  <select
+                    value={armLength}
+                    onChange={(e) => setArmLength(e.target.value)}
+                    className={styles.input}
+                  >
+                    <option value="Average">Average</option>
+                    <option value="Shorter than average">Shorter than average</option>
+                    <option value="Longer than average">Longer than average</option>
+                  </select>
+                </div>
+                
+                <div className={styles.inputGroup}>
+                  <label>Shoulder width</label>
+                  <select
+                    value={shoulderWidth}
+                    onChange={(e) => setShoulderWidth(e.target.value)}
+                    className={styles.input}
+                  >
+                    <option value="Average">Average</option>
+                    <option value="Narrower than average">Narrower than average</option>
+                    <option value="Wider than average">Wider than average</option>
+                  </select>
+                </div>
+                
+                <div className={styles.inputGroup}>
+                  <label>Shoulder health</label>
+                  <select
+                    value={shoulderHealth}
+                    onChange={(e) => setShoulderHealth(e.target.value)}
+                    className={styles.input}
+                  >
+                    <option value="Good">Good</option>
+                    <option value="A bit creaky">A bit creaky</option>
+                    <option value="Something's wrong in there">Something's wrong in there</option>
+                  </select>
+                </div>
+              </div>
             </div>
 
             {/* Choose Your Bike - NEW SECTION WITH RADIO BUTTONS */}
@@ -855,6 +965,24 @@ export default function Home() {
                       <span>{results.radLeverageRatio}</span>
                     </div>
                   )}
+                  
+                  {/* Maximum Crank Length */}
+                  <div className={styles.resultRow}>
+                    <span>
+                      Maximum Crank Length{' '}
+                      <a href="https://www.llbmtb.com/crank" target="_blank" rel="noopener noreferrer" className={styles.helpLink}>(?)</a>
+                    </span>
+                    <span>{maxCrankLength} mm</span>
+                  </div>
+                  
+                  {/* Handlebar Width */}
+                  <div className={styles.resultRow}>
+                    <span>
+                      Handlebar Width{' '}
+                      <a href="https://www.llbmtb.com/bar" target="_blank" rel="noopener noreferrer" className={styles.helpLink}>(?)</a>
+                    </span>
+                    <span>{handlebarWidth} mm</span>
+                  </div>
                 </div>
               )}
             </div>
@@ -888,9 +1016,7 @@ FRAME GEOMETRY
   Head Angle: ${headAngle}°
   Seat Angle: ${seatAngle}°
   Reach: ${reach} mm
-  Stack: ${stack} mm${chainstayLength ? `
-  Chainstay Length: ${chainstayLength} mm` : ''}${wheelbase ? `
-  Wheelbase: ${wheelbase} mm` : ''}
+  Stack: ${stack} mm
 
 COMPONENTS
   Handlebar Setback: ${handlebarSetback} mm
@@ -915,6 +1041,8 @@ RESULTS
   Heavy Hands Index: ${getHHIDisplay(results.hhi, results.barSaddleHeight)}${results.foreAftBalance ? `
   Fore/aft Balance: ${results.foreAftBalance}` : ''}${results.radLeverageRatio ? `
   RAD Leverage Ratio: ${results.radLeverageRatio}` : ''}
+  Maximum Crank Length: ${maxCrankLength} mm
+  Handlebar Width: ${handlebarWidth} mm
 
 ═══════════════════════════════════════════════════════`}
               </pre>

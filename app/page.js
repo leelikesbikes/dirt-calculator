@@ -978,7 +978,7 @@ export default function Home() {
                   {/* Handlebar Width */}
                   <div className={styles.resultRow}>
                     <span>
-                      Handlebar Width{' '}
+                      Maximum Bar Width{' '}
                       <a href="https://www.llbmtb.com/bar" target="_blank" rel="noopener noreferrer" className={styles.helpLink}>(?)</a>
                     </span>
                     <span>{handlebarWidth} mm</span>

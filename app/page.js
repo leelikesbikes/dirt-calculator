@@ -412,6 +412,7 @@ export default function Home() {
                       setProvidedRAD(Math.round(riderHeight * 0.4435));
                       setProvidedInseam(Math.round(riderHeight * 0.47));
                     }
+                    setResults(null); // Clear stale results
                   }}
                   className={styles.input}
                 >
@@ -429,7 +430,10 @@ export default function Home() {
                     <input
                       type="number"
                       value={riderHeight}
-                      onChange={(e) => setRiderHeight(e.target.value)}
+                      onChange={(e) => {
+                        setRiderHeight(e.target.value);
+                        setResults(null); // Clear stale results
+                      }}
                       className={styles.input}
                     />
                   </div>
@@ -452,6 +456,7 @@ export default function Home() {
                         setProvidedHeight(newHeight);
                         setProvidedRAD(Math.round(newHeight * 0.4435));
                         setProvidedInseam(Math.round(newHeight * 0.47));
+                        setResults(null); // Clear stale results
                       }}
                       className={styles.input}
                     />
@@ -461,7 +466,10 @@ export default function Home() {
                     <input
                       type="number"
                       value={providedRAD}
-                      onChange={(e) => setProvidedRAD(e.target.value)}
+                      onChange={(e) => {
+                        setProvidedRAD(e.target.value);
+                        setResults(null); // Clear stale results
+                      }}
                       className={styles.input}
                     />
                   </div>
@@ -470,7 +478,10 @@ export default function Home() {
                     <input
                       type="number"
                       value={providedInseam}
-                      onChange={(e) => setProvidedInseam(e.target.value)}
+                      onChange={(e) => {
+                        setProvidedInseam(e.target.value);
+                        setResults(null); // Clear stale results
+                      }}
                       className={styles.input}
                     />
                   </div>

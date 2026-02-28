@@ -1000,15 +1000,17 @@ Build: ${buildName}
 
 RIDER
   Proportions: ${proportionType}
-  Height: ${Math.round(results.finalHeight)} mm
-  RAD: ${Math.round(results.calculatedRAD)} mm
-  Inseam: ${Math.round(results.calculatedInseam)} mm
+  Height: ${Math.round(riderHeight)} mm
+  RAD: ${Math.round(calculatedRAD)} mm
+  Inseam: ${Math.round(calculatedInseam)} mm
 
 FRAME GEOMETRY
   Head Angle: ${headAngle}°
   Seat Angle: ${seatAngle}°
   Reach: ${reach} mm
-  Stack: ${stack} mm
+  Stack: ${stack} mm${chainstayLength ? `
+  Chainstay Length: ${chainstayLength} mm` : ''}${wheelbase ? `
+  Wheelbase: ${wheelbase} mm` : ''}
 
 COMPONENTS
   Handlebar Setback: ${handlebarSetback} mm

@@ -107,7 +107,51 @@ export async function POST(request) {
     const forceGripsHorizontal = ((seatedReachDiagonal - gripShoulderHoriz) * (torsoMass * torsoCOMDistance - armMass * seatShoulderHoriz) - armMass * (armCOMDistance - seatShoulderHoriz) * seatShoulderHoriz) / determinate * -1;
     
     const totalForce = forceGripsVertical + forceGripsHorizontal;
-    const hhi = totalForce * 3.14;
+    const rawHHI = totalForce * 3.14;
+    
+    // NORMALIZE HHI TO 1750mm REFERENCE HEIGHT
+    // This makes HHI comparable across different rider heights
+    const referenceHeight = 1750;
+    const scaleFactor = referenceHeight / finalHeight;
+    
+    // Scale all measurements to reference height
+    const scaledArmLength = armLength * scaleFactor;
+    const scaledTorsoLength = torsoLength * scaleFactor;
+    const scaledSeatedReach = seatedReach * scaleFactor;
+    const scaledBarSaddleHeight = barSaddleHeight * scaleFactor;
+    
+    // Recalculate HHI with scaled values (masses stay constant at 58 and 10)
+    const scaledSeatedReachHoriz = scaledSeatedReach;
+    const scaledSeatedReachVert = scaledBarSaddleHeight;
+    const scaledInverseSeatedReachVert = scaledSeatedReachVert * -1;
+    const scaledSeatedReachDiagonal = Math.sqrt(scaledSeatedReachHoriz**2 + scaledSeatedReachVert**2);
+    
+    const scaledTorsoAngleCalc = Math.max(-1, Math.min(1, 
+        ((scaledTorsoLength**2 + (scaledSeatedReach**2 + scaledBarSaddleHeight**2) - scaledArmLength**2) / 
+        (2 * scaledTorsoLength * Math.sqrt(scaledSeatedReach**2 + scaledBarSaddleHeight**2)))
+    ));
+    const scaledTorsoAngle = (Math.acos(scaledTorsoAngleCalc) * 180 / Math.PI) + (Math.atan(scaledSeatedReachVert / scaledSeatedReachHoriz) * 180 / Math.PI);
+    
+    const scaledAngleG = Math.acos((scaledArmLength**2 + scaledSeatedReachDiagonal**2 - scaledTorsoLength**2) / (2 * scaledArmLength * scaledSeatedReachDiagonal)) * 180 / Math.PI;
+    const scaledAngleSGAbsolute = Math.atan(scaledSeatedReachVert / scaledSeatedReachHoriz) * 180 / Math.PI;
+    const scaledAngleSAbsolute = scaledTorsoAngle + scaledAngleSGAbsolute;
+    const scaledAngleGAbsolute = scaledAngleG - scaledAngleSGAbsolute;
+    
+    const scaledSeatShoulderVert = scaledTorsoLength * Math.cos(Math.atan2(scaledSeatedReachHoriz, scaledInverseSeatedReachVert) + (scaledAngleSAbsolute * Math.PI / 180)) * -1;
+    const scaledSeatShoulderHoriz = scaledTorsoLength * Math.sin(Math.atan2(scaledSeatedReachHoriz, scaledInverseSeatedReachVert) + (scaledAngleSAbsolute * Math.PI / 180));
+    const scaledGripShoulderVert = scaledArmLength * Math.cos(Math.atan2(scaledSeatedReachHoriz, scaledInverseSeatedReachVert) + (scaledAngleGAbsolute * Math.PI / 180)) * -1;
+    const scaledGripShoulderHoriz = scaledArmLength * Math.sin(Math.atan2(scaledSeatedReachHoriz, scaledInverseSeatedReachVert) + (scaledAngleGAbsolute * Math.PI / 180));
+    
+    const scaledTorsoCOMDistance = scaledSeatShoulderHoriz * 0.6;
+    const scaledArmCOMDistance = scaledGripShoulderHoriz * 0.6;
+    
+    const scaledDeterminate = (scaledSeatedReachHoriz - scaledSeatShoulderHoriz) * (-scaledSeatShoulderVert) - (scaledSeatedReachVert + scaledSeatShoulderVert) * scaledSeatShoulderHoriz;
+    
+    const scaledForceGripsVertical = (armMass * (scaledArmCOMDistance - scaledSeatShoulderHoriz) * (-scaledSeatShoulderVert) - (scaledSeatedReachVert + scaledSeatShoulderVert) * (torsoMass * scaledTorsoCOMDistance - armMass * scaledSeatShoulderHoriz)) / scaledDeterminate;
+    const scaledForceGripsHorizontal = ((scaledSeatedReachDiagonal - scaledGripShoulderHoriz) * (torsoMass * scaledTorsoCOMDistance - armMass * scaledSeatShoulderHoriz) - armMass * (scaledArmCOMDistance - scaledSeatShoulderHoriz) * scaledSeatShoulderHoriz) / scaledDeterminate * -1;
+    
+    const scaledTotalForce = scaledForceGripsVertical + scaledForceGripsHorizontal;
+    const hhi = scaledTotalForce * 3.14;  // This is now height-normalized!
     
     // Calculate new metrics if data available
     let foreAftBalance = null;

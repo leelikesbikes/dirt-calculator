@@ -233,35 +233,16 @@ export default function Home() {
   const handleModeChange = (mode) => {
     setSelectionMode(mode);
     
-    // Reset everything like RESET button
+    // Only reset bike selection
     setSelectedBrand('');
     setSelectedModel('');
     setSelectedSize('');
     setBuildName('My Sweet Bike');
     
-    setProportionType('Average');
-    setRiderHeight(1750);
-    setProvidedHeight(1750);
-    setProvidedRAD(782);
-    setProvidedInseam(805);
+    // DON'T reset rider inputs, frame geometry, OR components
+    // Keep ALL values from selected bike (they become editable in manual mode)
     
-    setHeadAngle(66);
-    setReach(410);
-    setStack(635);
-    setSeatAngle(74);
-    setChainstayLength('');
-    setWheelbase('');
-    
-    setHandlebarSetback(30);
-    setHandlebarRise(20);
-    setStemLength(40);
-    setStemAngle(0);
-    setStemHeight(40);
-    setSpacers(10);
-    setTopCap(5);
-    setCrankLength(170);
-    setPedalThickness(15);
-    
+    // Clear results
     setResults(null);
   };
   

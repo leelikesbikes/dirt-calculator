@@ -302,8 +302,8 @@ export default function Home() {
           proportionType,
           riderHeight,
           providedHeight,
-          providedRAD,
-          providedInseam,
+          providedRAD: calculatedRAD, // Send calculated RAD
+          providedInseam: calculatedInseam, // Send calculated inseam
           headAngle,
           reach,
           stack,

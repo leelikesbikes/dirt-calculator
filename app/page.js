@@ -47,6 +47,7 @@ export default function Home() {
   const [armLength, setArmLength] = useState('Average');
   const [shoulderWidth, setShoulderWidth] = useState('Average');
   const [shoulderHealth, setShoulderHealth] = useState('Good');
+  const [barCalcExpanded, setBarCalcExpanded] = useState(false);
   
   // Frame inputs
   const [headAngle, setHeadAngle] = useState(66);
@@ -488,50 +489,71 @@ export default function Home() {
                 </>
               )}
               
-              {/* Handlebar Width Calculator Section */}
+              {/* Handlebar Width Calculator Section - Collapsible */}
               <div style={{ borderTop: '1px solid #e5e7eb', marginTop: '20px', paddingTop: '20px' }}>
-                <div style={{ marginBottom: '16px' }}>
-                  <strong style={{ fontSize: '15px' }}>Handlebar width calculator</strong>
+                <div 
+                  onClick={() => setBarCalcExpanded(!barCalcExpanded)}
+                  style={{ 
+                    display: 'flex', 
+                    justifyContent: 'space-between', 
+                    alignItems: 'center',
+                    cursor: 'pointer',
+                    marginBottom: barCalcExpanded ? '16px' : '0'
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <span style={{ fontSize: '18px', color: '#666' }}>
+                      {barCalcExpanded ? '▽' : '▼'}
+                    </span>
+                    <strong style={{ fontSize: '15px' }}>Handlebar width calculator</strong>
+                  </div>
+                  <span style={{ fontSize: '15px', color: '#666' }}>
+                    {handlebarWidth} mm
+                  </span>
                 </div>
                 
-                <div className={styles.inputGroup}>
-                  <label>Arm length</label>
-                  <select
-                    value={armLength}
-                    onChange={(e) => setArmLength(e.target.value)}
-                    className={styles.input}
-                  >
-                    <option value="Average">Average</option>
-                    <option value="Shorter than average">Shorter than average</option>
-                    <option value="Longer than average">Longer than average</option>
-                  </select>
-                </div>
-                
-                <div className={styles.inputGroup}>
-                  <label>Shoulder width</label>
-                  <select
-                    value={shoulderWidth}
-                    onChange={(e) => setShoulderWidth(e.target.value)}
-                    className={styles.input}
-                  >
-                    <option value="Average">Average</option>
-                    <option value="Narrower than average">Narrower than average</option>
-                    <option value="Wider than average">Wider than average</option>
-                  </select>
-                </div>
-                
-                <div className={styles.inputGroup}>
-                  <label>Shoulder health</label>
-                  <select
-                    value={shoulderHealth}
-                    onChange={(e) => setShoulderHealth(e.target.value)}
-                    className={styles.input}
-                  >
-                    <option value="Good">Good</option>
-                    <option value="A bit creaky">A bit creaky</option>
-                    <option value="Something's wrong in there">Something's wrong in there</option>
-                  </select>
-                </div>
+                {barCalcExpanded && (
+                  <>
+                    <div className={styles.inputGroup}>
+                      <label>Arm length</label>
+                      <select
+                        value={armLength}
+                        onChange={(e) => setArmLength(e.target.value)}
+                        className={styles.input}
+                      >
+                        <option value="Average">Average</option>
+                        <option value="Shorter than average">Shorter than average</option>
+                        <option value="Longer than average">Longer than average</option>
+                      </select>
+                    </div>
+                    
+                    <div className={styles.inputGroup}>
+                      <label>Shoulder width</label>
+                      <select
+                        value={shoulderWidth}
+                        onChange={(e) => setShoulderWidth(e.target.value)}
+                        className={styles.input}
+                      >
+                        <option value="Average">Average</option>
+                        <option value="Narrower than average">Narrower than average</option>
+                        <option value="Wider than average">Wider than average</option>
+                      </select>
+                    </div>
+                    
+                    <div className={styles.inputGroup}>
+                      <label>Shoulder health</label>
+                      <select
+                        value={shoulderHealth}
+                        onChange={(e) => setShoulderHealth(e.target.value)}
+                        className={styles.input}
+                      >
+                        <option value="Good">Good</option>
+                        <option value="A bit creaky">A bit creaky</option>
+                        <option value="Something's wrong in there">Something's wrong in there</option>
+                      </select>
+                    </div>
+                  </>
+                )}
               </div>
             </div>
 

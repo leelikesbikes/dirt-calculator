@@ -26,6 +26,7 @@ export default function Home() {
   // Bike selection mode
   const [selectionMode, setSelectionMode] = useState('filtered'); // 'filtered' or 'manual'
   const [reachPreference, setReachPreference] = useState('medium'); // 'short', 'medium', 'long', 'all'
+  const [bikeType, setBikeType] = useState('all'); // 'all', 'mtb', 'emtb'
   
   // Bike selector
   const [selectedBrand, setSelectedBrand] = useState('');
@@ -72,8 +73,17 @@ export default function Home() {
   const [results, setResults] = useState(null);
   const [loading, setLoading] = useState(false);
   
-  // Get unique brands
-  const brands = [...new Set(bikes.map(bike => bike.brand))].sort();
+  // Filter bikes by type first
+  const typeFilteredBikes = bikeType === 'all' 
+    ? bikes 
+    : bikes.filter(bike => {
+        if (bikeType === 'mtb') return bike.type === 'MTB';
+        if (bikeType === 'emtb') return bike.type === 'eMTB';
+        return true;
+      });
+  
+  // Get unique brands from type-filtered bikes
+  const brands = [...new Set(typeFilteredBikes.map(bike => bike.brand))].sort();
   
   // Calculate RAD for filtering
   const calculatedRAD = proportionType === 'Average male'
@@ -134,11 +144,11 @@ export default function Home() {
   const filteredBikes = selectionMode === 'filtered' && reachPreference !== 'all'
     ? (() => {
         const range = getReachRange();
-        if (!range) return bikes; // Safety check
+        if (!range) return typeFilteredBikes; // Safety check
         
         const matchingBikes = [];
         
-        bikes.forEach(bike => {
+        typeFilteredBikes.forEach(bike => {
           if (!bike || !bike.sizes) return; // Safety check
           
           const matchingSizes = Object.entries(bike.sizes).filter(([size, data]) => 
@@ -155,7 +165,7 @@ export default function Home() {
         
         return matchingBikes;
       })()
-    : bikes;
+    : typeFilteredBikes;
   
   // Get brands from filtered or all bikes
   const availableBrands = selectionMode === 'manual' 
@@ -557,7 +567,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Choose Your Bike - NEW SECTION WITH RADIO BUTTONS */}
+            {/* Choose Your Bike - THREE RADIO BUTTON OPTIONS */}
             <div className={styles.card}>
               <h2>
                 Choose Your Bike{' '}
@@ -571,19 +581,8 @@ export default function Home() {
                 </a>
               </h2>
               
-              {/* Selection Mode Radio Buttons */}
+              {/* Selection Mode Radio Buttons - 3 Options */}
               <div className={styles.radioGroup}>
-                <label className={styles.radioLabel}>
-                  <input
-                    type="radio"
-                    name="selectionMode"
-                    value="manual"
-                    checked={selectionMode === 'manual'}
-                    onChange={() => handleModeChange('manual')}
-                  />
-                  <span>Enter frame specs manually</span>
-                </label>
-                
                 <label className={styles.radioLabel}>
                   <input
                     type="radio"
@@ -594,45 +593,90 @@ export default function Home() {
                   />
                   <span>Show me matching bikes</span>
                 </label>
+                
+                <label className={styles.radioLabel}>
+                  <input
+                    type="radio"
+                    name="selectionMode"
+                    value="all"
+                    checked={selectionMode === 'all'}
+                    onChange={() => handleModeChange('all')}
+                  />
+                  <span>Show all bikes in DiRT database</span>
+                </label>
+                
+                <label className={styles.radioLabel}>
+                  <input
+                    type="radio"
+                    name="selectionMode"
+                    value="manual"
+                    checked={selectionMode === 'manual'}
+                    onChange={() => handleModeChange('manual')}
+                  />
+                  <span>Enter frame specs manually</span>
+                </label>
               </div>
               
-              {/* Show Filtered Bike Selector */}
+              {/* Type Filter - Show when filtered or all mode */}
+              {(selectionMode === 'filtered' || selectionMode === 'all') && (
+                <div className={styles.inputGroup} style={{ marginTop: '16px' }}>
+                  <label>Type of Bike</label>
+                  <select
+                    value={bikeType}
+                    onChange={(e) => {
+                      setBikeType(e.target.value);
+                      setSelectedBrand('');
+                      setSelectedModel('');
+                      setSelectedSize('');
+                    }}
+                    className={styles.input}
+                  >
+                    <option value="all">All bikes</option>
+                    <option value="mtb">Acoustic bikes</option>
+                    <option value="emtb">eBikes</option>
+                  </select>
+                </div>
+              )}
+              
+              {/* Reach Preference - Show only in filtered mode */}
               {selectionMode === 'filtered' && (
+                <div className={styles.inputGroup}>
+                  <label>
+                    Show bikes that fit me with a{' '}
+                    <select
+                      value={reachPreference}
+                      onChange={(e) => {
+                        setReachPreference(e.target.value);
+                        setSelectedBrand('');
+                        setSelectedModel('');
+                        setSelectedSize('');
+                      }}
+                      className={styles.inlineSelect}
+                      style={{ display: 'inline', width: 'auto', marginLeft: '4px', marginRight: '4px' }}
+                    >
+                      <option value="short">short reach</option>
+                      <option value="medium">medium reach</option>
+                      <option value="long">long reach</option>
+                      <option value="all">any reach</option>
+                    </select>
+                    <a 
+                      href="https://www.llbmtb.com/reach-preference" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className={styles.helpLink}
+                    >
+                      (?)
+                    </a>
+                  </label>
+                </div>
+              )}
+              
+              {/* Show bike selector for filtered or all mode */}
+              {(selectionMode === 'filtered' || selectionMode === 'all') && (
                 <>
-                  <div className={styles.inputGroup} style={{ marginTop: '16px' }}>
-                    <label>
-                      Show bikes that fit me with a{' '}
-                      <select
-                        value={reachPreference}
-                        onChange={(e) => {
-                          setReachPreference(e.target.value);
-                          setSelectedBrand('');
-                          setSelectedModel('');
-                          setSelectedSize('');
-                        }}
-                        className={styles.inlineSelect}
-                        style={{ display: 'inline', width: 'auto', marginLeft: '4px', marginRight: '4px' }}
-                      >
-                        <option value="short">short reach</option>
-                        <option value="medium">medium reach</option>
-                        <option value="long">long reach</option>
-                        <option value="all">Show all bikes in DiRT database</option>
-                      </select>
-                      <a 
-                        href="https://www.llbmtb.com/reach-preference" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className={styles.helpLink}
-                      >
-                        (?)
-                      </a>
-                    </label>
-                  </div>
-                  
-                  {/* Show filtered bike selector or no results message */}
                   {filteredBikes.length === 0 ? (
                     <div className={styles.noResults}>
-                      ⚠️ No matching bikes. Change reach range or enter frame specs manually.
+                      ⚠️ No matching bikes. Change filters or enter frame specs manually.
                     </div>
                   ) : (
                     <>
@@ -881,7 +925,7 @@ export default function Home() {
               <button 
                 onClick={runCalculation} 
                 className={styles.runButton}
-                disabled={loading || (selectionMode === 'filtered' && !selectedSize)}
+                disabled={loading || ((selectionMode === 'filtered' || selectionMode === 'all') && !selectedSize)}
               >
                 {loading ? 'CALCULATING...' : 'RUN DiRT'}
               </button>

@@ -1,6 +1,6 @@
 // Bike database - Accurate data from manufacturer specifications
-// Last updated: March 8, 2026
-// Recheck annually for model updates
+// Last updated: March 22, 2026
+// Includes both MTB and eMTB models
 
 export const bikes = [
   {
@@ -8,6 +8,7 @@ export const bikes = [
     model: "Stumpjumper 15",
     year: "2026",
     displayName: "Stumpjumper 15",
+    type: "MTB",
     sizes: {
       "S1": {
         reach: 400.0,
@@ -118,6 +119,7 @@ export const bikes = [
     model: "Fuel EX",
     year: "2026",
     displayName: "Fuel EX Gen 7",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 431.0,
@@ -211,6 +213,7 @@ export const bikes = [
     model: "Hightower",
     year: "2026",
     displayName: "Hightower 2026 hi",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 435.0,
@@ -304,6 +307,7 @@ export const bikes = [
     model: "Ripmo v3",
     year: "2026",
     displayName: "Ripmo v3 (29)",
+    type: "MTB",
     sizes: {
       "SM": {
         reach: 436.0,
@@ -397,6 +401,7 @@ export const bikes = [
     model: "GoodOnYa",
     year: "2026",
     displayName: "GoodOnYa",
+    type: "MTB",
     sizes: {
       "M1": {
         reach: 360.0,
@@ -490,6 +495,7 @@ export const bikes = [
     model: "NoWukkas",
     year: "2026",
     displayName: "NoWukkas",
+    type: "MTB",
     sizes: {
       "M1": {
         reach: 360.0,
@@ -583,6 +589,7 @@ export const bikes = [
     model: "Super D",
     year: "2026",
     displayName: "Super D",
+    type: "MTB",
     sizes: {
       "M1": {
         reach: 360.0,
@@ -676,6 +683,7 @@ export const bikes = [
     model: "Mach 7",
     year: "2026",
     displayName: "Mach 7",
+    type: "MTB",
     sizes: {
       "M1": {
         reach: 360.0,
@@ -769,6 +777,7 @@ export const bikes = [
     model: "Trance",
     year: "2026",
     displayName: "Trance 2026 low",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 422.0,
@@ -845,6 +854,7 @@ export const bikes = [
     model: "Ripley",
     year: "2026",
     displayName: "Ripley 2026",
+    type: "MTB",
     sizes: {
       "SM": {
         reach: 440.0,
@@ -938,6 +948,7 @@ export const bikes = [
     model: "Trail 429",
     year: "2025",
     displayName: "Trail 429 2025 low",
+    type: "MTB",
     sizes: {
       "XS": {
         reach: 410.0,
@@ -1031,6 +1042,7 @@ export const bikes = [
     model: "Switchblade",
     year: "2026",
     displayName: "Switchblade 2026",
+    type: "MTB",
     sizes: {
       "XS": {
         reach: 410.0,
@@ -1124,6 +1136,7 @@ export const bikes = [
     model: "Altitude",
     year: "2026",
     displayName: "Altitude 2026 - Pos 3",
+    type: "MTB",
     sizes: {
       "S (27.5)": {
         reach: 430.0,
@@ -1200,6 +1213,7 @@ export const bikes = [
     model: "Instinct",
     year: "2026",
     displayName: "Instinct 2026 - Pos 3",
+    type: "MTB",
     sizes: {
       "XS (27.5)": {
         reach: 405.0,
@@ -1310,6 +1324,7 @@ export const bikes = [
     model: "Element",
     year: "2026",
     displayName: "Element 2026 - Pos 3",
+    type: "MTB",
     sizes: {
       "XS (27.5)": {
         reach: 403.0,
@@ -1403,6 +1418,7 @@ export const bikes = [
     model: "Sentinel",
     year: "2026",
     displayName: "Sentinel 2026",
+    type: "MTB",
     sizes: {
       "XS (27.5)": {
         reach: 415.0,
@@ -1513,6 +1529,7 @@ export const bikes = [
     model: "Scout",
     year: "2026",
     displayName: "Scout 2026",
+    type: "MTB",
     sizes: {
       "XS": {
         reach: 410.0,
@@ -1572,6 +1589,7 @@ export const bikes = [
     model: "Spur",
     year: "2026",
     displayName: "Spur 2026 (low)",
+    type: "MTB",
     sizes: {
       "SM": {
         reach: 425.0,
@@ -1648,6 +1666,7 @@ export const bikes = [
     model: "Following LS",
     year: "2026",
     displayName: "Following LS 2026 (X-Low)",
+    type: "MTB",
     sizes: {
       "Small": {
         reach: 434.0,
@@ -1724,6 +1743,7 @@ export const bikes = [
     model: "Following SID",
     year: "2026",
     displayName: "Following SID 2026 (x-low)",
+    type: "MTB",
     sizes: {
       "Small": {
         reach: 440.0,
@@ -1800,6 +1820,7 @@ export const bikes = [
     model: "Offering",
     year: "2026",
     displayName: "Offering 2026 (Low)",
+    type: "MTB",
     sizes: {
       "Small": {
         reach: 444.0,
@@ -1944,6 +1965,7 @@ export const bikes = [
     model: "Mayhem 140",
     year: "2026",
     displayName: "Mayhem 140 2026 (160mm)",
+    type: "MTB",
     sizes: {
       "SM": {
         reach: 409.0,
@@ -2020,6 +2042,7 @@ export const bikes = [
     model: "Rollik 150",
     year: "2019",
     displayName: "Rollik 150 2019 (Std)",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 412.0,
@@ -2096,6 +2119,7 @@ export const bikes = [
     model: "Spectral AL",
     year: "2026",
     displayName: "Spectral AL 2026",
+    type: "MTB",
     sizes: {
       "XS": {
         reach: 425.0,
@@ -2189,6 +2213,7 @@ export const bikes = [
     model: "Neuron AF",
     year: "2026",
     displayName: "Neuron AL 2026",
+    type: "MTB",
     sizes: {
       "XS (27.5)": {
         reach: 410.0,
@@ -2282,6 +2307,7 @@ export const bikes = [
     model: "Lux Trail",
     year: "2026",
     displayName: "Lux Trail 2030",
+    type: "MTB",
     sizes: {
       "XS": {
         reach: 412.0,
@@ -2375,6 +2401,7 @@ export const bikes = [
     model: "Meta TR",
     year: "2026",
     displayName: "Meta TR 2026 (low)",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 440.0,
@@ -2451,6 +2478,7 @@ export const bikes = [
     model: "Meta SX",
     year: "2026",
     displayName: "Meta SX 2026",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 440.0,
@@ -2527,6 +2555,7 @@ export const bikes = [
     model: "Jeffsy",
     year: "2026",
     displayName: "Jeffsy 2026 AF",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 435.0,
@@ -2620,6 +2649,7 @@ export const bikes = [
     model: "Capra",
     year: "2026",
     displayName: "Capra 2026 AF (29, Low)",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 427.0,
@@ -2713,6 +2743,7 @@ export const bikes = [
     model: "Izzo",
     year: "2026",
     displayName: "Izzo 2026",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 424.0,
@@ -2806,6 +2837,7 @@ export const bikes = [
     model: "Siskiu",
     year: "2026",
     displayName: "Siskiu 2026 T",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 440.0,
@@ -2882,6 +2914,7 @@ export const bikes = [
     model: "Collosus T",
     year: "2026",
     displayName: "Collosus T 2026",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 440.0,
@@ -2958,6 +2991,7 @@ export const bikes = [
     model: "Collusus N",
     year: "2026",
     displayName: "Collosus N 2026",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 440.0,
@@ -3034,6 +3068,7 @@ export const bikes = [
     model: "Delano Peak",
     year: "2026",
     displayName: "Delano Peak 2026",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 430.0,
@@ -3110,6 +3145,7 @@ export const bikes = [
     model: "Cascade Peak",
     year: "2026",
     displayName: "Delano Cascade 2026",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 430.0,
@@ -3186,6 +3222,7 @@ export const bikes = [
     model: "Rift Zone",
     year: "2025",
     displayName: "Rift Zone 2025",
+    type: "MTB",
     sizes: {
       "XS": {
         reach: 415.0,
@@ -3279,6 +3316,7 @@ export const bikes = [
     model: "Alpine",
     year: "2026",
     displayName: "Alpine 2026",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 430.0,
@@ -3355,6 +3393,7 @@ export const bikes = [
     model: "Sight",
     year: "2026",
     displayName: "Sight 2026 Gen 5 (MX)",
+    type: "MTB",
     sizes: {
       "1.0": {
         reach: 422.5,
@@ -3448,6 +3487,7 @@ export const bikes = [
     model: "Optic",
     year: "2025",
     displayName: "Optic 2025 Gen 3 (MX)",
+    type: "MTB",
     sizes: {
       "1.0": {
         reach: 422.5,
@@ -3541,6 +3581,7 @@ export const bikes = [
     model: "Fluid FS",
     year: "2025",
     displayName: "Fluid FS AF 2025",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 420.0,
@@ -3634,6 +3675,7 @@ export const bikes = [
     model: "Revolver",
     year: "2026",
     displayName: "Revolver 130 Gen 3",
+    type: "MTB",
     sizes: {
       "1.0": {
         reach: 418.0,
@@ -3727,6 +3769,7 @@ export const bikes = [
     model: "Trailcat LT",
     year: "2026",
     displayName: "Trailcat LT 2026 (LOW)",
+    type: "MTB",
     sizes: {
       "XS": {
         reach: 405.0,
@@ -3820,6 +3863,7 @@ export const bikes = [
     model: "Trailcat SL",
     year: "2026",
     displayName: "Trailcat SL 2026 (LOW)",
+    type: "MTB",
     sizes: {
       "XS": {
         reach: 410.0,
@@ -3913,6 +3957,7 @@ export const bikes = [
     model: "Shadowcat",
     year: "2026",
     displayName: "Shadowcat 2026",
+    type: "MTB",
     sizes: {
       "XS": {
         reach: 410.0,
@@ -3989,6 +4034,7 @@ export const bikes = [
     model: "Stumpjumper 15 EVO",
     year: "2026",
     displayName: "Stumpjumper 15 EVO (low)",
+    type: "MTB",
     sizes: {
       "S1": {
         reach: 400.0,
@@ -4099,6 +4145,7 @@ export const bikes = [
     model: "Enduro",
     year: "2026",
     displayName: "Enduro 2026",
+    type: "MTB",
     sizes: {
       "S2": {
         reach: 437.0,
@@ -4175,6 +4222,7 @@ export const bikes = [
     model: "Epic",
     year: "2026",
     displayName: "Epic 8 (LOW)",
+    type: "MTB",
     sizes: {
       "XS": {
         reach: 390.0,
@@ -4268,6 +4316,7 @@ export const bikes = [
     model: "Epic EVO",
     year: "2026",
     displayName: "Epic 8 EVO (LOW)",
+    type: "MTB",
     sizes: {
       "XS": {
         reach: 385.0,
@@ -4361,6 +4410,7 @@ export const bikes = [
     model: "Fuel LX",
     year: "2026",
     displayName: "Fuel LX Gen 7",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 418.0,
@@ -4454,6 +4504,7 @@ export const bikes = [
     model: "Fuel MX",
     year: "2026",
     displayName: "Fuel MX Gen 7",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 426.0,
@@ -4547,6 +4598,7 @@ export const bikes = [
     model: "Remedy",
     year: "2024",
     displayName: "Remedy 2024 (high)",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 401.0,
@@ -4640,6 +4692,7 @@ export const bikes = [
     model: "Top Fuel",
     year: "2026",
     displayName: "Top Fuel Gen 4 (high)",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 422.0,
@@ -4733,6 +4786,7 @@ export const bikes = [
     model: "Bronson",
     year: "2026",
     displayName: "Bronson 2026 (high)",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 435.0,
@@ -4826,6 +4880,7 @@ export const bikes = [
     model: "Tallboy",
     year: "2026",
     displayName: "Tallboy 2026 (high)",
+    type: "MTB",
     sizes: {
       "XS": {
         reach: 405.0,
@@ -4936,6 +4991,7 @@ export const bikes = [
     model: "5010.0",
     year: "2026",
     displayName: "5010 2026 (high)",
+    type: "MTB",
     sizes: {
       "XS": {
         reach: 410.0,
@@ -5046,6 +5102,7 @@ export const bikes = [
     model: "Reign",
     year: "2025",
     displayName: "Reign Advanced Pro 1 (low) 2025",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 426.0,
@@ -5122,6 +5179,7 @@ export const bikes = [
     model: "Anthem",
     year: "2025",
     displayName: "Anthem Advanced 29 (low) 2025",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 420.0,
@@ -5198,6 +5256,7 @@ export const bikes = [
     model: "Trance X Advanced Pro 29 SE",
     year: "2025",
     displayName: "Trance X Advanced Pro 29 SE (low) 2025",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 426.0,
@@ -5274,6 +5333,7 @@ export const bikes = [
     model: "SB120",
     year: "2026",
     displayName: "SB120 2026",
+    type: "MTB",
     sizes: {
       "XS": {
         reach: 392.0,
@@ -5384,6 +5444,7 @@ export const bikes = [
     model: "SB140",
     year: "2026",
     displayName: "SB140 2026",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 430.0,
@@ -5477,6 +5538,7 @@ export const bikes = [
     model: "SB160",
     year: "2026",
     displayName: "SB160 2026",
+    type: "MTB",
     sizes: {
       "SM": {
         reach: 435.0,
@@ -5570,6 +5632,7 @@ export const bikes = [
     model: "Troy ST",
     year: "2026",
     displayName: "Troy ST 2026 (LOW)",
+    type: "MTB",
     sizes: {
       "XS": {
         reach: 423.0,
@@ -5663,6 +5726,7 @@ export const bikes = [
     model: "Troy",
     year: "2026",
     displayName: "Troy 2026 (LOW)",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 440.0,
@@ -5739,6 +5803,7 @@ export const bikes = [
     model: "Chainsaw",
     year: "2026",
     displayName: "Chainsaw 2026 (LOW)",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 445.0,
@@ -5815,6 +5880,7 @@ export const bikes = [
     model: "Fugitive 125",
     year: "2026",
     displayName: "Fugitive 125 2026 (Neutral)",
+    type: "MTB",
     sizes: {
       "S2 - Small": {
         reach: 443.0,
@@ -5891,6 +5957,7 @@ export const bikes = [
     model: "Fugitive 140",
     year: "2026",
     displayName: "Fugitive 140 2026 (Neutral)",
+    type: "MTB",
     sizes: {
       "S2 - Small": {
         reach: 440.0,
@@ -5967,6 +6034,7 @@ export const bikes = [
     model: "Chilcotin 155",
     year: "2026",
     displayName: "Chilcotin 155 2026 (Neutral)",
+    type: "MTB",
     sizes: {
       "S2 - Small": {
         reach: 462.0,
@@ -6043,6 +6111,7 @@ export const bikes = [
     model: "Warden 170",
     year: "2026",
     displayName: "Warden 170 2026 (Neutral)",
+    type: "MTB",
     sizes: {
       "S1 - X-Small": {
         reach: 431.0,
@@ -6136,6 +6205,7 @@ export const bikes = [
     model: "Process 153",
     year: "2026",
     displayName: "Process 153 2026 Gen 3",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 430.0,
@@ -6212,6 +6282,7 @@ export const bikes = [
     model: "Process 134",
     year: "2026",
     displayName: "Process 134 2026 Gen 3",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 430.0,
@@ -6288,6 +6359,7 @@ export const bikes = [
     model: "Hei Hei",
     year: "2026",
     displayName: "Hei Hei 2026 G10",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 424.0,
@@ -6364,6 +6436,7 @@ export const bikes = [
     model: "Highball",
     year: "2026",
     displayName: "Highball 2026",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 415.0,
@@ -6440,6 +6513,7 @@ export const bikes = [
     model: "Cameleon",
     year: "2026",
     displayName: "Cameleon 2026",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 420.0,
@@ -6516,6 +6590,7 @@ export const bikes = [
     model: "Chisel HT",
     year: "2026",
     displayName: "Chisel HT 2026",
+    type: "MTB",
     sizes: {
       "XS": {
         reach: 385.0,
@@ -6609,6 +6684,7 @@ export const bikes = [
     model: "Chisel",
     year: "2026",
     displayName: "Chisel 2026 (low)",
+    type: "MTB",
     sizes: {
       "XS": {
         reach: 385.0,
@@ -6702,6 +6778,7 @@ export const bikes = [
     model: "Procaliber",
     year: "2026",
     displayName: "Procaliber Gen 3",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 405.0,
@@ -6795,6 +6872,7 @@ export const bikes = [
     model: "Supercaliber",
     year: "2026",
     displayName: "Supercaliber Gen 2",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 410.0,
@@ -6888,6 +6966,7 @@ export const bikes = [
     model: "ARC",
     year: "2026",
     displayName: "ARC 2026",
+    type: "MTB",
     sizes: {
       "SM": {
         reach: 420.0,
@@ -6964,6 +7043,7 @@ export const bikes = [
     model: "Les SL",
     year: "2026",
     displayName: "Les SL 2026",
+    type: "MTB",
     sizes: {
       "XS": {
         reach: 400.0,
@@ -7057,6 +7137,7 @@ export const bikes = [
     model: "DV9",
     year: "2026",
     displayName: "DV9 2026",
+    type: "MTB",
     sizes: {
       "SM": {
         reach: 404.0,
@@ -7133,6 +7214,7 @@ export const bikes = [
     model: "Tracer 279",
     year: "2026",
     displayName: "Tracer 279 2026",
+    type: "MTB",
     sizes: {
       "SM": {
         reach: 420.0,
@@ -7209,6 +7291,7 @@ export const bikes = [
     model: "Tracer 29",
     year: "2026",
     displayName: "Tracer 29 2026",
+    type: "MTB",
     sizes: {
       "MD": {
         reach: 450.0,
@@ -7268,6 +7351,7 @@ export const bikes = [
     model: "Primer",
     year: "2026",
     displayName: "Primer 2026",
+    type: "MTB",
     sizes: {
       "SM": {
         reach: 427.0,
@@ -7344,6 +7428,7 @@ export const bikes = [
     model: "Spider",
     year: "2026",
     displayName: "Spider 2026",
+    type: "MTB",
     sizes: {
       "SM": {
         reach: 430.0,
@@ -7420,6 +7505,7 @@ export const bikes = [
     model: "Druid 29",
     year: "2026",
     displayName: "Druid 29 2026",
+    type: "MTB",
     sizes: {
       "S1": {
         reach: 440.0,
@@ -7496,6 +7582,7 @@ export const bikes = [
     model: "Druid MX",
     year: "2026",
     displayName: "Druid MX 2026",
+    type: "MTB",
     sizes: {
       "S1": {
         reach: 435.0,
@@ -7572,6 +7659,7 @@ export const bikes = [
     model: "Dreadnought 29",
     year: "2026",
     displayName: "Dreadnought 29 2026",
+    type: "MTB",
     sizes: {
       "S1": {
         reach: 435.0,
@@ -7648,6 +7736,7 @@ export const bikes = [
     model: "Dreadnought MX",
     year: "2026",
     displayName: "Dreadnought MX 2026",
+    type: "MTB",
     sizes: {
       "S1": {
         reach: 430.0,
@@ -7724,6 +7813,7 @@ export const bikes = [
     model: "Neuron Young Hero",
     year: "2026",
     displayName: "Neuron YoungHero 2026",
+    type: "MTB",
     sizes: {
     }
   },
@@ -7732,6 +7822,7 @@ export const bikes = [
     model: "Maxwell 27.5",
     year: "2026",
     displayName: "Maxwell 27.5 (140mm)",
+    type: "MTB",
     sizes: {
       "OS": {
         reach: 428.7,
@@ -7757,6 +7848,7 @@ export const bikes = [
     model: "Meta HT",
     year: "2026",
     displayName: "Meta HT V3",
+    type: "MTB",
     sizes: {
       "XS": {
         reach: 383.0,
@@ -7850,6 +7942,7 @@ export const bikes = [
     model: "Rascal",
     year: "2026",
     displayName: "Rascal 2026",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 431.0,
@@ -7943,6 +8036,7 @@ export const bikes = [
     model: "Ranger",
     year: "2026",
     displayName: "Ranger 2026",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 430.0,
@@ -8019,6 +8113,7 @@ export const bikes = [
     model: "Ritual",
     year: "2026",
     displayName: "Ritual 2026",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 433.0,
@@ -8095,6 +8190,7 @@ export const bikes = [
     model: "Titan",
     year: "2026",
     displayName: "Titan V3.2 (29, low, 170mm, compact)",
+    type: "MTB",
     sizes: {
       "M": {
         reach: 445.0,
@@ -8154,6 +8250,7 @@ export const bikes = [
     model: "Spitfire",
     year: "2026",
     displayName: "Spitfire V3.2 (27.5, 150mm, long)",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 420.0,
@@ -8230,6 +8327,7 @@ export const bikes = [
     model: "Prime",
     year: "2026",
     displayName: "Prime V3.2 (29, low, 150mm, compact) ",
+    type: "MTB",
     sizes: {
       "M": {
         reach: 450.0,
@@ -8289,6 +8387,7 @@ export const bikes = [
     model: "Stage 7",
     year: "2026",
     displayName: "Stage 7 2026",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 458.0,
@@ -8365,6 +8464,7 @@ export const bikes = [
     model: "Stage 6",
     year: "2026",
     displayName: "Stage 6 2026",
+    type: "MTB",
     sizes: {
       "M": {
         reach: 468.0,
@@ -8424,6 +8524,7 @@ export const bikes = [
     model: "Lithium",
     year: "2026",
     displayName: "Lithium 2026",
+    type: "MTB",
     sizes: {
     }
   },
@@ -8432,6 +8533,7 @@ export const bikes = [
     model: "Tilt",
     year: "2026",
     displayName: "Tilt 2026",
+    type: "MTB",
     sizes: {
       "Small": {
         reach: 425.0,
@@ -8508,6 +8610,7 @@ export const bikes = [
     model: "Nimble 9",
     year: "2026",
     displayName: "Nimble 9 2026",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 425.0,
@@ -8584,6 +8687,7 @@ export const bikes = [
     model: "Oiz",
     year: "2026",
     displayName: "Oiz 2026",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 425.0,
@@ -8660,6 +8764,7 @@ export const bikes = [
     model: "Occam",
     year: "2026",
     displayName: "Occam 2026",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 438.0,
@@ -8736,6 +8841,7 @@ export const bikes = [
     model: "Rallon",
     year: "2026",
     displayName: "Rallon 2026 (29, high prog, neutral, long)",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 430.0,
@@ -8812,6 +8918,7 @@ export const bikes = [
     model: "Murmur",
     year: "2026",
     displayName: "Murmur 2026",
+    type: "MTB",
     sizes: {
       "Medium": {
         reach: 450.0,
@@ -8905,6 +9012,7 @@ export const bikes = [
     model: "Ripley SL",
     year: "2026",
     displayName: "Ripley SL 2026",
+    type: "MTB",
     sizes: {
       "SM": {
         reach: 407.0,
@@ -8998,6 +9106,7 @@ export const bikes = [
     model: "Exie-USA",
     year: "2026",
     displayName: "Exie-USA 2026",
+    type: "MTB",
     sizes: {
       "SM": {
         reach: 413.0,
@@ -9074,6 +9183,7 @@ export const bikes = [
     model: "A170",
     year: "2026",
     displayName: "A170 2026",
+    type: "MTB",
     sizes: {
       "410 Low": {
         reach: 410.0,
@@ -9456,6 +9566,7 @@ export const bikes = [
     model: "A150",
     year: "2026",
     displayName: "A150 2026",
+    type: "MTB",
     sizes: {
       "410 Low": {
         reach: 410.0,
@@ -9838,6 +9949,7 @@ export const bikes = [
     model: "A130",
     year: "2026",
     displayName: "A130 2026",
+    type: "MTB",
     sizes: {
       "410 Low": {
         reach: 404.0,
@@ -10220,6 +10332,7 @@ export const bikes = [
     model: "S150",
     year: "2026",
     displayName: "S150 2026",
+    type: "MTB",
     sizes: {
       "1.0": {
         reach: 415.0,
@@ -10432,6 +10545,7 @@ export const bikes = [
     model: "S170",
     year: "2026",
     displayName: "S170 2026",
+    type: "MTB",
     sizes: {
       "1.0": {
         reach: 405.0,
@@ -10644,6 +10758,7 @@ export const bikes = [
     model: "Dogma XC SL 120",
     year: "2026",
     displayName: "Dogma XC SL 120 2026",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 426.5,
@@ -10720,6 +10835,7 @@ export const bikes = [
     model: "Dogma XC (HT)",
     year: "2026",
     displayName: "Dogma XC (HT) 2026",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 423.1,
@@ -10796,6 +10912,7 @@ export const bikes = [
     model: "Highlander II",
     year: "2026",
     displayName: "Highlander II 2026",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 430.0,
@@ -10872,6 +10989,7 @@ export const bikes = [
     model: "Claymore",
     year: "2026",
     displayName: "Claymore 2026",
+    type: "MTB",
     sizes: {
       "M": {
         reach: 460.0,
@@ -10931,6 +11049,7 @@ export const bikes = [
     model: "Zesty CF",
     year: "2026",
     displayName: "Zesty CF 2026",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 435.0,
@@ -11007,6 +11126,7 @@ export const bikes = [
     model: "Spicy CF",
     year: "2025",
     displayName: "Spicy CF 2025",
+    type: "MTB",
     sizes: {
       "XS": {
         reach: 410.0,
@@ -11100,6 +11220,7 @@ export const bikes = [
     model: "XRM",
     year: "2026",
     displayName: "XRM 2026",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 415.0,
@@ -11176,6 +11297,7 @@ export const bikes = [
     model: "Turbo Levo 4",
     year: "2026",
     displayName: "Turbo Levo 4 2026",
+    type: "eMTB",
     sizes: {
       "S2": {
         reach: 435.0,
@@ -11269,6 +11391,7 @@ export const bikes = [
     model: "Turbo Levo SL",
     year: "2026",
     displayName: "Turbo Levo SL 2026",
+    type: "eMTB",
     sizes: {
       "S1": {
         reach: 405.0,
@@ -11379,6 +11502,7 @@ export const bikes = [
     model: "Turbo Levo R",
     year: "2026",
     displayName: "Turbo Levo R 2026",
+    type: "eMTB",
     sizes: {
       "S1 (27.5)": {
         reach: 400.0,
@@ -11489,6 +11613,7 @@ export const bikes = [
     model: "Fuel+ MX",
     year: "2026",
     displayName: "Fuel+ MX Gen 2",
+    type: "eMTB",
     sizes: {
       "S": {
         reach: 426.0,
@@ -11582,6 +11707,7 @@ export const bikes = [
     model: "Fuel+ LX",
     year: "2026",
     displayName: "Fuel+ LX Gen 2",
+    type: "eMTB",
     sizes: {
       "S": {
         reach: 418.0,
@@ -11675,6 +11801,7 @@ export const bikes = [
     model: "Fuel+ EX",
     year: "2026",
     displayName: "Fuel+ EX Gen 2",
+    type: "eMTB",
     sizes: {
       "S": {
         reach: 431.0,
@@ -11768,6 +11895,7 @@ export const bikes = [
     model: "Powerfly FS+",
     year: "2026",
     displayName: "Powerfly FS+ Gen 4",
+    type: "eMTB",
     sizes: {
       "S": {
         reach: 425.0,
@@ -11844,6 +11972,7 @@ export const bikes = [
     model: "Rail+",
     year: "2026",
     displayName: "Rail+ Gen5 (high)",
+    type: "eMTB",
     sizes: {
       "S": {
         reach: 435.0,
@@ -11920,6 +12049,7 @@ export const bikes = [
     model: "Slash+",
     year: "2026",
     displayName: "Slash+ 2026",
+    type: "eMTB",
     sizes: {
       "S": {
         reach: 430.0,
@@ -11996,6 +12126,7 @@ export const bikes = [
     model: "Embolden",
     year: "2025",
     displayName: "Embolden 2025",
+    type: "MTB",
     sizes: {
       "XS (27.5)": {
         reach: 404.0,
@@ -12089,6 +12220,7 @@ export const bikes = [
     model: "Intrigue 29",
     year: "2025",
     displayName: "Intrigue 29 2025",
+    type: "MTB",
     sizes: {
       "S Low": {
         reach: 415.0,
@@ -12199,6 +12331,7 @@ export const bikes = [
     model: "Intrigue LT",
     year: "2025",
     displayName: "Intrigue LT 2025 (high)",
+    type: "MTB",
     sizes: {
       "XS (mx)": {
         reach: 406.0,
@@ -12275,6 +12408,7 @@ export const bikes = [
     model: "Intrigue Advanced X",
     year: "2025",
     displayName: "Intrigue Advanced X 2 (high)",
+    type: "MTB",
     sizes: {
       "XS (mx)": {
         reach: 405.0,
@@ -12351,6 +12485,7 @@ export const bikes = [
     model: "Pique X Advanced SL",
     year: "2026",
     displayName: "Pique X Advanced SL 3 (high)",
+    type: "MTB",
     sizes: {
       "XS": {
         reach: 400.0,
@@ -12427,6 +12562,7 @@ export const bikes = [
     model: "Tempt E+",
     year: "2026",
     displayName: "Tempt E+ 2026",
+    type: "eMTB",
     sizes: {
       "XS": {
         reach: 433.0,
@@ -12503,6 +12639,7 @@ export const bikes = [
     model: "Intrigue X Advanced E+",
     year: "2024",
     displayName: "Intrigue X Advanced E+ 2024",
+    type: "eMTB",
     sizes: {
       "XS": {
         reach: 419.0,
@@ -12562,6 +12699,7 @@ export const bikes = [
     model: "Embolden E+",
     year: "2023",
     displayName: "Embolden E+ 2023",
+    type: "eMTB",
     sizes: {
       "XS": {
         reach: 426.0,
@@ -12638,6 +12776,7 @@ export const bikes = [
     model: "Habit 26",
     year: "2026",
     displayName: "Habit 26 2026",
+    type: "MTB",
     sizes: {
       "One Size": {
         reach: 350.0,
@@ -12663,6 +12802,7 @@ export const bikes = [
     model: "Habit Carbon",
     year: "2026",
     displayName: "Habit Carbon 2026",
+    type: "MTB",
     sizes: {
       "XS": {
         reach: 405.0,
@@ -12756,6 +12896,7 @@ export const bikes = [
     model: "Habit LT",
     year: "2026",
     displayName: "Habit LT 2026",
+    type: "MTB",
     sizes: {
       "XS": {
         reach: 400.0,
@@ -12849,6 +12990,7 @@ export const bikes = [
     model: "Jekyll",
     year: "2026",
     displayName: "Jekyll 2026",
+    type: "MTB",
     sizes: {
       "S": {
         reach: 425.0,
@@ -12925,6 +13067,7 @@ export const bikes = [
     model: "Scalpel",
     year: "2026",
     displayName: "Scalpel 2026",
+    type: "MTB",
     sizes: {
       "SM": {
         reach: 425.0,
@@ -13001,6 +13144,7 @@ export const bikes = [
     model: "Mach 4 SL",
     year: "2026",
     displayName: "Mach 4 SL 2026",
+    type: "MTB",
     sizes: {
       "XS": {
         reach: 410.0,
@@ -13094,6 +13238,7 @@ export const bikes = [
     model: "Joplin",
     year: "2026",
     displayName: "Joplin 2026 (low)",
+    type: "MTB",
     sizes: {
       "XS": {
         reach: 403.0,
@@ -13153,6 +13298,7 @@ export const bikes = [
     model: "Furtado",
     year: "2026",
     displayName: "Furtado 2026 (low)",
+    type: "MTB",
     sizes: {
       "XS": {
         reach: 406.0,
@@ -13212,6 +13358,7 @@ export const bikes = [
     model: "Roubion",
     year: "2026",
     displayName: "Roubion 2026 (lo)",
+    type: "MTB",
     sizes: {
       "XS": {
         reach: 402.0,
@@ -13263,6 +13410,1264 @@ export const bikes = [
         pedalThickness: 15.0,
         rearCentre: 436.0,
         wheelbase: 1222.0,
+      },
+    }
+  },
+  {
+    brand: "Scott",
+    model: "Spark",
+    year: "2026",
+    displayName: "Spark 2026",
+    type: "MTB",
+    sizes: {
+      "S": {
+        reach: 410.0,
+        stack: 607.5,
+        headAngle: 65.8,
+        seatAngle: 75.7,
+        handlebarRise: 30.0,
+        handlebarSetback: 30.0,
+        stemLength: 50.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 170.0,
+        pedalThickness: 15.0,
+        rearCentre: 437.5,
+        wheelbase: 1145.0,
+      },
+      "M": {
+        reach: 440.0,
+        stack: 607.5,
+        headAngle: 65.8,
+        seatAngle: 75.9,
+        handlebarRise: 30.0,
+        handlebarSetback: 30.0,
+        stemLength: 60.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 175.0,
+        pedalThickness: 15.0,
+        rearCentre: 437.5,
+        wheelbase: 1174.0,
+      },
+      "L": {
+        reach: 470.0,
+        stack: 617.7,
+        headAngle: 65.8,
+        seatAngle: 76.4,
+        handlebarRise: 30.0,
+        handlebarSetback: 30.0,
+        stemLength: 60.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 175.0,
+        pedalThickness: 15.0,
+        rearCentre: 437.5,
+        wheelbase: 1205.0,
+      },
+      "XL": {
+        reach: 500.0,
+        stack: 627.0,
+        headAngle: 65.8,
+        seatAngle: 76.7,
+        handlebarRise: 30.0,
+        handlebarSetback: 30.0,
+        stemLength: 70.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 175.0,
+        pedalThickness: 15.0,
+        rearCentre: 437.5,
+        wheelbase: 1236.0,
+      },
+    }
+  },
+  {
+    brand: "Scott",
+    model: "Scale",
+    year: "2026",
+    displayName: "Scale 2026",
+    type: "MTB",
+    sizes: {
+      "XS": {
+        reach: 400.3,
+        stack: 596.1,
+        headAngle: 67.4,
+        seatAngle: 75.0,
+        handlebarRise: 30.0,
+        handlebarSetback: 30.0,
+        stemLength: 50.0,
+        stemAngle: 6.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 170.0,
+        pedalThickness: 15.0,
+        rearCentre: 425.0,
+        wheelbase: 1091.4,
+      },
+      "S": {
+        reach: 420.3,
+        stack: 596.1,
+        headAngle: 67.4,
+        seatAngle: 75.0,
+        handlebarRise: 30.0,
+        handlebarSetback: 30.0,
+        stemLength: 50.0,
+        stemAngle: 6.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 170.0,
+        pedalThickness: 15.0,
+        rearCentre: 425.0,
+        wheelbase: 1111.8,
+      },
+      "M": {
+        reach: 442.8,
+        stack: 605.3,
+        headAngle: 67.4,
+        seatAngle: 75.0,
+        handlebarRise: 30.0,
+        handlebarSetback: 30.0,
+        stemLength: 60.0,
+        stemAngle: 6.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 175.0,
+        pedalThickness: 15.0,
+        rearCentre: 425.0,
+        wheelbase: 1138.2,
+      },
+      "L": {
+        reach: 463.3,
+        stack: 614.6,
+        headAngle: 67.4,
+        seatAngle: 75.0,
+        handlebarRise: 30.0,
+        handlebarSetback: 30.0,
+        stemLength: 70.0,
+        stemAngle: 6.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 175.0,
+        pedalThickness: 15.0,
+        rearCentre: 425.0,
+        wheelbase: 1164.6,
+      },
+      "XL": {
+        reach: 492.9,
+        stack: 623.8,
+        headAngle: 67.4,
+        seatAngle: 75.0,
+        handlebarRise: 30.0,
+        handlebarSetback: 30.0,
+        stemLength: 80.0,
+        stemAngle: 6.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 175.0,
+        pedalThickness: 15.0,
+        rearCentre: 425.0,
+        wheelbase: 1195.9,
+      },
+      "XXL": {
+        reach: 512.9,
+        stack: 623.8,
+        headAngle: 67.4,
+        seatAngle: 75.0,
+        handlebarRise: 30.0,
+        handlebarSetback: 30.0,
+        stemLength: 80.0,
+        stemAngle: 6.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 175.0,
+        pedalThickness: 15.0,
+        rearCentre: 425.0,
+        wheelbase: 1215.9,
+      },
+    }
+  },
+  {
+    brand: "Scott",
+    model: "Ransom",
+    year: "2026",
+    displayName: "Voltage 2026",
+    type: "eMTB",
+    sizes: {
+      "S": {
+        reach: 437.4,
+        stack: 622.3,
+        headAngle: 63.9,
+        seatAngle: 77.1,
+        handlebarRise: 15.0,
+        handlebarSetback: 30.0,
+        stemLength: 40.0,
+        stemAngle: 4.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 170.0,
+        pedalThickness: 15.0,
+        rearCentre: 455.0,
+        wheelbase: 1232.8,
+      },
+      "M": {
+        reach: 457.2,
+        stack: 622.4,
+        headAngle: 63.9,
+        seatAngle: 77.1,
+        handlebarRise: 15.0,
+        handlebarSetback: 30.0,
+        stemLength: 40.0,
+        stemAngle: 4.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 170.0,
+        pedalThickness: 15.0,
+        rearCentre: 455.0,
+        wheelbase: 1252.6,
+      },
+      "L": {
+        reach: 485.0,
+        stack: 631.3,
+        headAngle: 63.9,
+        seatAngle: 77.1,
+        handlebarRise: 25.0,
+        handlebarSetback: 30.0,
+        stemLength: 50.0,
+        stemAngle: 4.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 175.0,
+        pedalThickness: 15.0,
+        rearCentre: 455.0,
+        wheelbase: 1284.8,
+      },
+      "XL": {
+        reach: 512.7,
+        stack: 640.2,
+        headAngle: 63.9,
+        seatAngle: 77.1,
+        handlebarRise: 25.0,
+        handlebarSetback: 30.0,
+        stemLength: 50.0,
+        stemAngle: 4.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 175.0,
+        pedalThickness: 15.0,
+        rearCentre: 455.0,
+        wheelbase: 1316.9,
+      },
+    }
+  },
+  {
+    brand: "Scott",
+    model: "Patron",
+    year: "2026",
+    displayName: "Patron 2026",
+    type: "eMTB",
+    sizes: {
+      "S": {
+        reach: 439.4,
+        stack: 643.0,
+        headAngle: 65.8,
+        seatAngle: 77.4,
+        handlebarRise: 15.0,
+        handlebarSetback: 30.0,
+        stemLength: 50.0,
+        stemAngle: 4.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 165.0,
+        pedalThickness: 15.0,
+        rearCentre: 453.5,
+        wheelbase: 1212.8,
+      },
+      "M": {
+        reach: 459.3,
+        stack: 647.4,
+        headAngle: 65.8,
+        seatAngle: 77.2,
+        handlebarRise: 15.0,
+        handlebarSetback: 30.0,
+        stemLength: 50.0,
+        stemAngle: 4.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 165.0,
+        pedalThickness: 15.0,
+        rearCentre: 453.5,
+        wheelbase: 1234.9,
+      },
+      "L": {
+        reach: 484.7,
+        stack: 656.3,
+        headAngle: 65.8,
+        seatAngle: 77.2,
+        handlebarRise: 25.0,
+        handlebarSetback: 30.0,
+        stemLength: 50.0,
+        stemAngle: 4.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 165.0,
+        pedalThickness: 15.0,
+        rearCentre: 453.5,
+        wheelbase: 1264.7,
+      },
+      "XL": {
+        reach: 514.2,
+        stack: 665.1,
+        headAngle: 65.8,
+        seatAngle: 77.2,
+        handlebarRise: 25.0,
+        handlebarSetback: 30.0,
+        stemLength: 50.0,
+        stemAngle: 4.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 165.0,
+        pedalThickness: 15.0,
+        rearCentre: 453.5,
+        wheelbase: 1298.4,
+      },
+    }
+  },
+  {
+    brand: "Scott",
+    model: "Patron ST",
+    year: "2026",
+    displayName: "Patron ST 2026",
+    type: "eMTB",
+    sizes: {
+      "S": {
+        reach: 428.3,
+        stack: 650.5,
+        headAngle: 64.9,
+        seatAngle: 76.4,
+        handlebarRise: 15.0,
+        handlebarSetback: 30.0,
+        stemLength: 50.0,
+        stemAngle: 4.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 165.0,
+        pedalThickness: 15.0,
+        rearCentre: 454.0,
+        wheelbase: 1222.3,
+      },
+      "M": {
+        reach: 448.3,
+        stack: 655.0,
+        headAngle: 64.9,
+        seatAngle: 76.3,
+        handlebarRise: 15.0,
+        handlebarSetback: 30.0,
+        stemLength: 50.0,
+        stemAngle: 4.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 165.0,
+        pedalThickness: 15.0,
+        rearCentre: 454.0,
+        wheelbase: 1244.5,
+      },
+      "L": {
+        reach: 473.9,
+        stack: 664.2,
+        headAngle: 64.9,
+        seatAngle: 76.3,
+        handlebarRise: 25.0,
+        handlebarSetback: 30.0,
+        stemLength: 50.0,
+        stemAngle: 4.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 165.0,
+        pedalThickness: 15.0,
+        rearCentre: 454.0,
+        wheelbase: 1274.2,
+      },
+      "XL": {
+        reach: 503.4,
+        stack: 673.3,
+        headAngle: 64.9,
+        seatAngle: 76.3,
+        handlebarRise: 25.0,
+        handlebarSetback: 30.0,
+        stemLength: 50.0,
+        stemAngle: 4.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 165.0,
+        pedalThickness: 15.0,
+        rearCentre: 454.0,
+        wheelbase: 1308.0,
+      },
+    }
+  },
+  {
+    brand: "Giant",
+    model: "Reign Advanced E+",
+    year: "2026",
+    displayName: "Reign Advanced E+ 2026 (mid)",
+    type: "eMTB",
+    sizes: {
+      "S": {
+        reach: 430.0,
+        stack: 645.0,
+        headAngle: 63.5,
+        seatAngle: 77.5,
+        handlebarRise: 35.0,
+        handlebarSetback: 30.0,
+        stemLength: 40.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 160.0,
+        pedalThickness: 15.0,
+        rearCentre: 450.0,
+        wheelbase: 1226.0,
+      },
+      "M": {
+        reach: 460.0,
+        stack: 654.0,
+        headAngle: 63.5,
+        seatAngle: 77.5,
+        handlebarRise: 35.0,
+        handlebarSetback: 30.0,
+        stemLength: 40.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 160.0,
+        pedalThickness: 15.0,
+        rearCentre: 450.0,
+        wheelbase: 1261.0,
+      },
+      "L": {
+        reach: 480.0,
+        stack: 667.0,
+        headAngle: 63.5,
+        seatAngle: 77.9,
+        handlebarRise: 35.0,
+        handlebarSetback: 30.0,
+        stemLength: 40.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 160.0,
+        pedalThickness: 15.0,
+        rearCentre: 450.0,
+        wheelbase: 1288.0,
+      },
+      "XL": {
+        reach: 510.0,
+        stack: 680.0,
+        headAngle: 63.5,
+        seatAngle: 77.9,
+        handlebarRise: 35.0,
+        handlebarSetback: 30.0,
+        stemLength: 40.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 160.0,
+        pedalThickness: 15.0,
+        rearCentre: 450.0,
+        wheelbase: 1323.0,
+      },
+    }
+  },
+  {
+    brand: "Giant",
+    model: "Stance E+",
+    year: "2027",
+    displayName: "Stance E+ 2027",
+    type: "eMTB",
+    sizes: {
+      "S": {
+        reach: 431.0,
+        stack: 614.0,
+        headAngle: 64.5,
+        seatAngle: 76.5,
+        handlebarRise: 20.0,
+        handlebarSetback: 30.0,
+        stemLength: 40.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 165.0,
+        pedalThickness: 15.0,
+        rearCentre: 468.0,
+        wheelbase: 1229.0,
+      },
+      "M": {
+        reach: 455.0,
+        stack: 628.0,
+        headAngle: 64.5,
+        seatAngle: 76.5,
+        handlebarRise: 20.0,
+        handlebarSetback: 30.0,
+        stemLength: 40.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 165.0,
+        pedalThickness: 15.0,
+        rearCentre: 468.0,
+        wheelbase: 1259.0,
+      },
+      "L": {
+        reach: 480.0,
+        stack: 641.0,
+        headAngle: 64.5,
+        seatAngle: 76.5,
+        handlebarRise: 20.0,
+        handlebarSetback: 30.0,
+        stemLength: 50.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 165.0,
+        pedalThickness: 15.0,
+        rearCentre: 468.0,
+        wheelbase: 1291.0,
+      },
+      "XL": {
+        reach: 505.0,
+        stack: 655.0,
+        headAngle: 64.5,
+        seatAngle: 76.5,
+        handlebarRise: 20.0,
+        handlebarSetback: 30.0,
+        stemLength: 50.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 165.0,
+        pedalThickness: 15.0,
+        rearCentre: 468.0,
+        wheelbase: 1322.0,
+      },
+    }
+  },
+  {
+    brand: "Giant",
+    model: "Trance X Advanced E+",
+    year: "2024",
+    displayName: "Trance X Advanced E+ (high)",
+    type: "eMTB",
+    sizes: {
+      "S": {
+        reach: 447.0,
+        stack: 601.0,
+        headAngle: 66.5,
+        seatAngle: 78.0,
+        handlebarRise: 20.0,
+        handlebarSetback: 30.0,
+        stemLength: 40.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 160.0,
+        pedalThickness: 15.0,
+        rearCentre: 447.0,
+        wheelbase: 1195.0,
+      },
+      "M": {
+        reach: 462.0,
+        stack: 605.0,
+        headAngle: 66.5,
+        seatAngle: 76.7,
+        handlebarRise: 20.0,
+        handlebarSetback: 30.0,
+        stemLength: 40.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 165.0,
+        pedalThickness: 15.0,
+        rearCentre: 447.0,
+        wheelbase: 1212.0,
+      },
+      "L": {
+        reach: 487.0,
+        stack: 619.0,
+        headAngle: 66.5,
+        seatAngle: 76.7,
+        handlebarRise: 20.0,
+        handlebarSetback: 30.0,
+        stemLength: 50.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 165.0,
+        pedalThickness: 15.0,
+        rearCentre: 447.0,
+        wheelbase: 1244.0,
+      },
+      "XL": {
+        reach: 513.0,
+        stack: 633.0,
+        headAngle: 66.5,
+        seatAngle: 76.7,
+        handlebarRise: 20.0,
+        handlebarSetback: 30.0,
+        stemLength: 50.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 170.0,
+        pedalThickness: 15.0,
+        rearCentre: 447.0,
+        wheelbase: 1275.0,
+      },
+    }
+  },
+  {
+    brand: "Santa Cruz",
+    model: "Heckler SL",
+    year: "2026",
+    displayName: "Heckler SL 2026 (hi)",
+    type: "eMTB",
+    sizes: {
+      "S": {
+        reach: 435.0,
+        stack: 614.9,
+        headAngle: 64.3,
+        seatAngle: 76.8,
+        handlebarRise: 30.0,
+        handlebarSetback: 30.0,
+        stemLength: 42.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 165.0,
+        pedalThickness: 15.0,
+        rearCentre: 443.0,
+        wheelbase: 1209.1,
+      },
+      "M": {
+        reach: 460.0,
+        stack: 624.0,
+        headAngle: 64.3,
+        seatAngle: 77.1,
+        handlebarRise: 30.0,
+        handlebarSetback: 30.0,
+        stemLength: 42.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 165.0,
+        pedalThickness: 15.0,
+        rearCentre: 443.0,
+        wheelbase: 1238.4,
+      },
+      "L": {
+        reach: 480.0,
+        stack: 633.0,
+        headAngle: 64.3,
+        seatAngle: 77.5,
+        handlebarRise: 30.0,
+        handlebarSetback: 30.0,
+        stemLength: 42.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 165.0,
+        pedalThickness: 15.0,
+        rearCentre: 443.0,
+        wheelbase: 1262.7,
+      },
+      "XL": {
+        reach: 500.0,
+        stack: 651.0,
+        headAngle: 64.3,
+        seatAngle: 77.7,
+        handlebarRise: 30.0,
+        handlebarSetback: 30.0,
+        stemLength: 42.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 165.0,
+        pedalThickness: 15.0,
+        rearCentre: 446.0,
+        wheelbase: 1294.4,
+      },
+      "XXL": {
+        reach: 525.0,
+        stack: 664.5,
+        headAngle: 64.3,
+        seatAngle: 77.8,
+        handlebarRise: 30.0,
+        handlebarSetback: 30.0,
+        stemLength: 42.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 165.0,
+        pedalThickness: 15.0,
+        rearCentre: 450.0,
+        wheelbase: 1329.9,
+      },
+    }
+  },
+  {
+    brand: "Santa Cruz",
+    model: "Bullit",
+    year: "2026",
+    displayName: "Bullit 2026 (hi)",
+    type: "eMTB",
+    sizes: {
+      "S": {
+        reach: 435.0,
+        stack: 622.0,
+        headAngle: 63.6,
+        seatAngle: 78.6,
+        handlebarRise: 20.0,
+        handlebarSetback: 30.0,
+        stemLength: 42.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 155.0,
+        pedalThickness: 15.0,
+        rearCentre: 440.0,
+        wheelbase: 1220.0,
+      },
+      "M": {
+        reach: 460.0,
+        stack: 631.0,
+        headAngle: 63.6,
+        seatAngle: 78.7,
+        handlebarRise: 35.0,
+        handlebarSetback: 30.0,
+        stemLength: 42.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 155.0,
+        pedalThickness: 15.0,
+        rearCentre: 443.0,
+        wheelbase: 1252.0,
+      },
+      "L": {
+        reach: 480.0,
+        stack: 640.0,
+        headAngle: 63.6,
+        seatAngle: 78.7,
+        handlebarRise: 35.0,
+        handlebarSetback: 30.0,
+        stemLength: 42.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 155.0,
+        pedalThickness: 15.0,
+        rearCentre: 446.0,
+        wheelbase: 1280.0,
+      },
+      "XL": {
+        reach: 500.0,
+        stack: 654.0,
+        headAngle: 63.6,
+        seatAngle: 78.7,
+        handlebarRise: 35.0,
+        handlebarSetback: 30.0,
+        stemLength: 42.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 155.0,
+        pedalThickness: 15.0,
+        rearCentre: 449.0,
+        wheelbase: 1309.0,
+      },
+      "XXL": {
+        reach: 525.0,
+        stack: 670.0,
+        headAngle: 63.6,
+        seatAngle: 78.6,
+        handlebarRise: 35.0,
+        handlebarSetback: 30.0,
+        stemLength: 42.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 155.0,
+        pedalThickness: 15.0,
+        rearCentre: 452.0,
+        wheelbase: 1346.0,
+      },
+    }
+  },
+  {
+    brand: "Santa Cruz",
+    model: "Vala",
+    year: "2026",
+    displayName: "Vala Al 2026",
+    type: "eMTB",
+    sizes: {
+      "S": {
+        reach: 433.0,
+        stack: 625.0,
+        headAngle: 64.1,
+        seatAngle: 76.9,
+        handlebarRise: 30.0,
+        handlebarSetback: 30.0,
+        stemLength: 42.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 160.0,
+        pedalThickness: 15.0,
+        rearCentre: 440.0,
+        wheelbase: 1211.0,
+      },
+      "M": {
+        reach: 458.0,
+        stack: 634.0,
+        headAngle: 64.1,
+        seatAngle: 76.9,
+        handlebarRise: 30.0,
+        handlebarSetback: 30.0,
+        stemLength: 42.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 160.0,
+        pedalThickness: 15.0,
+        rearCentre: 440.0,
+        wheelbase: 1241.0,
+      },
+      "L": {
+        reach: 478.0,
+        stack: 643.0,
+        headAngle: 64.1,
+        seatAngle: 76.8,
+        handlebarRise: 30.0,
+        handlebarSetback: 30.0,
+        stemLength: 42.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 160.0,
+        pedalThickness: 15.0,
+        rearCentre: 445.0,
+        wheelbase: 1270.0,
+      },
+      "XL": {
+        reach: 498.0,
+        stack: 656.0,
+        headAngle: 64.1,
+        seatAngle: 76.8,
+        handlebarRise: 30.0,
+        handlebarSetback: 30.0,
+        stemLength: 42.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 160.0,
+        pedalThickness: 15.0,
+        rearCentre: 445.0,
+        wheelbase: 1297.0,
+      },
+    }
+  },
+  {
+    brand: "Aventon",
+    model: "Current",
+    year: "2026",
+    displayName: "Current 2026",
+    type: "eMTB",
+    sizes: {
+      "S": {
+        reach: 425.5,
+        stack: 611.0,
+        headAngle: 64.3,
+        seatAngle: 76.6,
+        handlebarRise: 20.0,
+        handlebarSetback: 30.0,
+        stemLength: 50.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 160.0,
+        pedalThickness: 15.0,
+        rearCentre: 445.0,
+        wheelbase: 1196.2,
+      },
+      "M": {
+        reach: 450.4,
+        stack: 620.3,
+        headAngle: 64.6,
+        seatAngle: 76.6,
+        handlebarRise: 20.0,
+        handlebarSetback: 30.0,
+        stemLength: 50.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 160.0,
+        pedalThickness: 15.0,
+        rearCentre: 445.0,
+        wheelbase: 1225.4,
+      },
+      "L": {
+        reach: 475.3,
+        stack: 634.0,
+        headAngle: 64.6,
+        seatAngle: 76.6,
+        handlebarRise: 30.0,
+        handlebarSetback: 30.0,
+        stemLength: 50.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 160.0,
+        pedalThickness: 15.0,
+        rearCentre: 445.0,
+        wheelbase: 1256.8,
+      },
+      "XL": {
+        reach: 500.2,
+        stack: 647.8,
+        headAngle: 64.6,
+        seatAngle: 76.6,
+        handlebarRise: 30.0,
+        handlebarSetback: 30.0,
+        stemLength: 50.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 160.0,
+        pedalThickness: 15.0,
+        rearCentre: 445.0,
+        wheelbase: 1288.1,
+      },
+    }
+  },
+  {
+    brand: "Aventon",
+    model: "Ramblas",
+    year: "2026",
+    displayName: "Ramblas 2026",
+    type: "eMTB",
+    sizes: {
+      "M": {
+        reach: 432.5,
+        stack: 656.5,
+        headAngle: 66.5,
+        seatAngle: 74.5,
+        handlebarRise: 30.0,
+        handlebarSetback: 30.0,
+        stemLength: 40.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 170.0,
+        pedalThickness: 15.0,
+        rearCentre: 465.0,
+        wheelbase: 1203.0,
+      },
+      "L": {
+        reach: 455.0,
+        stack: 665.0,
+        headAngle: 66.5,
+        seatAngle: 74.5,
+        handlebarRise: 30.0,
+        handlebarSetback: 30.0,
+        stemLength: 40.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 170.0,
+        pedalThickness: 15.0,
+        rearCentre: 465.0,
+        wheelbase: 1230.0,
+      },
+      "XL": {
+        reach: 481.0,
+        stack: 665.0,
+        headAngle: 66.5,
+        seatAngle: 74.5,
+        handlebarRise: 30.0,
+        handlebarSetback: 30.0,
+        stemLength: 40.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 170.0,
+        pedalThickness: 15.0,
+        rearCentre: 465.0,
+        wheelbase: 1256.0,
+      },
+    }
+  },
+  {
+    brand: "Rocky Mountain",
+    model: "Instinct Powerplay",
+    year: "2026",
+    displayName: "Instinct Powerplay 2026 (29, pos3)",
+    type: "eMTB",
+    sizes: {
+      "SM": {
+        reach: 425.0,
+        stack: 617.0,
+        headAngle: 63.6,
+        seatAngle: 77.1,
+        handlebarRise: 20.0,
+        handlebarSetback: 30.0,
+        stemLength: 40.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 165.0,
+        pedalThickness: 15.0,
+        rearCentre: 440.0,
+        wheelbase: 1207.0,
+      },
+      "MD": {
+        reach: 450.0,
+        stack: 622.0,
+        headAngle: 63.6,
+        seatAngle: 76.6,
+        handlebarRise: 20.0,
+        handlebarSetback: 30.0,
+        stemLength: 40.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 165.0,
+        pedalThickness: 15.0,
+        rearCentre: 440.0,
+        wheelbase: 1234.0,
+      },
+      "LG": {
+        reach: 476.0,
+        stack: 635.0,
+        headAngle: 63.6,
+        seatAngle: 76.6,
+        handlebarRise: 20.0,
+        handlebarSetback: 30.0,
+        stemLength: 40.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 165.0,
+        pedalThickness: 15.0,
+        rearCentre: 450.0,
+        wheelbase: 1276.0,
+      },
+      "XL": {
+        reach: 506.0,
+        stack: 644.0,
+        headAngle: 63.6,
+        seatAngle: 76.6,
+        handlebarRise: 20.0,
+        handlebarSetback: 30.0,
+        stemLength: 40.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 165.0,
+        pedalThickness: 15.0,
+        rearCentre: 450.0,
+        wheelbase: 1310.0,
+      },
+    }
+  },
+  {
+    brand: "Rocky Mountain",
+    model: "Reaper Powerplay",
+    year: "2026",
+    displayName: "Reaper Powerplay 2026 (26)",
+    type: "eMTB",
+    sizes: {
+      "Kids": {
+        reach: 355.0,
+        stack: 563.0,
+        headAngle: 64.0,
+        seatAngle: 76.5,
+        handlebarRise: 25.0,
+        handlebarSetback: 30.0,
+        stemLength: 40.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 155.0,
+        pedalThickness: 15.0,
+        rearCentre: 410.0,
+        wheelbase: 1076.0,
+      },
+    }
+  },
+  {
+    brand: "Rocky Mountain",
+    model: "Reaper",
+    year: "2026",
+    displayName: "Reaper 2026 (26)",
+    type: "MTB",
+    sizes: {
+      "Kids": {
+        reach: 355.0,
+        stack: 563.0,
+        headAngle: 64.0,
+        seatAngle: 76.4,
+        handlebarRise: 25.0,
+        handlebarSetback: 30.0,
+        stemLength: 40.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 155.0,
+        pedalThickness: 15.0,
+        rearCentre: 417.0,
+        wheelbase: 1083.0,
+      },
+    }
+  },
+  {
+    brand: "Rocky Mountain",
+    model: "Altitude Powerplay",
+    year: "2026",
+    displayName: "Altitude Powerplay 2026 (29, pos4)",
+    type: "eMTB",
+    sizes: {
+      "SM": {
+        reach: 433.0,
+        stack: 623.0,
+        headAngle: 64.3,
+        seatAngle: 76.3,
+        handlebarRise: 38.0,
+        handlebarSetback: 30.0,
+        stemLength: 40.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 165.0,
+        pedalThickness: 15.0,
+        rearCentre: 436.0,
+        wheelbase: 1207.0,
+      },
+      "MD": {
+        reach: 458.0,
+        stack: 623.0,
+        headAngle: 64.3,
+        seatAngle: 76.3,
+        handlebarRise: 38.0,
+        handlebarSetback: 30.0,
+        stemLength: 40.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 165.0,
+        pedalThickness: 15.0,
+        rearCentre: 436.0,
+        wheelbase: 1232.0,
+      },
+      "LG": {
+        reach: 483.0,
+        stack: 632.0,
+        headAngle: 64.3,
+        seatAngle: 76.3,
+        handlebarRise: 38.0,
+        handlebarSetback: 30.0,
+        stemLength: 40.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 170.0,
+        pedalThickness: 15.0,
+        rearCentre: 436.0,
+        wheelbase: 1261.0,
+      },
+      "XL": {
+        reach: 513.0,
+        stack: 645.0,
+        headAngle: 64.3,
+        seatAngle: 76.3,
+        handlebarRise: 38.0,
+        handlebarSetback: 30.0,
+        stemLength: 40.0,
+        stemAngle: 0.0,
+        stemHeight: 40.0,
+        spacers: 5.0,
+        topCap: 10.0,
+        crankLength: 170.0,
+        pedalThickness: 15.0,
+        rearCentre: 436.0,
+        wheelbase: 1298.0,
       },
     }
   },

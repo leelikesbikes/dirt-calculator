@@ -23,40 +23,40 @@ export default function Home() {
   // Build name
   const [buildName, setBuildName] = useState('My Sweet Bike');
   
+  // Bike selection mode
+  const [selectionMode, setSelectionMode] = useState('filtered'); // 'filtered' or 'manual'
+  const [reachPreference, setReachPreference] = useState('medium'); // 'short', 'medium', 'long', 'all'
+  const [bikeType, setBikeType] = useState('all'); // 'all', 'mtb', 'emtb'
+  
   // Bike selector
   const [selectedBrand, setSelectedBrand] = useState('');
   const [selectedModel, setSelectedModel] = useState('');
   const [selectedSize, setSelectedSize] = useState('');
   
-  // Get unique brands
-  const brands = [...new Set(bikes.map(bike => bike.brand))].sort();
-  
-  // Get models for selected brand
-  const modelsForBrand = selectedBrand 
-    ? bikes.filter(bike => bike.brand === selectedBrand)
-    : [];
-  
-  // Get selected bike object
-  const selectedBike = selectedBrand && selectedModel
-    ? bikes.find(bike => bike.brand === selectedBrand && bike.model === selectedModel)
-    : null;
-  
   // Component selectors
   const [handlebarType, setHandlebarType] = useState('bike-default'); // 'bike-default', 'choose-bar', 'enter-specs'
   const [stemType, setStemType] = useState('bike-default'); // 'bike-default', 'choose-stem', 'enter-specs'
   
-  // Rider inputs
-  const [proportionType, setProportionType] = useState('Average');
+  // Rider inputs - MUST BE BEFORE calculatedRAD
+  const [proportionType, setProportionType] = useState('Average male');
   const [riderHeight, setRiderHeight] = useState(1750);
   const [providedHeight, setProvidedHeight] = useState(1750);
   const [providedRAD, setProvidedRAD] = useState(782);
   const [providedInseam, setProvidedInseam] = useState(805);
+  
+  // Handlebar width calculator inputs
+  const [armLength, setArmLength] = useState('Average');
+  const [shoulderWidth, setShoulderWidth] = useState('Average');
+  const [shoulderHealth, setShoulderHealth] = useState('Good');
+  const [barCalcExpanded, setBarCalcExpanded] = useState(false);
   
   // Frame inputs
   const [headAngle, setHeadAngle] = useState(66);
   const [reach, setReach] = useState(410);
   const [stack, setStack] = useState(635);
   const [seatAngle, setSeatAngle] = useState(74);
+  const [chainstayLength, setChainstayLength] = useState('');
+  const [wheelbase, setWheelbase] = useState('');
   
   // Component inputs
   const [handlebarSetback, setHandlebarSetback] = useState(30);
@@ -72,7 +72,116 @@ export default function Home() {
   // Results
   const [results, setResults] = useState(null);
   const [loading, setLoading] = useState(false);
-
+  
+  // Filter bikes by type first
+  const typeFilteredBikes = bikeType === 'all' 
+    ? bikes 
+    : bikes.filter(bike => {
+        if (bikeType === 'mtb') return bike.type === 'MTB';
+        if (bikeType === 'emtb') return bike.type === 'eMTB';
+        return true;
+      });
+  
+  // Get unique brands from type-filtered bikes
+  const brands = [...new Set(typeFilteredBikes.map(bike => bike.brand))].sort();
+  
+  // Calculate RAD for filtering
+  const calculatedRAD = proportionType === 'Average male'
+    ? riderHeight * 0.447
+    : proportionType === 'Average female'
+    ? riderHeight * 0.442
+    : providedRAD;
+  
+  // Calculate inseam based on proportion type
+  const calculatedInseam = proportionType === 'Average male'
+    ? riderHeight * 0.46
+    : proportionType === 'Average female'
+    ? riderHeight * 0.48
+    : providedInseam;
+  
+  // Calculate handlebar width
+  const calculateHandlebarWidth = () => {
+    // Base width from height
+    let baseWidth = proportionType === 'Average male'
+      ? riderHeight * 0.43
+      : proportionType === 'Average female'
+      ? riderHeight * 0.41
+      : riderHeight * 0.42;
+    
+    // Arm length adjustment
+    if (armLength === 'Shorter than average') baseWidth -= 10;
+    if (armLength === 'Longer than average') baseWidth += 10;
+    
+    // Shoulder width adjustment
+    if (shoulderWidth === 'Narrower than average') baseWidth -= 15;
+    if (shoulderWidth === 'Wider than average') baseWidth += 15;
+    
+    // Shoulder health adjustment
+    if (shoulderHealth === 'A bit creaky') baseWidth -= 10;
+    if (shoulderHealth === "Something's wrong in there") baseWidth -= 25;
+    
+    return Math.round(baseWidth);
+  };
+  
+  const handlebarWidth = calculateHandlebarWidth();
+  
+  // Calculate maximum crank length
+  const maxCrankLength = Math.round(calculatedInseam * 0.2);
+  
+  // Get reach range based on preference
+  const getReachRange = () => {
+    if (reachPreference === 'short') {
+      return { min: calculatedRAD * 0.467, max: calculatedRAD * 0.515 };
+    } else if (reachPreference === 'medium') {
+      return { min: calculatedRAD * 0.515, max: calculatedRAD * 0.548 };
+    } else if (reachPreference === 'long') {
+      return { min: calculatedRAD * 0.548, max: calculatedRAD * 0.604 };
+    }
+    return null; // 'all' - no filtering
+  };
+  
+  // Filter bikes by reach if in filtered mode
+  const filteredBikes = selectionMode === 'filtered' && reachPreference !== 'all'
+    ? (() => {
+        const range = getReachRange();
+        if (!range) return typeFilteredBikes; // Safety check
+        
+        const matchingBikes = [];
+        
+        typeFilteredBikes.forEach(bike => {
+          if (!bike || !bike.sizes) return; // Safety check
+          
+          const matchingSizes = Object.entries(bike.sizes).filter(([size, data]) => 
+            data && data.reach && data.reach >= range.min && data.reach <= range.max
+          );
+          
+          if (matchingSizes.length > 0) {
+            matchingBikes.push({
+              ...bike,
+              sizes: Object.fromEntries(matchingSizes)
+            });
+          }
+        });
+        
+        return matchingBikes;
+      })()
+    : typeFilteredBikes;
+  
+  // Get brands from filtered or all bikes
+  const availableBrands = selectionMode === 'manual' 
+    ? brands
+    : [...new Set(filteredBikes.map(bike => bike.brand))].sort();
+  
+  // Get models for selected brand
+  const modelsForBrand = selectedBrand 
+    ? (selectionMode === 'manual' ? bikes : filteredBikes).filter(bike => bike.brand === selectedBrand)
+    : [];
+  
+  // Get selected bike object
+  const selectedBike = selectedBrand && selectedModel
+    ? (selectionMode === 'manual' ? bikes : filteredBikes).find(bike => bike.brand === selectedBrand && bike.model === selectedModel)
+    : null;
+  
   // Register service worker for offline capability (works even in iframe)
   useEffect(() => {
     if ('serviceWorker' in navigator) {
@@ -98,6 +207,8 @@ export default function Home() {
       setReach(sizeData.reach);
       setStack(sizeData.stack);
       setSeatAngle(sizeData.seatAngle);
+      setChainstayLength(sizeData.rearCentre || '');
+      setWheelbase(sizeData.wheelbase || '');
       
       // Populate components
       setHandlebarSetback(sizeData.handlebarSetback);
@@ -128,6 +239,68 @@ export default function Home() {
     setSelectedModel(model);
     setSelectedSize('');
   };
+  
+  // Handle selection mode change (acts like RESET)
+  const handleModeChange = (mode) => {
+    setSelectionMode(mode);
+    
+    // Only reset bike selection
+    setSelectedBrand('');
+    setSelectedModel('');
+    setSelectedSize('');
+    setBuildName('My Sweet Bike');
+    
+    // DON'T reset rider inputs, frame geometry, OR components
+    // Keep ALL values from selected bike (they become editable in manual mode)
+    
+    // Clear results
+    setResults(null);
+  };
+  
+  const resetToDefaults = () => {
+    // Reset bike selection
+    setSelectedBrand('');
+    setSelectedModel('');
+    setSelectedSize('');
+    setBuildName('My Sweet Bike');
+    
+    // Reset rider inputs
+    setProportionType('Average male');
+    setRiderHeight(1750);
+    setProvidedHeight(1750);
+    setProvidedRAD(782);
+    setProvidedInseam(805);
+    
+    // Reset handlebar width calculator
+    setArmLength('Average');
+    setShoulderWidth('Average');
+    setShoulderHealth('Good');
+    
+    // Reset frame inputs
+    setHeadAngle(66);
+    setReach(410);
+    setStack(635);
+    setSeatAngle(74);
+    setChainstayLength('');
+    setWheelbase('');
+    
+    // Reset component inputs
+    setHandlebarSetback(30);
+    setHandlebarRise(20);
+    setStemLength(40);
+    setStemAngle(0);
+    setStemHeight(40);
+    setSpacers(10);
+    setTopCap(5);
+    setCrankLength(170);
+    setPedalThickness(15);
+    
+    // Clear results
+    setResults(null);
+    
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const runCalculation = async () => {
     setLoading(true);
@@ -140,12 +313,14 @@ export default function Home() {
           proportionType,
           riderHeight,
           providedHeight,
-          providedRAD,
-          providedInseam,
+          providedRAD: calculatedRAD, // Send calculated RAD
+          providedInseam: calculatedInseam, // Send calculated inseam
           headAngle,
           reach,
           stack,
           seatAngle,
+          chainstayLength,
+          wheelbase,
           handlebarSetback,
           handlebarRise,
           stemLength,
@@ -231,7 +406,168 @@ export default function Home() {
           {/* LEFT COLUMN - INPUTS */}
           <div className={styles.leftColumn}>
             
-            {/* Bike Selector */}
+            {/* Rider Inputs - NOW AT TOP */}
+            <div className={styles.card}>
+              <h2>Rider Inputs</h2>
+              
+              {/* Proportion Type Selector */}
+              <div className={styles.inputGroup}>
+                <LabelWithHelp text="Proportions" helpUrl="proportions" />
+                <select
+                  value={proportionType}
+                  onChange={(e) => {
+                    const newType = e.target.value;
+                    setProportionType(newType);
+                    // Auto-set defaults for "Not average"
+                    if (newType === 'Not average') {
+                      setProvidedRAD(Math.round(riderHeight * 0.4435));
+                      setProvidedInseam(Math.round(riderHeight * 0.47));
+                    }
+                    setResults(null); // Clear stale results
+                  }}
+                  className={styles.input}
+                >
+                  <option value="Average male">Average male</option>
+                  <option value="Average female">Average female</option>
+                  <option value="Not average">Not average</option>
+                </select>
+              </div>
+
+              {/* Conditional Inputs Based on Proportion Type */}
+              {proportionType !== 'Not average' ? (
+                <>
+                  <div className={styles.inputGroup}>
+                    <LabelWithHelp text="Height (mm)" helpUrl="height" />
+                    <input
+                      type="number"
+                      value={riderHeight}
+                      onChange={(e) => {
+                        setRiderHeight(e.target.value);
+                        setResults(null); // Clear stale results
+                      }}
+                      className={styles.input}
+                    />
+                  </div>
+                  {riderHeight && (
+                    <div className={styles.helpText}>
+                      RAD: {Math.round(calculatedRAD)} mm | Inseam: {Math.round(calculatedInseam)} mm
+                    </div>
+                  )}
+                </>
+              ) : (
+                <>
+                  <div className={styles.inputGroup}>
+                    <LabelWithHelp text="Height (mm)" helpUrl="height" />
+                    <input
+                      type="number"
+                      value={riderHeight}
+                      onChange={(e) => {
+                        const newHeight = e.target.value;
+                        setRiderHeight(newHeight);
+                        setProvidedHeight(newHeight);
+                        setProvidedRAD(Math.round(newHeight * 0.4435));
+                        setProvidedInseam(Math.round(newHeight * 0.47));
+                        setResults(null); // Clear stale results
+                      }}
+                      className={styles.input}
+                    />
+                  </div>
+                  <div className={styles.inputGroup}>
+                    <LabelWithHelp text="RAD (mm)" helpUrl="rad" />
+                    <input
+                      type="number"
+                      value={providedRAD}
+                      onChange={(e) => {
+                        setProvidedRAD(e.target.value);
+                        setResults(null); // Clear stale results
+                      }}
+                      className={styles.input}
+                    />
+                  </div>
+                  <div className={styles.inputGroup}>
+                    <LabelWithHelp text="Inseam (mm)" helpUrl="inseam" />
+                    <input
+                      type="number"
+                      value={providedInseam}
+                      onChange={(e) => {
+                        setProvidedInseam(e.target.value);
+                        setResults(null); // Clear stale results
+                      }}
+                      className={styles.input}
+                    />
+                  </div>
+                </>
+              )}
+              
+              {/* Handlebar Width Calculator Section - Collapsible */}
+              <div style={{ borderTop: '1px solid #e5e7eb', marginTop: '20px', paddingTop: '20px' }}>
+                <div 
+                  onClick={() => setBarCalcExpanded(!barCalcExpanded)}
+                  style={{ 
+                    display: 'flex', 
+                    justifyContent: 'space-between', 
+                    alignItems: 'center',
+                    cursor: 'pointer',
+                    marginBottom: barCalcExpanded ? '16px' : '0'
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <span style={{ fontSize: '18px', color: '#666' }}>
+                      {barCalcExpanded ? '▽' : '▼'}
+                    </span>
+                    <strong style={{ fontSize: '15px' }}>Handlebar width calculator</strong>
+                  </div>
+                  <span style={{ fontSize: '15px', color: '#666' }}>
+                    {handlebarWidth} mm
+                  </span>
+                </div>
+                
+                {barCalcExpanded && (
+                  <>
+                    <div className={styles.inputGroup}>
+                      <label>Arm length</label>
+                      <select
+                        value={armLength}
+                        onChange={(e) => setArmLength(e.target.value)}
+                        className={styles.input}
+                      >
+                        <option value="Average">Average</option>
+                        <option value="Shorter than average">Shorter than average</option>
+                        <option value="Longer than average">Longer than average</option>
+                      </select>
+                    </div>
+                    
+                    <div className={styles.inputGroup}>
+                      <label>Shoulder width</label>
+                      <select
+                        value={shoulderWidth}
+                        onChange={(e) => setShoulderWidth(e.target.value)}
+                        className={styles.input}
+                      >
+                        <option value="Average">Average</option>
+                        <option value="Narrower than average">Narrower than average</option>
+                        <option value="Wider than average">Wider than average</option>
+                      </select>
+                    </div>
+                    
+                    <div className={styles.inputGroup}>
+                      <label>Shoulder health</label>
+                      <select
+                        value={shoulderHealth}
+                        onChange={(e) => setShoulderHealth(e.target.value)}
+                        className={styles.input}
+                      >
+                        <option value="Good">Good</option>
+                        <option value="A bit creaky">A bit creaky</option>
+                        <option value="Something's wrong in there">Something's wrong in there</option>
+                      </select>
+                    </div>
+                  </>
+                )}
+              </div>
+            </div>
+
+            {/* Choose Your Bike - THREE RADIO BUTTON OPTIONS */}
             <div className={styles.card}>
               <h2>
                 Choose Your Bike{' '}
@@ -245,56 +581,159 @@ export default function Home() {
                 </a>
               </h2>
               
-              <div className={styles.inputGroup}>
-                <label>Brand</label>
-                <select
-                  value={selectedBrand}
-                  onChange={(e) => handleBrandChange(e.target.value)}
-                  className={styles.input}
-                >
-                  <option value="">Enter frame specs manually</option>
-                  {brands.map((brand) => (
-                    <option key={brand} value={brand}>
-                      {brand}
-                    </option>
-                  ))}
-                </select>
+              {/* Selection Mode Radio Buttons - 3 Options */}
+              <div className={styles.radioGroup}>
+                <label className={styles.radioLabel}>
+                  <input
+                    type="radio"
+                    name="selectionMode"
+                    value="filtered"
+                    checked={selectionMode === 'filtered'}
+                    onChange={() => handleModeChange('filtered')}
+                  />
+                  <span>Show me matching bikes</span>
+                </label>
+                
+                <label className={styles.radioLabel}>
+                  <input
+                    type="radio"
+                    name="selectionMode"
+                    value="all"
+                    checked={selectionMode === 'all'}
+                    onChange={() => handleModeChange('all')}
+                  />
+                  <span>Show all bikes in DiRT database</span>
+                </label>
+                
+                <label className={styles.radioLabel}>
+                  <input
+                    type="radio"
+                    name="selectionMode"
+                    value="manual"
+                    checked={selectionMode === 'manual'}
+                    onChange={() => handleModeChange('manual')}
+                  />
+                  <span>Enter frame specs manually</span>
+                </label>
               </div>
-
-              {selectedBrand && (
-                <div className={styles.inputGroup}>
-                  <label>Model</label>
+              
+              {/* Type Filter - Show when filtered or all mode */}
+              {(selectionMode === 'filtered' || selectionMode === 'all') && (
+                <div className={styles.inputGroup} style={{ marginTop: '16px' }}>
+                  <label>Type of Bike</label>
                   <select
-                    value={selectedModel}
-                    onChange={(e) => handleModelChange(e.target.value)}
+                    value={bikeType}
+                    onChange={(e) => {
+                      setBikeType(e.target.value);
+                      setSelectedBrand('');
+                      setSelectedModel('');
+                      setSelectedSize('');
+                    }}
                     className={styles.input}
                   >
-                    <option value="">Select model</option>
-                    {modelsForBrand.map((bike, index) => (
-                      <option key={index} value={bike.model}>
-                        {bike.displayName}
-                      </option>
-                    ))}
+                    <option value="all">All bikes</option>
+                    <option value="mtb">Acoustic bikes</option>
+                    <option value="emtb">eBikes</option>
                   </select>
                 </div>
               )}
-
-              {selectedBike && (
+              
+              {/* Reach Preference - Show only in filtered mode */}
+              {selectionMode === 'filtered' && (
                 <div className={styles.inputGroup}>
-                  <label>Size</label>
-                  <select
-                    value={selectedSize}
-                    onChange={(e) => handleSizeChange(e.target.value)}
-                    className={styles.input}
-                  >
-                    <option value="">Select size</option>
-                    {Object.keys(selectedBike.sizes).map((size) => (
-                      <option key={size} value={size}>
-                        {size}
-                      </option>
-                    ))}
-                  </select>
+                  <label>
+                    Show bikes that fit me with a{' '}
+                    <select
+                      value={reachPreference}
+                      onChange={(e) => {
+                        setReachPreference(e.target.value);
+                        setSelectedBrand('');
+                        setSelectedModel('');
+                        setSelectedSize('');
+                      }}
+                      className={styles.inlineSelect}
+                      style={{ display: 'inline', width: 'auto', marginLeft: '4px', marginRight: '4px' }}
+                    >
+                      <option value="short">short reach</option>
+                      <option value="medium">medium reach</option>
+                      <option value="long">long reach</option>
+                      <option value="all">any reach</option>
+                    </select>
+                    <a 
+                      href="https://www.llbmtb.com/reach-preference" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className={styles.helpLink}
+                    >
+                      (?)
+                    </a>
+                  </label>
                 </div>
+              )}
+              
+              {/* Show bike selector for filtered or all mode */}
+              {(selectionMode === 'filtered' || selectionMode === 'all') && (
+                <>
+                  {filteredBikes.length === 0 ? (
+                    <div className={styles.noResults}>
+                      ⚠️ No matching bikes. Change filters or enter frame specs manually.
+                    </div>
+                  ) : (
+                    <>
+                      <div className={styles.inputGroup}>
+                        <label>Brand</label>
+                        <select
+                          value={selectedBrand}
+                          onChange={(e) => handleBrandChange(e.target.value)}
+                          className={styles.input}
+                        >
+                          <option value="">Select brand</option>
+                          {availableBrands.map((brand) => (
+                            <option key={brand} value={brand}>
+                              {brand}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+
+                      {selectedBrand && (
+                        <div className={styles.inputGroup}>
+                          <label>Model</label>
+                          <select
+                            value={selectedModel}
+                            onChange={(e) => handleModelChange(e.target.value)}
+                            className={styles.input}
+                          >
+                            <option value="">Select model</option>
+                            {modelsForBrand.map((bike, index) => (
+                              <option key={index} value={bike.model}>
+                                {bike.displayName}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+                      )}
+
+                      {selectedBike && (
+                        <div className={styles.inputGroup}>
+                          <label>Size</label>
+                          <select
+                            value={selectedSize}
+                            onChange={(e) => handleSizeChange(e.target.value)}
+                            className={styles.input}
+                          >
+                            <option value="">Select size</option>
+                            {Object.keys(selectedBike.sizes).map((size) => (
+                              <option key={size} value={size}>
+                                {size}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+                      )}
+                    </>
+                  )}
+                </>
               )}
             </div>
 
@@ -309,74 +748,6 @@ export default function Home() {
               />
             </div>
 
-            {/* Rider Inputs */}
-            <div className={styles.card}>
-              <h2>Rider Inputs</h2>
-              
-              {/* Proportion Type Selector */}
-              <div className={styles.inputGroup}>
-                <LabelWithHelp text="Proportions" helpUrl="proportions" />
-                <select
-                  value={proportionType}
-                  onChange={(e) => setProportionType(e.target.value)}
-                  className={styles.input}
-                >
-                  <option value="Average">Average</option>
-                  <option value="Not average">Not average</option>
-                </select>
-              </div>
-
-              {/* Conditional Inputs Based on Proportion Type */}
-              {proportionType === 'Average' ? (
-                <>
-                  <div className={styles.inputGroup}>
-                    <LabelWithHelp text="Height (mm)" helpUrl="height" />
-                    <input
-                      type="number"
-                      value={riderHeight}
-                      onChange={(e) => setRiderHeight(e.target.value)}
-                      className={styles.input}
-                    />
-                  </div>
-                  {riderHeight && (
-                    <div className={styles.helpText}>
-                      RAD: {Math.round(riderHeight * 0.447)} mm | Inseam: {Math.round(riderHeight * 0.46)} mm
-                    </div>
-                  )}
-                </>
-              ) : (
-                <>
-                  <div className={styles.inputGroup}>
-                    <LabelWithHelp text="Height (mm)" helpUrl="height" />
-                    <input
-                      type="number"
-                      value={providedHeight}
-                      onChange={(e) => setProvidedHeight(e.target.value)}
-                      className={styles.input}
-                    />
-                  </div>
-                  <div className={styles.inputGroup}>
-                    <LabelWithHelp text="RAD (mm)" helpUrl="rad" />
-                    <input
-                      type="number"
-                      value={providedRAD}
-                      onChange={(e) => setProvidedRAD(e.target.value)}
-                      className={styles.input}
-                    />
-                  </div>
-                  <div className={styles.inputGroup}>
-                    <LabelWithHelp text="Inseam (mm)" helpUrl="inseam" />
-                    <input
-                      type="number"
-                      value={providedInseam}
-                      onChange={(e) => setProvidedInseam(e.target.value)}
-                      className={styles.input}
-                    />
-                  </div>
-                </>
-              )}
-            </div>
-
             {/* Frame Geometry */}
             <div className={styles.card}>
               <h2>Frame Geometry</h2>
@@ -388,6 +759,7 @@ export default function Home() {
                     value={headAngle}
                     onChange={(e) => setHeadAngle(e.target.value)}
                     className={styles.input}
+                    disabled={selectionMode === 'filtered'}
                   />
                 </div>
                 <div className={styles.inputGroup}>
@@ -397,6 +769,7 @@ export default function Home() {
                     value={seatAngle}
                     onChange={(e) => setSeatAngle(e.target.value)}
                     className={styles.input}
+                    disabled={selectionMode === 'filtered'}
                   />
                 </div>
               </div>
@@ -408,6 +781,7 @@ export default function Home() {
                     value={reach}
                     onChange={(e) => setReach(e.target.value)}
                     className={styles.input}
+                    disabled={selectionMode === 'filtered'}
                   />
                 </div>
                 <div className={styles.inputGroup}>
@@ -417,6 +791,31 @@ export default function Home() {
                     value={stack}
                     onChange={(e) => setStack(e.target.value)}
                     className={styles.input}
+                    disabled={selectionMode === 'filtered'}
+                  />
+                </div>
+              </div>
+              <div className={styles.inputRow}>
+                <div className={styles.inputGroup}>
+                  <LabelWithHelp text="Chainstay Length (mm)" helpUrl="chainstay-length" />
+                  <input
+                    type="number"
+                    value={chainstayLength}
+                    onChange={(e) => setChainstayLength(e.target.value)}
+                    className={styles.input}
+                    placeholder="Optional"
+                    disabled={selectionMode === 'filtered'}
+                  />
+                </div>
+                <div className={styles.inputGroup}>
+                  <LabelWithHelp text="Wheelbase (mm)" helpUrl="wheelbase" />
+                  <input
+                    type="number"
+                    value={wheelbase}
+                    onChange={(e) => setWheelbase(e.target.value)}
+                    className={styles.input}
+                    placeholder="Optional"
+                    disabled={selectionMode === 'filtered'}
                   />
                 </div>
               </div>
@@ -520,15 +919,22 @@ export default function Home() {
           </div>
 
           {/* RIGHT COLUMN - RESULTS */}
-          <div className={styles.rightColumn}>
+          <div className={styles.rightColumn} style={{ position: 'sticky', top: '20px', alignSelf: 'flex-start' }}>
             <div className={styles.card}>
               <h2>Results</h2>
               <button 
                 onClick={runCalculation} 
                 className={styles.runButton}
-                disabled={loading}
+                disabled={loading || ((selectionMode === 'filtered' || selectionMode === 'all') && !selectedSize)}
               >
                 {loading ? 'CALCULATING...' : 'RUN DiRT'}
+              </button>
+              
+              <button 
+                onClick={resetToDefaults}
+                className={styles.resetLink}
+              >
+                RESET
               </button>
 
               {results && (
@@ -596,6 +1002,45 @@ export default function Home() {
                     </span>
                     <span>{getHHIDisplay(results.hhi, results.barSaddleHeight)}</span>
                   </div>
+                  
+                  {/* Conditional new metrics */}
+                  {results.foreAftBalance && (
+                    <div className={styles.resultRow}>
+                      <span>
+                        Fore/aft Balance{' '}
+                        <a href="https://www.llbmtb.com/fore-aft-balance" target="_blank" rel="noopener noreferrer" className={styles.helpLink}>(?)</a>
+                      </span>
+                      <span>{results.foreAftBalance}</span>
+                    </div>
+                  )}
+                  
+                  {results.radLeverageRatio && (
+                    <div className={styles.resultRow}>
+                      <span>
+                        RAD Leverage Ratio{' '}
+                        <a href="https://www.llbmtb.com/rad-leverage-ratio" target="_blank" rel="noopener noreferrer" className={styles.helpLink}>(?)</a>
+                      </span>
+                      <span>{results.radLeverageRatio}</span>
+                    </div>
+                  )}
+                  
+                  {/* Maximum Crank Length */}
+                  <div className={styles.resultRow}>
+                    <span>
+                      Maximum Crank Length{' '}
+                      <a href="https://www.llbmtb.com/crank" target="_blank" rel="noopener noreferrer" className={styles.helpLink}>(?)</a>
+                    </span>
+                    <span>{maxCrankLength} mm</span>
+                  </div>
+                  
+                  {/* Handlebar Width */}
+                  <div className={styles.resultRow}>
+                    <span>
+                      Maximum Bar Width{' '}
+                      <a href="https://www.llbmtb.com/bar" target="_blank" rel="noopener noreferrer" className={styles.helpLink}>(?)</a>
+                    </span>
+                    <span>{handlebarWidth} mm</span>
+                  </div>
                 </div>
               )}
             </div>
@@ -621,15 +1066,17 @@ Build: ${buildName}
 
 RIDER
   Proportions: ${proportionType}
-  Height: ${Math.round(results.finalHeight)} mm
-  RAD: ${Math.round(results.calculatedRAD)} mm
-  Inseam: ${Math.round(results.calculatedInseam)} mm
+  Height: ${Math.round(riderHeight)} mm
+  RAD: ${Math.round(calculatedRAD)} mm
+  Inseam: ${Math.round(calculatedInseam)} mm
 
 FRAME GEOMETRY
   Head Angle: ${headAngle}°
   Seat Angle: ${seatAngle}°
   Reach: ${reach} mm
-  Stack: ${stack} mm
+  Stack: ${stack} mm${chainstayLength ? `
+  Chainstay Length: ${chainstayLength} mm` : ''}${wheelbase ? `
+  Wheelbase: ${wheelbase} mm` : ''}
 
 COMPONENTS
   Handlebar Setback: ${handlebarSetback} mm
@@ -651,7 +1098,11 @@ RESULTS
   Saddle Height from BB: ${Math.round(results.saddleHeight)} mm
   Bar/Saddle Height: ${Math.round(results.barSaddleHeight)} mm
   SHO: ${Math.round(results.sho)} mm
-  Heavy Hands Index: ${getHHIDisplay(results.hhi, results.barSaddleHeight)}
+  Heavy Hands Index: ${getHHIDisplay(results.hhi, results.barSaddleHeight)}${results.foreAftBalance ? `
+  Fore/aft Balance: ${results.foreAftBalance}` : ''}${results.radLeverageRatio ? `
+  RAD Leverage Ratio: ${results.radLeverageRatio}` : ''}
+  Maximum Crank Length: ${maxCrankLength} mm
+  Handlebar Width: ${handlebarWidth} mm
 
 ═══════════════════════════════════════════════════════`}
               </pre>

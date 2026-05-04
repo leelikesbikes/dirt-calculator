@@ -328,7 +328,7 @@ export default function Home() {
           providedHeight,
           providedRAD: calculatedRAD, // Send calculated RAD
           providedInseam: calculatedInseam, // Send calculated inseam
-          saddleHeight: displaySaddleHeight, // Use custom or calculated saddle height
+          saddleHeight: displaySaddleHeight, // Send custom or calculated saddle height
           headAngle,
           reach,
           stack,
@@ -580,19 +580,21 @@ export default function Home() {
                 )}
               </div>
               
-              {/* Saddle Height Override */}
-              <div style={{ 
-                borderTop: '1px solid #ddd', 
-                paddingTop: '16px',
-                marginTop: '16px'
-              }}>
+              {/* Saddle height override */}
+              <div 
+                style={{
+                  borderTop: '1px solid #e5e7eb',
+                  paddingTop: '16px',
+                  marginTop: '16px'
+                }}
+              >
                 <div 
                   onClick={() => setSaddleHeightExpanded(!saddleHeightExpanded)}
                   style={{ 
-                    cursor: 'pointer', 
                     display: 'flex', 
                     justifyContent: 'space-between', 
                     alignItems: 'center',
+                    cursor: 'pointer',
                     marginBottom: saddleHeightExpanded ? '16px' : '0'
                   }}
                 >
@@ -612,10 +614,13 @@ export default function Home() {
                     <label>Your saddle height in mm</label>
                     <input
                       type="number"
-                      value={customSaddleHeight !== null ? customSaddleHeight : calculatedSaddleHeight}
-                      onChange={(e) => setCustomSaddleHeight(e.target.value ? Number(e.target.value) : null)}
+                      value={customSaddleHeight || calculatedSaddleHeight}
+                      onChange={(e) => {
+                        const value = e.target.value === '' ? null : parseInt(e.target.value);
+                        setCustomSaddleHeight(value);
+                        setResults(null); // Clear stale results
+                      }}
                       className={styles.input}
-                      placeholder={calculatedSaddleHeight.toString()}
                     />
                   </div>
                 )}

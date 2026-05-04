@@ -50,6 +50,10 @@ export default function Home() {
   const [shoulderHealth, setShoulderHealth] = useState('Good');
   const [barCalcExpanded, setBarCalcExpanded] = useState(false);
   
+  // Saddle height override
+  const [customSaddleHeight, setCustomSaddleHeight] = useState(null);
+  const [saddleHeightExpanded, setSaddleHeightExpanded] = useState(false);
+  
   // Frame inputs
   const [headAngle, setHeadAngle] = useState(66);
   const [reach, setReach] = useState(410);
@@ -125,6 +129,10 @@ export default function Home() {
   
   const handlebarWidth = calculateHandlebarWidth();
   
+  // Calculate saddle height (with override support)
+  const calculatedSaddleHeight = Math.round(calculatedInseam * 0.883);
+  const displaySaddleHeight = customSaddleHeight || calculatedSaddleHeight;
+  
   // Calculate maximum crank length
   const maxCrankLength = Math.round(calculatedInseam * 0.2);
   
@@ -191,6 +199,11 @@ export default function Home() {
         });
     }
   }, []);
+  
+  // Clear custom saddle height when rider inputs change
+  useEffect(() => {
+    setCustomSaddleHeight(null);
+  }, [riderHeight, proportionType]);
 
   // Handle bike selection
   const handleSizeChange = (size) => {
@@ -315,6 +328,7 @@ export default function Home() {
           providedHeight,
           providedRAD: calculatedRAD, // Send calculated RAD
           providedInseam: calculatedInseam, // Send calculated inseam
+          saddleHeight: displaySaddleHeight, // Use custom or calculated saddle height
           headAngle,
           reach,
           stack,
@@ -563,6 +577,47 @@ export default function Home() {
                       </select>
                     </div>
                   </>
+                )}
+              </div>
+              
+              {/* Saddle Height Override */}
+              <div style={{ 
+                borderTop: '1px solid #ddd', 
+                paddingTop: '16px',
+                marginTop: '16px'
+              }}>
+                <div 
+                  onClick={() => setSaddleHeightExpanded(!saddleHeightExpanded)}
+                  style={{ 
+                    cursor: 'pointer', 
+                    display: 'flex', 
+                    justifyContent: 'space-between', 
+                    alignItems: 'center',
+                    marginBottom: saddleHeightExpanded ? '16px' : '0'
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <span style={{ fontSize: '18px', color: '#666' }}>
+                      {saddleHeightExpanded ? '▽' : '▼'}
+                    </span>
+                    <strong style={{ fontSize: '15px' }}>Saddle height</strong>
+                  </div>
+                  <span style={{ fontSize: '15px', color: '#666' }}>
+                    {displaySaddleHeight} mm
+                  </span>
+                </div>
+                
+                {saddleHeightExpanded && (
+                  <div className={styles.inputGroup}>
+                    <label>Your saddle height in mm</label>
+                    <input
+                      type="number"
+                      value={customSaddleHeight !== null ? customSaddleHeight : calculatedSaddleHeight}
+                      onChange={(e) => setCustomSaddleHeight(e.target.value ? Number(e.target.value) : null)}
+                      className={styles.input}
+                      placeholder={calculatedSaddleHeight.toString()}
+                    />
+                  </div>
                 )}
               </div>
             </div>

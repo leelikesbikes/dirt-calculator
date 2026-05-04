@@ -130,7 +130,10 @@ export default function Home() {
   const handlebarWidth = calculateHandlebarWidth();
   
   // Calculate saddle height (with override support)
-  const calculatedSaddleHeight = Math.round(calculatedInseam * 0.883);
+  // Formula: (Inseam * 1.09) - (crank length - (0.5 * pedal thickness))
+  const calculatedSaddleHeight = Math.round(
+    (calculatedInseam * 1.09) - (crankLength - (0.5 * pedalThickness))
+  );
   const displaySaddleHeight = customSaddleHeight || calculatedSaddleHeight;
   
   // Calculate maximum crank length

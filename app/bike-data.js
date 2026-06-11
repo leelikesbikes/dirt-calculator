@@ -4100,7 +4100,7 @@ export const bikes = [
     brand: "Devinci",
     model: "Spartan",
     year: "2026",
-    displayName: "Spartan 2026 (29", Long)",
+    displayName: "Spartan 2026 (29, Long)",
     type: "MTB",
     sizes: {
       "Small": {

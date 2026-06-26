@@ -1,6 +1,7 @@
 export const bikes = [
   {
     "brand": "Ari",
+    "model": "Delano Cascade 2026",
     "displayName": "Delano Cascade 2026",
     "type": "MTB",
     "sizes": {
@@ -76,6 +77,7 @@ export const bikes = [
   },
   {
     "brand": "Ari",
+    "model": "Delano Peak 2026",
     "displayName": "Delano Peak 2026",
     "type": "MTB",
     "sizes": {
@@ -151,6 +153,7 @@ export const bikes = [
   },
   {
     "brand": "Atherton",
+    "model": "A130 2026",
     "displayName": "A130 2026",
     "type": "MTB",
     "sizes": {
@@ -532,6 +535,7 @@ export const bikes = [
   },
   {
     "brand": "Atherton",
+    "model": "A150 2026",
     "displayName": "A150 2026",
     "type": "MTB",
     "sizes": {
@@ -913,6 +917,7 @@ export const bikes = [
   },
   {
     "brand": "Atherton",
+    "model": "A170 2026",
     "displayName": "A170 2026",
     "type": "MTB",
     "sizes": {
@@ -1294,6 +1299,7 @@ export const bikes = [
   },
   {
     "brand": "Atherton",
+    "model": "S150 2026",
     "displayName": "S150 2026",
     "type": "MTB",
     "sizes": {
@@ -1505,6 +1511,7 @@ export const bikes = [
   },
   {
     "brand": "Atherton",
+    "model": "S170 2026",
     "displayName": "S170 2026",
     "type": "MTB",
     "sizes": {
@@ -1716,6 +1723,7 @@ export const bikes = [
   },
   {
     "brand": "Aventon",
+    "model": "Current 2026",
     "displayName": "Current 2026",
     "type": "eMTB",
     "sizes": {
@@ -1791,6 +1799,7 @@ export const bikes = [
   },
   {
     "brand": "Aventon",
+    "model": "Ramblas 2026",
     "displayName": "Ramblas 2026",
     "type": "eMTB",
     "sizes": {
@@ -1849,6 +1858,7 @@ export const bikes = [
   },
   {
     "brand": "Banshee",
+    "model": "Prime V3.2 (29, low, 150mm, compact) ",
     "displayName": "Prime V3.2 (29, low, 150mm, compact) ",
     "type": "MTB",
     "sizes": {
@@ -1907,6 +1917,7 @@ export const bikes = [
   },
   {
     "brand": "Banshee",
+    "model": "Spitfire V3.2 (27.5, 150mm, long)",
     "displayName": "Spitfire V3.2 (27.5, 150mm, long)",
     "type": "MTB",
     "sizes": {
@@ -1982,6 +1993,7 @@ export const bikes = [
   },
   {
     "brand": "Banshee",
+    "model": "Titan V3.2 (29, low, 170mm, compact)",
     "displayName": "Titan V3.2 (29, low, 170mm, compact)",
     "type": "MTB",
     "sizes": {
@@ -2040,6 +2052,7 @@ export const bikes = [
   },
   {
     "brand": "Canfield",
+    "model": "Lithium 2026",
     "displayName": "Lithium 2026",
     "type": "MTB",
     "sizes": {
@@ -2115,6 +2128,7 @@ export const bikes = [
   },
   {
     "brand": "Canfield",
+    "model": "Nimble 9 2026",
     "displayName": "Nimble 9 2026",
     "type": "MTB",
     "sizes": {
@@ -2190,6 +2204,7 @@ export const bikes = [
   },
   {
     "brand": "Canfield",
+    "model": "Tilt 2026",
     "displayName": "Tilt 2026",
     "type": "MTB",
     "sizes": {
@@ -2265,6 +2280,7 @@ export const bikes = [
   },
   {
     "brand": "Cannondale",
+    "model": "Habit 26 2026",
     "displayName": "Habit 26 2026",
     "type": "MTB",
     "sizes": {
@@ -2289,6 +2305,7 @@ export const bikes = [
   },
   {
     "brand": "Cannondale",
+    "model": "Habit Carbon 2026",
     "displayName": "Habit Carbon 2026",
     "type": "MTB",
     "sizes": {
@@ -2381,6 +2398,7 @@ export const bikes = [
   },
   {
     "brand": "Cannondale",
+    "model": "Habit LT 2026",
     "displayName": "Habit LT 2026",
     "type": "MTB",
     "sizes": {
@@ -2473,6 +2491,7 @@ export const bikes = [
   },
   {
     "brand": "Cannondale",
+    "model": "Jekyll 2026",
     "displayName": "Jekyll 2026",
     "type": "MTB",
     "sizes": {
@@ -2548,6 +2567,7 @@ export const bikes = [
   },
   {
     "brand": "Cannondale",
+    "model": "Scalpel 2026",
     "displayName": "Scalpel 2026",
     "type": "MTB",
     "sizes": {
@@ -2623,6 +2643,7 @@ export const bikes = [
   },
   {
     "brand": "Canyon",
+    "model": "Lux Trail 2026",
     "displayName": "Lux Trail 2026",
     "type": "MTB",
     "sizes": {
@@ -2647,6 +2668,7 @@ export const bikes = [
   },
   {
     "brand": "Canyon",
+    "model": "Lux Trail 2027",
     "displayName": "Lux Trail 2027",
     "type": "MTB",
     "sizes": {
@@ -2671,6 +2693,7 @@ export const bikes = [
   },
   {
     "brand": "Canyon",
+    "model": "Lux Trail 2028",
     "displayName": "Lux Trail 2028",
     "type": "MTB",
     "sizes": {
@@ -2695,6 +2718,7 @@ export const bikes = [
   },
   {
     "brand": "Canyon",
+    "model": "Lux Trail 2029",
     "displayName": "Lux Trail 2029",
     "type": "MTB",
     "sizes": {
@@ -2719,6 +2743,7 @@ export const bikes = [
   },
   {
     "brand": "Canyon",
+    "model": "Lux Trail 2030",
     "displayName": "Lux Trail 2030",
     "type": "MTB",
     "sizes": {
@@ -2743,6 +2768,7 @@ export const bikes = [
   },
   {
     "brand": "Canyon",
+    "model": "Neuron AL 2026",
     "displayName": "Neuron AL 2026",
     "type": "MTB",
     "sizes": {
@@ -2835,6 +2861,7 @@ export const bikes = [
   },
   {
     "brand": "Canyon",
+    "model": "Neuron YoungHero 2026",
     "displayName": "Neuron YoungHero 2026",
     "type": "MTB",
     "sizes": {
@@ -2876,6 +2903,7 @@ export const bikes = [
   },
   {
     "brand": "Canyon",
+    "model": "Spectral AL 2026",
     "displayName": "Spectral AL 2026",
     "type": "MTB",
     "sizes": {
@@ -2968,6 +2996,7 @@ export const bikes = [
   },
   {
     "brand": "Commencal",
+    "model": "Meta HT V2",
     "displayName": "Meta HT V2",
     "type": "MTB",
     "sizes": {
@@ -2992,6 +3021,7 @@ export const bikes = [
   },
   {
     "brand": "Commencal",
+    "model": "Meta HT V3",
     "displayName": "Meta HT V3",
     "type": "MTB",
     "sizes": {
@@ -3067,6 +3097,7 @@ export const bikes = [
   },
   {
     "brand": "Commencal",
+    "model": "Meta Power SX 800 2026",
     "displayName": "Meta Power SX 800 2026",
     "type": "eMTB",
     "sizes": {
@@ -3142,6 +3173,7 @@ export const bikes = [
   },
   {
     "brand": "Commencal",
+    "model": "Meta Power SX Avinox 2027",
     "displayName": "Meta Power SX Avinox 2027",
     "type": "eMTB",
     "sizes": {
@@ -3217,6 +3249,7 @@ export const bikes = [
   },
   {
     "brand": "Commencal",
+    "model": "Meta Power SX V4 2026 (low)",
     "displayName": "Meta Power SX V4 2026 (low)",
     "type": "eMTB",
     "sizes": {
@@ -3292,6 +3325,7 @@ export const bikes = [
   },
   {
     "brand": "Commencal",
+    "model": "Meta Power TR V4 2026 (low)",
     "displayName": "Meta Power TR V4 2026 (low)",
     "type": "eMTB",
     "sizes": {
@@ -3367,6 +3401,7 @@ export const bikes = [
   },
   {
     "brand": "Commencal",
+    "model": "Meta SX 2026",
     "displayName": "Meta SX 2026",
     "type": "MTB",
     "sizes": {
@@ -3442,6 +3477,7 @@ export const bikes = [
   },
   {
     "brand": "Commencal",
+    "model": "Meta TR 2026 (low)",
     "displayName": "Meta TR 2026 (low)",
     "type": "MTB",
     "sizes": {
@@ -3517,6 +3553,7 @@ export const bikes = [
   },
   {
     "brand": "Commencal",
+    "model": "T.E.M.P.O. Power 2026",
     "displayName": "T.E.M.P.O. Power 2026",
     "type": "eMTB",
     "sizes": {
@@ -3592,6 +3629,7 @@ export const bikes = [
   },
   {
     "brand": "Deviate",
+    "model": "Claymore 2026",
     "displayName": "Claymore 2026",
     "type": "MTB",
     "sizes": {
@@ -3650,6 +3688,7 @@ export const bikes = [
   },
   {
     "brand": "Deviate",
+    "model": "Highlander II 2026",
     "displayName": "Highlander II 2026",
     "type": "MTB",
     "sizes": {
@@ -3725,6 +3764,7 @@ export const bikes = [
   },
   {
     "brand": "Devinci",
+    "model": "Chainsaw 2026 (LOW)",
     "displayName": "Chainsaw 2026 (LOW)",
     "type": "MTB",
     "sizes": {
@@ -3800,6 +3840,7 @@ export const bikes = [
   },
   {
     "brand": "Devinci",
+    "model": "E-Spartan 2026 (Lite)",
     "displayName": "E-Spartan 2026 (Lite)",
     "type": "eMTB",
     "sizes": {
@@ -3858,6 +3899,7 @@ export const bikes = [
   },
   {
     "brand": "Devinci",
+    "model": "E-Troy 2026 (Bosch)",
     "displayName": "E-Troy 2026 (Bosch)",
     "type": "eMTB",
     "sizes": {
@@ -3933,6 +3975,7 @@ export const bikes = [
   },
   {
     "brand": "Devinci",
+    "model": "E-Troy 2026 (Lite)",
     "displayName": "E-Troy 2026 (Lite)",
     "type": "eMTB",
     "sizes": {
@@ -4008,6 +4051,7 @@ export const bikes = [
   },
   {
     "brand": "Devinci",
+    "model": "Spartan 2026 (29\", Long)",
     "displayName": "Spartan 2026 (29\", Long)",
     "type": "MTB",
     "sizes": {
@@ -4083,6 +4127,7 @@ export const bikes = [
   },
   {
     "brand": "Devinci",
+    "model": "Troy 2026 (LOW)",
     "displayName": "Troy 2026 (LOW)",
     "type": "MTB",
     "sizes": {
@@ -4158,6 +4203,7 @@ export const bikes = [
   },
   {
     "brand": "Devinci",
+    "model": "Troy ST 2026 (LOW)",
     "displayName": "Troy ST 2026 (LOW)",
     "type": "MTB",
     "sizes": {
@@ -4250,6 +4296,7 @@ export const bikes = [
   },
   {
     "brand": "Dialed Cycles",
+    "model": "Mach 7",
     "displayName": "Mach 7",
     "type": "MTB",
     "sizes": {
@@ -4342,6 +4389,7 @@ export const bikes = [
   },
   {
     "brand": "Dialed Cycles",
+    "model": "Super D",
     "displayName": "Super D",
     "type": "MTB",
     "sizes": {
@@ -4434,6 +4482,7 @@ export const bikes = [
   },
   {
     "brand": "Evil",
+    "model": "Following LS 2026 (X-Low)",
     "displayName": "Following LS 2026 (X-Low)",
     "type": "MTB",
     "sizes": {
@@ -4509,6 +4558,7 @@ export const bikes = [
   },
   {
     "brand": "Evil",
+    "model": "Following SID 2026 (x-low)",
     "displayName": "Following SID 2026 (x-low)",
     "type": "MTB",
     "sizes": {
@@ -4584,6 +4634,7 @@ export const bikes = [
   },
   {
     "brand": "Evil",
+    "model": "Offering 2026 (Low)",
     "displayName": "Offering 2026 (Low)",
     "type": "MTB",
     "sizes": {
@@ -4659,6 +4710,7 @@ export const bikes = [
   },
   {
     "brand": "Forbidden",
+    "model": "Dreadnought 29 2026",
     "displayName": "Dreadnought 29 2026",
     "type": "MTB",
     "sizes": {
@@ -4734,6 +4786,7 @@ export const bikes = [
   },
   {
     "brand": "Forbidden",
+    "model": "Dreadnought MX 2026",
     "displayName": "Dreadnought MX 2026",
     "type": "MTB",
     "sizes": {
@@ -4809,6 +4862,7 @@ export const bikes = [
   },
   {
     "brand": "Forbidden",
+    "model": "Druid 29 2026",
     "displayName": "Druid 29 2026",
     "type": "MTB",
     "sizes": {
@@ -4884,6 +4938,7 @@ export const bikes = [
   },
   {
     "brand": "Forbidden",
+    "model": "Druid MX 2026",
     "displayName": "Druid MX 2026",
     "type": "MTB",
     "sizes": {
@@ -4959,6 +5014,7 @@ export const bikes = [
   },
   {
     "brand": "Giant",
+    "model": "Anthem Advanced 29 (low) 2025",
     "displayName": "Anthem Advanced 29 (low) 2025",
     "type": "MTB",
     "sizes": {
@@ -5034,6 +5090,7 @@ export const bikes = [
   },
   {
     "brand": "Giant",
+    "model": "Reign Advanced E+ 2026 (mid)",
     "displayName": "Reign Advanced E+ 2026 (mid)",
     "type": "eMTB",
     "sizes": {
@@ -5109,6 +5166,7 @@ export const bikes = [
   },
   {
     "brand": "Giant",
+    "model": "Reign Advanced Pro 1 (low) 2025",
     "displayName": "Reign Advanced Pro 1 (low) 2025",
     "type": "MTB",
     "sizes": {
@@ -5184,6 +5242,7 @@ export const bikes = [
   },
   {
     "brand": "Giant",
+    "model": "Stance E+ 2027",
     "displayName": "Stance E+ 2027",
     "type": "eMTB",
     "sizes": {
@@ -5259,6 +5318,7 @@ export const bikes = [
   },
   {
     "brand": "Giant",
+    "model": "Trance 2026 low",
     "displayName": "Trance 2026 low",
     "type": "MTB",
     "sizes": {
@@ -5334,6 +5394,7 @@ export const bikes = [
   },
   {
     "brand": "Giant",
+    "model": "Trance X Advanced E+ (low)",
     "displayName": "Trance X Advanced E+ (low)",
     "type": "eMTB",
     "sizes": {
@@ -5409,6 +5470,7 @@ export const bikes = [
   },
   {
     "brand": "Giant",
+    "model": "Trance X Advanced Pro 29 SE (low) 2025",
     "displayName": "Trance X Advanced Pro 29 SE (low) 2025",
     "type": "MTB",
     "sizes": {
@@ -5484,6 +5546,7 @@ export const bikes = [
   },
   {
     "brand": "Ibis",
+    "model": "DV9 2026",
     "displayName": "DV9 2026",
     "type": "MTB",
     "sizes": {
@@ -5559,6 +5622,7 @@ export const bikes = [
   },
   {
     "brand": "Ibis",
+    "model": "Exie-USA 2026",
     "displayName": "Exie-USA 2026",
     "type": "MTB",
     "sizes": {
@@ -5634,6 +5698,7 @@ export const bikes = [
   },
   {
     "brand": "Ibis",
+    "model": "Ibis Oso HD 2026",
     "displayName": "Ibis Oso HD 2026",
     "type": "eMTB",
     "sizes": {
@@ -5726,6 +5791,7 @@ export const bikes = [
   },
   {
     "brand": "Ibis",
+    "model": "Ibis Oso S 2026",
     "displayName": "Ibis Oso S 2026",
     "type": "eMTB",
     "sizes": {
@@ -5818,6 +5884,7 @@ export const bikes = [
   },
   {
     "brand": "Ibis",
+    "model": "Ibis Oso TR 2026",
     "displayName": "Ibis Oso TR 2026",
     "type": "eMTB",
     "sizes": {
@@ -5910,6 +5977,7 @@ export const bikes = [
   },
   {
     "brand": "Ibis",
+    "model": "Ripley 2026",
     "displayName": "Ripley 2026",
     "type": "MTB",
     "sizes": {
@@ -6002,6 +6070,7 @@ export const bikes = [
   },
   {
     "brand": "Ibis",
+    "model": "Ripley SL 2026",
     "displayName": "Ripley SL 2026",
     "type": "MTB",
     "sizes": {
@@ -6094,6 +6163,7 @@ export const bikes = [
   },
   {
     "brand": "Ibis",
+    "model": "Ripmo v3 (29)",
     "displayName": "Ripmo v3 (29)",
     "type": "MTB",
     "sizes": {
@@ -6186,6 +6256,7 @@ export const bikes = [
   },
   {
     "brand": "Intense",
+    "model": "Primer 2026",
     "displayName": "Primer 2026",
     "type": "MTB",
     "sizes": {
@@ -6261,6 +6332,7 @@ export const bikes = [
   },
   {
     "brand": "Intense",
+    "model": "Spider 2026",
     "displayName": "Spider 2026",
     "type": "MTB",
     "sizes": {
@@ -6336,6 +6408,7 @@ export const bikes = [
   },
   {
     "brand": "Intense",
+    "model": "Tracer 279 2026",
     "displayName": "Tracer 279 2026",
     "type": "MTB",
     "sizes": {
@@ -6411,6 +6484,7 @@ export const bikes = [
   },
   {
     "brand": "Intense",
+    "model": "Tracer 29 2026",
     "displayName": "Tracer 29 2026",
     "type": "MTB",
     "sizes": {
@@ -6469,6 +6543,7 @@ export const bikes = [
   },
   {
     "brand": "Juliana",
+    "model": "Furtado 2026 (low)",
     "displayName": "Furtado 2026 (low)",
     "type": "MTB",
     "sizes": {
@@ -6527,6 +6602,7 @@ export const bikes = [
   },
   {
     "brand": "Juliana",
+    "model": "Joplin 2026 (low)",
     "displayName": "Joplin 2026 (low)",
     "type": "MTB",
     "sizes": {
@@ -6585,6 +6661,7 @@ export const bikes = [
   },
   {
     "brand": "Juliana",
+    "model": "Roubion 2026 (lo)",
     "displayName": "Roubion 2026 (lo)",
     "type": "MTB",
     "sizes": {
@@ -6643,6 +6720,7 @@ export const bikes = [
   },
   {
     "brand": "Knolly",
+    "model": "Chilcotin 155 2026 (Neutral)",
     "displayName": "Chilcotin 155 2026 (Neutral)",
     "type": "MTB",
     "sizes": {
@@ -6718,6 +6796,7 @@ export const bikes = [
   },
   {
     "brand": "Knolly",
+    "model": "Fugitive 125 2026 (Neutral)",
     "displayName": "Fugitive 125 2026 (Neutral)",
     "type": "MTB",
     "sizes": {
@@ -6793,6 +6872,7 @@ export const bikes = [
   },
   {
     "brand": "Knolly",
+    "model": "Fugitive 140 2026 (Neutral)",
     "displayName": "Fugitive 140 2026 (Neutral)",
     "type": "MTB",
     "sizes": {
@@ -6868,6 +6948,7 @@ export const bikes = [
   },
   {
     "brand": "Knolly",
+    "model": "Warden 170 2026 (Neutral)",
     "displayName": "Warden 170 2026 (Neutral)",
     "type": "MTB",
     "sizes": {
@@ -6960,6 +7041,7 @@ export const bikes = [
   },
   {
     "brand": "Kona",
+    "model": "Hei Hei 2026 G10",
     "displayName": "Hei Hei 2026 G10",
     "type": "MTB",
     "sizes": {
@@ -7035,6 +7117,7 @@ export const bikes = [
   },
   {
     "brand": "Kona",
+    "model": "Process 134 2026 Gen 3",
     "displayName": "Process 134 2026 Gen 3",
     "type": "MTB",
     "sizes": {
@@ -7110,6 +7193,7 @@ export const bikes = [
   },
   {
     "brand": "Kona",
+    "model": "Process 153 2026 Gen 3",
     "displayName": "Process 153 2026 Gen 3",
     "type": "MTB",
     "sizes": {
@@ -7185,6 +7269,7 @@ export const bikes = [
   },
   {
     "brand": "Lapierre",
+    "model": "Spicy CF 2025",
     "displayName": "Spicy CF 2025",
     "type": "MTB",
     "sizes": {
@@ -7277,6 +7362,7 @@ export const bikes = [
   },
   {
     "brand": "Lapierre",
+    "model": "XRM 2026",
     "displayName": "XRM 2026",
     "type": "MTB",
     "sizes": {
@@ -7352,6 +7438,7 @@ export const bikes = [
   },
   {
     "brand": "Lapierre",
+    "model": "Zesty CF 2026",
     "displayName": "Zesty CF 2026",
     "type": "MTB",
     "sizes": {
@@ -7427,6 +7514,7 @@ export const bikes = [
   },
   {
     "brand": "Liv",
+    "model": "Embolden 2025",
     "displayName": "Embolden 2025",
     "type": "MTB",
     "sizes": {
@@ -7519,6 +7607,7 @@ export const bikes = [
   },
   {
     "brand": "Liv",
+    "model": "Embolden E+ 2023",
     "displayName": "Embolden E+ 2023",
     "type": "eMTB",
     "sizes": {
@@ -7594,6 +7683,7 @@ export const bikes = [
   },
   {
     "brand": "Liv",
+    "model": "Intrigue 29 2025",
     "displayName": "Intrigue 29 2025",
     "type": "MTB",
     "sizes": {
@@ -7703,6 +7793,7 @@ export const bikes = [
   },
   {
     "brand": "Liv",
+    "model": "Intrigue Advanced X 2 (mid)",
     "displayName": "Intrigue Advanced X 2 (mid)",
     "type": "MTB",
     "sizes": {
@@ -7778,6 +7869,7 @@ export const bikes = [
   },
   {
     "brand": "Liv",
+    "model": "Intrigue LT 2025 (mid)",
     "displayName": "Intrigue LT 2025 (mid)",
     "type": "MTB",
     "sizes": {
@@ -7853,6 +7945,7 @@ export const bikes = [
   },
   {
     "brand": "Liv",
+    "model": "Intrigue X Advanced E+ 2024",
     "displayName": "Intrigue X Advanced E+ 2024",
     "type": "eMTB",
     "sizes": {
@@ -7911,6 +8004,7 @@ export const bikes = [
   },
   {
     "brand": "Liv",
+    "model": "Pique X Advanced SL 3 (low)",
     "displayName": "Pique X Advanced SL 3 (low)",
     "type": "MTB",
     "sizes": {
@@ -7986,6 +8080,7 @@ export const bikes = [
   },
   {
     "brand": "Liv",
+    "model": "Tempt E+ 2026",
     "displayName": "Tempt E+ 2026",
     "type": "eMTB",
     "sizes": {
@@ -8061,6 +8156,7 @@ export const bikes = [
   },
   {
     "brand": "Marin",
+    "model": "Alpine 2026",
     "displayName": "Alpine 2026",
     "type": "MTB",
     "sizes": {
@@ -8136,6 +8232,7 @@ export const bikes = [
   },
   {
     "brand": "Marin",
+    "model": "Marin Tam 2027",
     "displayName": "Marin Tam 2027",
     "type": "MTB",
     "sizes": {
@@ -8211,6 +8308,7 @@ export const bikes = [
   },
   {
     "brand": "Marin",
+    "model": "Rift Zone 2025",
     "displayName": "Rift Zone 2025",
     "type": "MTB",
     "sizes": {
@@ -8303,6 +8401,7 @@ export const bikes = [
   },
   {
     "brand": "Mistress Cycles",
+    "model": "GoodOnYa",
     "displayName": "GoodOnYa",
     "type": "MTB",
     "sizes": {
@@ -8395,6 +8494,7 @@ export const bikes = [
   },
   {
     "brand": "Mistress Cycles",
+    "model": "NoWukkas",
     "displayName": "NoWukkas",
     "type": "MTB",
     "sizes": {
@@ -8487,6 +8587,7 @@ export const bikes = [
   },
   {
     "brand": "Mondraker",
+    "model": "Dune 2026",
     "displayName": "Dune 2026",
     "type": "eMTB",
     "sizes": {
@@ -8579,6 +8680,7 @@ export const bikes = [
   },
   {
     "brand": "Mondraker",
+    "model": "Scree 2026",
     "displayName": "Scree 2026",
     "type": "eMTB",
     "sizes": {
@@ -8671,6 +8773,7 @@ export const bikes = [
   },
   {
     "brand": "Mondraker",
+    "model": "Zendit 2026",
     "displayName": "Zendit 2026",
     "type": "eMTB",
     "sizes": {
@@ -8763,6 +8866,7 @@ export const bikes = [
   },
   {
     "brand": "Norco",
+    "model": "Fluid FS AF 2025",
     "displayName": "Fluid FS AF 2025",
     "type": "MTB",
     "sizes": {
@@ -8855,6 +8959,7 @@ export const bikes = [
   },
   {
     "brand": "Norco",
+    "model": "Norco Fluid VLT 2026",
     "displayName": "Norco Fluid VLT 2026",
     "type": "eMTB",
     "sizes": {
@@ -8947,6 +9052,7 @@ export const bikes = [
   },
   {
     "brand": "Norco",
+    "model": "Norco Range VLT CX 2026 (Gen 4)",
     "displayName": "Norco Range VLT CX 2026 (Gen 4)",
     "type": "eMTB",
     "sizes": {
@@ -9022,6 +9128,7 @@ export const bikes = [
   },
   {
     "brand": "Norco",
+    "model": "Norco Sight VLT Bosch A 2027 (Gen 5)",
     "displayName": "Norco Sight VLT Bosch A 2027 (Gen 5)",
     "type": "eMTB",
     "sizes": {
@@ -9114,6 +9221,7 @@ export const bikes = [
   },
   {
     "brand": "Norco",
+    "model": "Optic 2025 Gen 3 (29)",
     "displayName": "Optic 2025 Gen 3 (29)",
     "type": "MTB",
     "sizes": {
@@ -9206,6 +9314,7 @@ export const bikes = [
   },
   {
     "brand": "Norco",
+    "model": "Optic 2025 Gen 3 (MX)",
     "displayName": "Optic 2025 Gen 3 (MX)",
     "type": "MTB",
     "sizes": {
@@ -9298,6 +9407,7 @@ export const bikes = [
   },
   {
     "brand": "Norco",
+    "model": "Revolver 130 Gen 3",
     "displayName": "Revolver 130 Gen 3",
     "type": "MTB",
     "sizes": {
@@ -9390,6 +9500,7 @@ export const bikes = [
   },
   {
     "brand": "Norco",
+    "model": "Sight 2026 Gen 5 (29)",
     "displayName": "Sight 2026 Gen 5 (29)",
     "type": "MTB",
     "sizes": {
@@ -9482,6 +9593,7 @@ export const bikes = [
   },
   {
     "brand": "Norco",
+    "model": "Sight 2026 Gen 5 (MX)",
     "displayName": "Sight 2026 Gen 5 (MX)",
     "type": "MTB",
     "sizes": {
@@ -9574,6 +9686,7 @@ export const bikes = [
   },
   {
     "brand": "Orange",
+    "model": "Phase RS 2026",
     "displayName": "Phase RS 2026",
     "type": "eMTB",
     "sizes": {
@@ -9632,6 +9745,7 @@ export const bikes = [
   },
   {
     "brand": "Orange",
+    "model": "Stage 6 2026",
     "displayName": "Stage 6 2026",
     "type": "MTB",
     "sizes": {
@@ -9690,6 +9804,7 @@ export const bikes = [
   },
   {
     "brand": "Orange",
+    "model": "Stage 7 2026",
     "displayName": "Stage 7 2026",
     "type": "MTB",
     "sizes": {
@@ -9765,6 +9880,7 @@ export const bikes = [
   },
   {
     "brand": "Orbea",
+    "model": "Occam 2026",
     "displayName": "Occam 2026",
     "type": "MTB",
     "sizes": {
@@ -9840,6 +9956,7 @@ export const bikes = [
   },
   {
     "brand": "Orbea",
+    "model": "Oiz 2026",
     "displayName": "Oiz 2026",
     "type": "MTB",
     "sizes": {
@@ -9915,6 +10032,7 @@ export const bikes = [
   },
   {
     "brand": "Orbea",
+    "model": "Rallon 2026 (29, high prog, neutral, long)",
     "displayName": "Rallon 2026 (29, high prog, neutral, long)",
     "type": "MTB",
     "sizes": {
@@ -9990,6 +10108,7 @@ export const bikes = [
   },
   {
     "brand": "Pinarello",
+    "model": "Dogma XC (HT) 2026",
     "displayName": "Dogma XC (HT) 2026",
     "type": "MTB",
     "sizes": {
@@ -10065,6 +10184,7 @@ export const bikes = [
   },
   {
     "brand": "Pinarello",
+    "model": "Dogma XC SL 120 2026",
     "displayName": "Dogma XC SL 120 2026",
     "type": "MTB",
     "sizes": {
@@ -10140,6 +10260,7 @@ export const bikes = [
   },
   {
     "brand": "Pivot",
+    "model": "Les SL 2026",
     "displayName": "Les SL 2026",
     "type": "MTB",
     "sizes": {
@@ -10232,6 +10353,7 @@ export const bikes = [
   },
   {
     "brand": "Pivot",
+    "model": "Mach 4 SL 2026",
     "displayName": "Mach 4 SL 2026",
     "type": "MTB",
     "sizes": {
@@ -10324,6 +10446,7 @@ export const bikes = [
   },
   {
     "brand": "Pivot",
+    "model": "Shadowcat 2026",
     "displayName": "Shadowcat 2026",
     "type": "MTB",
     "sizes": {
@@ -10399,6 +10522,7 @@ export const bikes = [
   },
   {
     "brand": "Pivot",
+    "model": "Shuttle AMP'd 2026 (low)",
     "displayName": "Shuttle AMP'd 2026 (low)",
     "type": "eMTB",
     "sizes": {
@@ -10491,6 +10615,7 @@ export const bikes = [
   },
   {
     "brand": "Pivot",
+    "model": "Switchblade 2026",
     "displayName": "Switchblade 2026",
     "type": "MTB",
     "sizes": {
@@ -10583,6 +10708,7 @@ export const bikes = [
   },
   {
     "brand": "Pivot",
+    "model": "Trail 429 2025 low",
     "displayName": "Trail 429 2025 low",
     "type": "MTB",
     "sizes": {
@@ -10675,6 +10801,7 @@ export const bikes = [
   },
   {
     "brand": "Pivot",
+    "model": "Trailcat LT 2026 (LOW)",
     "displayName": "Trailcat LT 2026 (LOW)",
     "type": "MTB",
     "sizes": {
@@ -10767,6 +10894,7 @@ export const bikes = [
   },
   {
     "brand": "Pivot",
+    "model": "Trailcat SL 2026 (LOW)",
     "displayName": "Trailcat SL 2026 (LOW)",
     "type": "MTB",
     "sizes": {
@@ -10859,6 +10987,7 @@ export const bikes = [
   },
   {
     "brand": "Polygon",
+    "model": "Collosus N 2026",
     "displayName": "Collosus N 2026",
     "type": "MTB",
     "sizes": {
@@ -10934,6 +11063,7 @@ export const bikes = [
   },
   {
     "brand": "Polygon",
+    "model": "Collosus T 2026",
     "displayName": "Collosus T 2026",
     "type": "MTB",
     "sizes": {
@@ -11009,6 +11139,7 @@ export const bikes = [
   },
   {
     "brand": "Polygon",
+    "model": "Siskiu 2026 T",
     "displayName": "Siskiu 2026 T",
     "type": "MTB",
     "sizes": {
@@ -11084,6 +11215,7 @@ export const bikes = [
   },
   {
     "brand": "Revel",
+    "model": "Ranger 2026",
     "displayName": "Ranger 2026",
     "type": "MTB",
     "sizes": {
@@ -11159,6 +11291,7 @@ export const bikes = [
   },
   {
     "brand": "Revel",
+    "model": "Rascal 2026",
     "displayName": "Rascal 2026",
     "type": "MTB",
     "sizes": {
@@ -11251,6 +11384,7 @@ export const bikes = [
   },
   {
     "brand": "Revel",
+    "model": "Ritual 2026",
     "displayName": "Ritual 2026",
     "type": "MTB",
     "sizes": {
@@ -11326,6 +11460,7 @@ export const bikes = [
   },
   {
     "brand": "Rocky Mountain",
+    "model": "Altitude 2026 - Pos 3",
     "displayName": "Altitude 2026 - Pos 3",
     "type": "MTB",
     "sizes": {
@@ -11401,6 +11536,7 @@ export const bikes = [
   },
   {
     "brand": "Rocky Mountain",
+    "model": "Altitude Powerplay 2026 (29, pos4)",
     "displayName": "Altitude Powerplay 2026 (29, pos4)",
     "type": "eMTB",
     "sizes": {
@@ -11476,6 +11612,7 @@ export const bikes = [
   },
   {
     "brand": "Rocky Mountain",
+    "model": "Element 2026 - Pos 3",
     "displayName": "Element 2026 - Pos 3",
     "type": "MTB",
     "sizes": {
@@ -11568,6 +11705,7 @@ export const bikes = [
   },
   {
     "brand": "Rocky Mountain",
+    "model": "Instinct 2026 - Pos 3",
     "displayName": "Instinct 2026 - Pos 3",
     "type": "MTB",
     "sizes": {
@@ -11677,6 +11815,7 @@ export const bikes = [
   },
   {
     "brand": "Rocky Mountain",
+    "model": "Instinct Powerplay 2026 (29, pos3)",
     "displayName": "Instinct Powerplay 2026 (29, pos3)",
     "type": "eMTB",
     "sizes": {
@@ -11752,6 +11891,7 @@ export const bikes = [
   },
   {
     "brand": "Rocky Mountain",
+    "model": "Reaper 2026 (26)",
     "displayName": "Reaper 2026 (26)",
     "type": "MTB",
     "sizes": {
@@ -11776,6 +11916,7 @@ export const bikes = [
   },
   {
     "brand": "Rocky Mountain",
+    "model": "Reaper Powerplay 2026 (26)",
     "displayName": "Reaper Powerplay 2026 (26)",
     "type": "eMTB",
     "sizes": {
@@ -11800,6 +11941,7 @@ export const bikes = [
   },
   {
     "brand": "Santa Cruz",
+    "model": "5010 2026 (high)",
     "displayName": "5010 2026 (high)",
     "type": "MTB",
     "sizes": {
@@ -11909,6 +12051,7 @@ export const bikes = [
   },
   {
     "brand": "Santa Cruz",
+    "model": "Bronson 2026 (high)",
     "displayName": "Bronson 2026 (high)",
     "type": "MTB",
     "sizes": {
@@ -12001,6 +12144,7 @@ export const bikes = [
   },
   {
     "brand": "Santa Cruz",
+    "model": "Bullit 2026 (lo)",
     "displayName": "Bullit 2026 (lo)",
     "type": "eMTB",
     "sizes": {
@@ -12093,6 +12237,7 @@ export const bikes = [
   },
   {
     "brand": "Santa Cruz",
+    "model": "Cameleon 2026",
     "displayName": "Cameleon 2026",
     "type": "MTB",
     "sizes": {
@@ -12168,6 +12313,7 @@ export const bikes = [
   },
   {
     "brand": "Santa Cruz",
+    "model": "Heckler SL 2026 (lo)",
     "displayName": "Heckler SL 2026 (lo)",
     "type": "eMTB",
     "sizes": {
@@ -12260,6 +12406,7 @@ export const bikes = [
   },
   {
     "brand": "Santa Cruz",
+    "model": "Highball 2026",
     "displayName": "Highball 2026",
     "type": "MTB",
     "sizes": {
@@ -12335,6 +12482,7 @@ export const bikes = [
   },
   {
     "brand": "Santa Cruz",
+    "model": "Hightower 2026 hi",
     "displayName": "Hightower 2026 hi",
     "type": "MTB",
     "sizes": {
@@ -12427,6 +12575,7 @@ export const bikes = [
   },
   {
     "brand": "Santa Cruz",
+    "model": "Santa Cruz Nomad 7 2027",
     "displayName": "Santa Cruz Nomad 7 2027",
     "type": "MTB",
     "sizes": {
@@ -12519,6 +12668,7 @@ export const bikes = [
   },
   {
     "brand": "Santa Cruz",
+    "model": "Santa Cruz Tallboy 6 2027 (low)",
     "displayName": "Santa Cruz Tallboy 6 2027 (low)",
     "type": "MTB",
     "sizes": {
@@ -12628,6 +12778,7 @@ export const bikes = [
   },
   {
     "brand": "Santa Cruz",
+    "model": "Tallboy 2026 (high)",
     "displayName": "Tallboy 2026 (high)",
     "type": "MTB",
     "sizes": {
@@ -12737,6 +12888,7 @@ export const bikes = [
   },
   {
     "brand": "Santa Cruz",
+    "model": "Vala Al 2026",
     "displayName": "Vala Al 2026",
     "type": "eMTB",
     "sizes": {
@@ -12812,6 +12964,7 @@ export const bikes = [
   },
   {
     "brand": "Scott",
+    "model": "Patron 2026",
     "displayName": "Patron 2026",
     "type": "eMTB",
     "sizes": {
@@ -12887,6 +13040,7 @@ export const bikes = [
   },
   {
     "brand": "Scott",
+    "model": "Patron ST 2026",
     "displayName": "Patron ST 2026",
     "type": "eMTB",
     "sizes": {
@@ -12962,6 +13116,7 @@ export const bikes = [
   },
   {
     "brand": "Scott",
+    "model": "Ransom 2026",
     "displayName": "Ransom 2026",
     "type": "MTB",
     "sizes": {
@@ -13037,6 +13192,7 @@ export const bikes = [
   },
   {
     "brand": "Scott",
+    "model": "Scale 2026",
     "displayName": "Scale 2026",
     "type": "MTB",
     "sizes": {
@@ -13146,6 +13302,7 @@ export const bikes = [
   },
   {
     "brand": "Scott",
+    "model": "Spark 2026",
     "displayName": "Spark 2026",
     "type": "MTB",
     "sizes": {
@@ -13221,6 +13378,7 @@ export const bikes = [
   },
   {
     "brand": "Scott",
+    "model": "Voltage 2026",
     "displayName": "Voltage 2026",
     "type": "eMTB",
     "sizes": {
@@ -13296,6 +13454,7 @@ export const bikes = [
   },
   {
     "brand": "Specialized",
+    "model": "Chisel 2026 (low)",
     "displayName": "Chisel 2026 (low)",
     "type": "MTB",
     "sizes": {
@@ -13388,6 +13547,7 @@ export const bikes = [
   },
   {
     "brand": "Specialized",
+    "model": "Chisel HT 2026",
     "displayName": "Chisel HT 2026",
     "type": "MTB",
     "sizes": {
@@ -13480,6 +13640,7 @@ export const bikes = [
   },
   {
     "brand": "Specialized",
+    "model": "Enduro 2026",
     "displayName": "Enduro 2026",
     "type": "MTB",
     "sizes": {
@@ -13555,6 +13716,7 @@ export const bikes = [
   },
   {
     "brand": "Specialized",
+    "model": "Epic 8 (LOW)",
     "displayName": "Epic 8 (LOW)",
     "type": "MTB",
     "sizes": {
@@ -13647,6 +13809,7 @@ export const bikes = [
   },
   {
     "brand": "Specialized",
+    "model": "Epic 8 EVO (LOW)",
     "displayName": "Epic 8 EVO (LOW)",
     "type": "MTB",
     "sizes": {
@@ -13739,6 +13902,7 @@ export const bikes = [
   },
   {
     "brand": "Specialized",
+    "model": "Specialized Epic 9 2027",
     "displayName": "Specialized Epic 9 2027",
     "type": "MTB",
     "sizes": {
@@ -13814,6 +13978,7 @@ export const bikes = [
   },
   {
     "brand": "Specialized",
+    "model": "Stumpjumper 15",
     "displayName": "Stumpjumper 15",
     "type": "MTB",
     "sizes": {
@@ -13923,6 +14088,7 @@ export const bikes = [
   },
   {
     "brand": "Specialized",
+    "model": "Stumpjumper 15 EVO (low)",
     "displayName": "Stumpjumper 15 EVO (low)",
     "type": "MTB",
     "sizes": {
@@ -14032,6 +14198,7 @@ export const bikes = [
   },
   {
     "brand": "Specialized",
+    "model": "Turbo Levo 4 2026",
     "displayName": "Turbo Levo 4 2026",
     "type": "eMTB",
     "sizes": {
@@ -14124,6 +14291,7 @@ export const bikes = [
   },
   {
     "brand": "Specialized",
+    "model": "Turbo Levo Kenevo SL 2 2027",
     "displayName": "Turbo Levo Kenevo SL 2 2027",
     "type": "eMTB",
     "sizes": {
@@ -14199,6 +14367,7 @@ export const bikes = [
   },
   {
     "brand": "Specialized",
+    "model": "Turbo Levo R 2026",
     "displayName": "Turbo Levo R 2026",
     "type": "eMTB",
     "sizes": {
@@ -14308,6 +14477,7 @@ export const bikes = [
   },
   {
     "brand": "Specialized",
+    "model": "Turbo Levo SL 2026",
     "displayName": "Turbo Levo SL 2026",
     "type": "eMTB",
     "sizes": {
@@ -14417,6 +14587,7 @@ export const bikes = [
   },
   {
     "brand": "Spot",
+    "model": "Mayhem 140 2026 (160mm)",
     "displayName": "Mayhem 140 2026 (160mm)",
     "type": "MTB",
     "sizes": {
@@ -14492,6 +14663,7 @@ export const bikes = [
   },
   {
     "brand": "Spot",
+    "model": "Rollik 150 2019 (Std)",
     "displayName": "Rollik 150 2019 (Std)",
     "type": "MTB",
     "sizes": {
@@ -14567,6 +14739,7 @@ export const bikes = [
   },
   {
     "brand": "Starling",
+    "model": "Murmur 2026",
     "displayName": "Murmur 2026",
     "type": "MTB",
     "sizes": {
@@ -14659,6 +14832,7 @@ export const bikes = [
   },
   {
     "brand": "Trailcraft",
+    "model": "Maxwell 27.5 (140mm)",
     "displayName": "Maxwell 27.5 (140mm)",
     "type": "MTB",
     "sizes": {
@@ -14683,6 +14857,7 @@ export const bikes = [
   },
   {
     "brand": "Transition",
+    "model": "Scout 2026",
     "displayName": "Scout 2026",
     "type": "MTB",
     "sizes": {
@@ -14741,6 +14916,7 @@ export const bikes = [
   },
   {
     "brand": "Transition",
+    "model": "Sentinel 2026",
     "displayName": "Sentinel 2026",
     "type": "MTB",
     "sizes": {
@@ -14850,6 +15026,7 @@ export const bikes = [
   },
   {
     "brand": "Transition",
+    "model": "Transition Spur 2025",
     "displayName": "Spur 2025",
     "type": "MTB",
     "sizes": {
@@ -14925,6 +15102,7 @@ export const bikes = [
   },
   {
     "brand": "Transition",
+    "model": "Transition Spur 2026 (low)",
     "displayName": "Spur 2026 (low)",
     "type": "MTB",
     "sizes": {
@@ -15000,6 +15178,7 @@ export const bikes = [
   },
   {
     "brand": "Trek",
+    "model": "Fuel LX Gen 7",
     "displayName": "Fuel LX Gen 7",
     "type": "MTB",
     "sizes": {
@@ -15092,6 +15271,7 @@ export const bikes = [
   },
   {
     "brand": "Trek",
+    "model": "Fuel MX Gen 7",
     "displayName": "Fuel MX Gen 7",
     "type": "MTB",
     "sizes": {
@@ -15184,6 +15364,7 @@ export const bikes = [
   },
   {
     "brand": "Trek",
+    "model": "Fuel+ EX Gen 2",
     "displayName": "Fuel+ EX Gen 2",
     "type": "eMTB",
     "sizes": {
@@ -15276,6 +15457,7 @@ export const bikes = [
   },
   {
     "brand": "Trek",
+    "model": "Fuel+ LX Gen 2",
     "displayName": "Fuel+ LX Gen 2",
     "type": "eMTB",
     "sizes": {
@@ -15368,6 +15550,7 @@ export const bikes = [
   },
   {
     "brand": "Trek",
+    "model": "Fuel+ MX Gen 2",
     "displayName": "Fuel+ MX Gen 2",
     "type": "eMTB",
     "sizes": {
@@ -15460,6 +15643,7 @@ export const bikes = [
   },
   {
     "brand": "Trek",
+    "model": "Powerfly FS+ Gen 4",
     "displayName": "Powerfly FS+ Gen 4",
     "type": "eMTB",
     "sizes": {
@@ -15535,6 +15719,7 @@ export const bikes = [
   },
   {
     "brand": "Trek",
+    "model": "Procaliber Gen 3",
     "displayName": "Procaliber Gen 3",
     "type": "MTB",
     "sizes": {
@@ -15627,6 +15812,7 @@ export const bikes = [
   },
   {
     "brand": "Trek",
+    "model": "Rail+ Gen5 (low)",
     "displayName": "Rail+ Gen5 (low)",
     "type": "eMTB",
     "sizes": {
@@ -15702,6 +15888,7 @@ export const bikes = [
   },
   {
     "brand": "Trek",
+    "model": "Remedy 2024 (low)",
     "displayName": "Remedy 2024 (low)",
     "type": "MTB",
     "sizes": {
@@ -15794,6 +15981,7 @@ export const bikes = [
   },
   {
     "brand": "Trek",
+    "model": "Slash+ 2026",
     "displayName": "Slash+ 2026",
     "type": "eMTB",
     "sizes": {
@@ -15869,6 +16057,7 @@ export const bikes = [
   },
   {
     "brand": "Trek",
+    "model": "Supercaliber Gen 2",
     "displayName": "Supercaliber Gen 2",
     "type": "MTB",
     "sizes": {
@@ -15961,6 +16150,7 @@ export const bikes = [
   },
   {
     "brand": "Trek",
+    "model": "Top Fuel Gen 4 (low)",
     "displayName": "Top Fuel Gen 4 (low)",
     "type": "MTB",
     "sizes": {
@@ -16053,6 +16243,7 @@ export const bikes = [
   },
   {
     "brand": "Trek ",
+    "model": "Fuel EX Gen 7",
     "displayName": "Fuel EX Gen 7",
     "type": "MTB",
     "sizes": {
@@ -16145,6 +16336,7 @@ export const bikes = [
   },
   {
     "brand": "YT",
+    "model": "Capra 2026 AF (29, Low)",
     "displayName": "Capra 2026 AF (29, Low)",
     "type": "MTB",
     "sizes": {
@@ -16237,6 +16429,7 @@ export const bikes = [
   },
   {
     "brand": "YT",
+    "model": "Decoy X 2026 (regular)",
     "displayName": "Decoy X 2026 (regular)",
     "type": "eMTB",
     "sizes": {
@@ -16329,6 +16522,7 @@ export const bikes = [
   },
   {
     "brand": "YT",
+    "model": "Izzo 2026",
     "displayName": "Izzo 2026",
     "type": "MTB",
     "sizes": {
@@ -16421,6 +16615,7 @@ export const bikes = [
   },
   {
     "brand": "YT",
+    "model": "Jeffsy 2026 AF",
     "displayName": "Jeffsy 2026 AF",
     "type": "MTB",
     "sizes": {
@@ -16513,6 +16708,7 @@ export const bikes = [
   },
   {
     "brand": "Yeti",
+    "model": "ARC 2026",
     "displayName": "ARC 2026",
     "type": "MTB",
     "sizes": {
@@ -16588,6 +16784,7 @@ export const bikes = [
   },
   {
     "brand": "Yeti",
+    "model": "SB120 2026",
     "displayName": "SB120 2026",
     "type": "MTB",
     "sizes": {
@@ -16697,6 +16894,7 @@ export const bikes = [
   },
   {
     "brand": "Yeti",
+    "model": "SB140 2026",
     "displayName": "SB140 2026",
     "type": "MTB",
     "sizes": {
@@ -16789,6 +16987,7 @@ export const bikes = [
   },
   {
     "brand": "Yeti",
+    "model": "SB160 2026",
     "displayName": "SB160 2026",
     "type": "MTB",
     "sizes": {

@@ -443,6 +443,7 @@ export default function Home() {
                       value={riderHeight}
                       onChange={(e) => {
                         setRiderHeight(e.target.value);
+                        setProvidedHeight(e.target.value);
                         setResults(null); // Clear stale results
                       }}
                       className={styles.input}
